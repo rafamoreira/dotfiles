@@ -24,11 +24,31 @@ alias la="ls -lah"
 # History Configuration #
 # # # # # # # # # # # # # 
 
-HISTSIZE=10000              # How many lines of history to keep in memory
-HISTFILESIZE=10000          # Number of commands to save in the file
-SAVEHIST=10000              # Number of history entries to save to disk
-HISTFILE=~/.zsh_history     # Where to save history to disk
-setopt append_history        # Append history to the history file (no overwriting)
+HISTSIZE=50000                 # How many lines of history to keep in memory
+SAVEHIST=10000                 # Number of history entries to save to disk
+HISTFILE="$HOME/.zsh_history"  # Where to save history to disk
+# setopt append_history          # Append history to the history file (no overwriting)
+
+setopt extended_history 
+# Save each command’s beginning timestamp (in seconds since the epoch) and the 
+# duration (in seconds) to the history file.
+
+# setopt hist_expire_dups_first 
+# # delete duplicates first when HISTFILE size exceeds HISTSIZE
+
+setopt hist_ignore_all_dups 
+# If a new command line being added to the history list duplicates an older one, 
+# the older command is removed from the list (even if it is not the previous 
+# event).
+
+setopt hist_ignore_space 
+# ignore commands that start with space
+
+setopt hist_verify            
+# show command with history expansion to user before running it
+
+setopt inc_append_history     
+# add commands to HISTFILE in order of execution
 
 setopt share_history
 # This option both imports new commands from the history file, and also causes 
@@ -48,16 +68,8 @@ setopt share_history
 # INC_APPEND_HISTORY_TIME (see above) on, and then manually import commands 
 # whenever you need them using ‘fc -RI’.
 
-setopt extended_history 
-# Save each command’s beginning timestamp (in seconds since the epoch) and the 
-# duration (in seconds) to the history file.
 
-setopt HIST_IGNORE_ALL_DUPS
-# If a new command line being added to the history list duplicates an older one, 
-# the older command is removed from the list (even if it is not the previous 
-# event).
 
-setopt HIST_IGNORE_SPACE
 
 # not just at the end
 setopt completeinword
