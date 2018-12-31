@@ -1,0 +1,40 @@
+[global_config]
+  dbus = False
+  enabled_plugins = LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  extra_styling = False
+  geometry_hinting = True
+  handle_size = 1
+  title_inactive_bg_color = "#000000"
+  title_transmit_bg_color = "#000000"
+[keybindings]
+  split_horiz = <Shift><Alt>s
+  split_vert = <Shift><Alt>v
+  switch_to_tab_1 = <Super>1
+  switch_to_tab_2 = <Super>2
+  switch_to_tab_3 = <Super>3
+  switch_to_tab_4 = <Super>4
+  switch_to_tab_5 = <Super>5
+  switch_to_tab_6 = <Super>6
+  switch_to_tab_7 = <Super>7
+  switch_to_tab_8 = <Super>8
+  switch_to_tab_9 = <Super>9
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    background_darkness = 1.0
+    cursor_color = "#00ff00"
+    font = DejaVu Sans Mono 10
+    foreground_color = "#00ff00"
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#0000ee:#cd00cd:#00cdcd:#e5e5e5:#7f7f7f:#ff0000:#00ff00:#ffff00:#5c5cff:#ff00ff:#00ffff:#ffffff"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    use_system_font = False

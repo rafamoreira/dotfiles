@@ -1,0 +1,14 @@
+ARCH INSTALL SCRIPTS
+====================
+
+This is a set of scripts that I use for an arch full install.
+
+ATTENTION
+=========
+
+All scripts are very simple, but tailored to my system needs specially the partitioning step.
+Edit it first to avoid data loss.
+
+There is some checks for a machine install or a vmware/virtualbox install, but not enough to customize a install.
+
+My intention is to expand a bit on the scripts mainly on the partiotining phase, but it will never be a total hands off install procces, so procced with caution.
