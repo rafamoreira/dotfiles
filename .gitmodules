@@ -1,3 +1,6 @@
 [submodule "zsh.custom/themes/spaceship-prompt"]
 	path = zsh.custom/themes/spaceship-prompt
 	url = https://github.com/denysdovhan/spaceship-prompt.git
+[submodule "zsh.custom/themes/pure"]
+	path = zsh.custom/themes/pure
+	url = git@github.com:sindresorhus/pure.git
