@@ -1,107 +1,97 @@
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(custom-safe-themes
-   (quote
-    ("1b8d67b43ff1723960eb5e0cba512a2c7a2ad544ddb2533a90101fd1852b426e")))
- '(package-selected-packages
-   (quote
-    (counsel ivy projectile evil fill-column-indicator column-marker emmet-mode magithub magit ruby-end toggle-quotes neotree flycheck rubocop which-key web-mode use-package undo-tree try projectile-rails org-bullets counsel-projectile color-theme-sanityinc-tomorrow auto-complete ace-window))))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(aw-leading-char-face ((t (:inherit ace-jump-face-foreground :height 3.0)))))
+(defvar bootstrap-version)
+(let ((bootstrap-file
+       (expand-file-name "straight/repos/straight.el/bootstrap.el" user-emacs-directory))
+      (bootstrap-version 5))
+  (unless (file-exists-p bootstrap-file)
+    (with-current-buffer
+        (url-retrieve-synchronously
+         "https://raw.githubusercontent.com/raxod502/straight.el/develop/install.el"
+         'silent 'inhibit-cookies)
+      (goto-char (point-max))
+      (eval-print-last-sexp)))
+  (load bootstrap-file nil 'nomessage))
 
-(setq inhibit-startup-message t) ;; do not exibit the inicial message
+(straight-use-package 'use-package)
 
-(tool-bar-mode -1) ;; hide toolbar
-
-;; hide menu bar on terminal session
-(unless (display-graphic-p)
-  (menu-bar-mode -1))
-
-(setq visible-bell t)
-
-(require 'package)
-(setq package-enable-at-startup nil)
-(add-to-list 'package-archives
-	     '("melpa" . "https://melpa.org/packages/"))
-
-(package-initialize)
-
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
-
-(use-package try
-  :ensure t)
-
+;;; which-key
 (use-package which-key
-  :ensure t
+  :straight t
   :config (which-key-mode))
 
-(use-package org-bullets
-  :ensure t
-  :config
-  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+;;; org mode
+
+(require 'subr-x)
+(straight-use-package 'git)
+
+(defun org-git-version ()
+  "The Git version of org-mode.
+Inserted by installing org-mode or when a release is made."
+  (require 'git)
+  (let ((git-repo (expand-file-name
+                   "straight/repos/org/" user-emacs-directory)))
+    (string-trim
+     (git-run "describe"
+              "--match=release\*"
+              "--abbrev=6"
+              "HEAD"))))
+
+(defun org-release ()
+  "The release version of org-mode.
+Inserted by installing org-mode or when a release is made."
+  (require 'git)
+  (let ((git-repo (expand-file-name
+                   "straight/repos/org/" user-emacs-directory)))
+    (string-trim
+     (string-remove-prefix
+      "release_"
+      (git-run "describe"
+               "--match=release\*"
+               "--abbrev=0"
+               "HEAD")))))
+
+(provide 'org-version)
+
+(straight-use-package 'org-plus-contrib) ; or org-plus-contrib if desired
+
+;; ido configs
+(setq indo-enable-flex-matching t)
+(setq ido-everywhere t)
+(ido-mode 1)
+
+(defalias 'list-buffers 'ibuffer) ;;; i don't know what this does
 
 (use-package ace-window
-  :ensure t
-  :init
-  (progn
-    (global-set-key [remap other-window] 'ace-window)
-    (custom-set-faces
-     '(aw-leading-char-face
-       ((t (:inherit ace-jump-face-foreground :height 3.0)))))
-    ))
+  :straight t)
+
+(global-set-key (kbd "C-x o") 'ace-window)
 
 (use-package auto-complete
-  :ensure t
+  :straight t
   :init
   (progn
     (ac-config-default)
     (global-auto-complete-mode t)
     ))
 
-(use-package color-theme-sanityinc-tomorrow
-  :ensure t
-  :init
-  (load-theme 'sanityinc-tomorrow-bright t))
+(use-package color-theme-modern
+  :straight t)
+
+(use-package molokai-theme
+  :straight t
+  :config (load-theme 'molokai t))
 
 (use-package projectile
-  :ensure t
-  :config (projectile-mode))
+  :straight t
+  :config (projectile-mode +1))
 
-(use-package projectile-rails
-  :ensure t
-  :config (projectile-rails-global-mode))
-
-(use-package web-mode
-  :ensure t
-  :config
-  (web-mode-toggle-current-element-highlight))
-
-(require 'web-mode)
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.[agj]sp\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.as[cp]x\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
-
-
-
+(define-key projectile-mode-map (kbd "s-p") 'projectile-command-map)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
 
 (use-package ivy
-	     :ensure t)
+  :straight t)
 
 (use-package counsel
-  :ensure t)
+  :straight t)
 
 (ivy-mode 1)
 (setq ivy-use-virtual-buffers t)
@@ -123,114 +113,40 @@
 (global-set-key (kbd "C-S-o") 'counsel-rhythmbox)
 (define-key minibuffer-local-map (kbd "C-r") 'counsel-minibuffer-history)
 
-
 (use-package counsel-projectile
-  :ensure t
+  :straight t
   :config (counsel-projectile-mode))
 
-(use-package undo-tree
-  :ensure t)
+;(use-package highlight-indentation
+;  :ensure t
+;  :config
+;  (progn
+;    (highlight-indentation-mode)
+;    (highlight-indentation-current-column-mode)
+;    (set-face-background 'highlight-indentation-face "#ffffff")
+;    (set-face-background 'highlight-indentation-current-column-face "#CCCCCC")))
 
-;; ido configs
-;;(setq indo-enable-flex-matching t)
-;;(setq ido-everywhere t)
-;;(ido-mode 1)
-
-(defalias 'list-buffers 'ibuffer)
-
-(set-frame-font "Dejavu sans mono 12" nil t)
 (global-hl-line-mode t) ;; hightlight the current line
 (electric-pair-mode 1) ;; auto add matching pair
 (show-paren-mode 1) ;; hightlight matching parens
-(setq show-paren-style 'mixed)
 (global-linum-mode 1) ;; show line numbers
 (column-number-mode 1) ;; show column number
-(save-place-mode 1) ;; remeber cursos position
-(setq backup-directory-alist
-      `(("." . ,(concat user-emacs-directory "backups")))) ;; save backups single dir
-(setq auto-save-file-name-transforms '((".*" "~/.emacs.d/emacs-saves" t)))
-(savehist-mode 1) ;; save minibuffer history
-(delete-selection-mode 1) ;; type over selected text
+(setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
 
-;; tabs / spaces
 
-(setq-default indent-tabs-mode nil)
-(defun my-web-mode-hook ()
-  "Hooks for Web mode."
-  (setq web-mode-markup-indent-offset 2)
-)
-(add-hook 'web-mode-hook  'my-web-mode-hook)
+;;;; ruby
 
-;; make return key also do indent, globally
-(electric-indent-mode 1)
+(use-package enh-ruby-mode
+  :straight t)
 
-;; make tab key do indent first then completion.
-(setq-default tab-always-indent 'complete)
+(add-to-list 'auto-mode-alist
+             '("\\(?:\\.rb\\|ru\\|rake\\|thor\\|jbuilder\\|gemspec\\|podspec\\|/\\(?:Gem\\|Rake\\|Cap\\|Thor\\|Vagrant\\|Guard\\|Pod\\)file\\)\\'" . enh-ruby-mode))
 
-;; undo tree
-(global-undo-tree-mode 1)
-(setq undo-tree-auto-save-history t)
-(setq undo-tree-history-directory-alist '(("." . "~/.emacs.d/undo")))
+(setq enh-ruby-add-encoding-comment-on-save nil) ;;; disable auto insert of magic comments on save
 
-(use-package rubocop
-  :ensure t)
-(add-hook 'ruby-mode-hook #'rubocop-mode)
 
-(use-package flycheck
-  :ensure t
-  :init (global-flycheck-mode))
-
-(flycheck-add-mode 'eruby-erubis 'web-mode)
-
-(defun my/configure-web-mode-flycheck-checkers ()
-  ;; in order to have flycheck enabled in web-mode, add an entry to this
-  ;; cond that matches the web-mode engine/content-type/etc and returns the
-  ;; appropriate checker.
-  (-when-let (checker (cond
-                       ((string= web-mode-content-type "erb")
-                        'eruby-erubis)))
-    (flycheck-mode)
-    (flycheck-select-checker checker)))
-
-(add-hook 'web-mode-hook #'my/configure-web-mode-flycheck-checkers)
-
-(use-package neotree
-  :ensure t)
-
-(global-set-key [f8] 'neotree-toggle)
-
-(use-package toggle-quotes
-  :ensure t)
-
-(global-set-key (kbd "C-;") 'toggle-quotes)
-(global-set-key (kbd "C-'") 'toggle-quotes)
-(setq ruby-insert-encoding-magic-comment nil) ;; stop ruby utf-8 encoding
+(use-package rinari
+  :straight t)
 
 (use-package ruby-end
-  :ensure t)
-
-(use-package magit
-  :ensure t)
-
-(use-package magithub
-  :after magit
-  :ensure t
-  :config (magithub-feature-autoinject t))
-
-(use-package emmet-mode
-  :ensure t
-  :config (emmet-mode))
-
-(use-package fill-column-indicator
-  :ensure t)
-
-(setq fci-rule-width 5)
-(setq fci-rule-color "red")
-(setq fci-rule-column 80)
-(define-globalized-minor-mode global-fci-mode fci-mode (lambda () (fci-mode 1)))
-(global-fci-mode 1)
-
-
-(use-package evil
-  :ensure t
-  :config (evil-mode 1))
+  :straight t)
