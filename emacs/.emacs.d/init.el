@@ -150,3 +150,15 @@ Inserted by installing org-mode or when a release is made."
 
 (use-package ruby-end
   :straight t)
+
+
+;;; elixir
+(use-package elixir-mode
+  :straight t)
+
+(use-package alchemist
+  :straight t)
+
+(use-package zencoding-mode
+  :straight t)
+(add-hook 'sgml-mode-hook 'zencoding-mode)
