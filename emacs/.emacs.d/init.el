@@ -160,5 +160,21 @@ Inserted by installing org-mode or when a release is made."
   :straight t)
 
 (use-package zencoding-mode
-  :straight t)
-(add-hook 'sgml-mode-hook 'zencoding-mode)
+  :straight t
+  :config
+  (add-hook 'sgml-mode-hook 'zencoding-mode))
+
+(use-package neotree
+  :straight t
+  :config
+  (global-set-key [f8] 'neotree-toggle))
+
+;; (use-package evil
+;;   :straight t
+;;   :config
+;;  (evil-mode 1))
+
+(use-package undo-tree
+  :straight t
+  :config
+  (global-undo-tree-mode))
