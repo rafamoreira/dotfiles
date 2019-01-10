@@ -80,7 +80,8 @@ ZSH_CUSTOM=$HOME/dotfiles/zsh.custom
 # Add wisely, as too many plugins slow down shell startup.
 
 
-plugins=(git wakatime)
+plugins=(git)
+#wakatime)
 
 source $ZSH/oh-my-zsh.sh
 
