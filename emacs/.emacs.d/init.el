@@ -191,3 +191,19 @@ Inserted by installing org-mode or when a release is made."
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.eex\\'" . web-mode))
+
+(use-package wakatime-mode
+  :straight t
+  :init (global-wakatime-mode)
+  :config (setq wakatime-cli-path "/home/rmc/.local/bin/wakatime"))
+
+(use-package emmet-mode
+  :straight t)
+
+(add-hook 'sgml-mode-hook 'emmet-mode) ;; Auto-start on any markup modes
+(add-hook 'css-mode-hook  'emmet-mode) ;; enable Emmet's css abbreviation.
+(add-hook 'web-mode-hook 'emmet-mode)
+
+
+;;; indent stuff
+(setq web-mode-markup-indent-offset 2)
