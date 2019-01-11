@@ -151,6 +151,12 @@ Inserted by installing org-mode or when a release is made."
 (use-package ruby-end
   :straight t)
 
+(use-package yaml-mode
+  :straight t
+  :config
+  (add-hook 'yaml-mode-hook
+	    (lambda ()
+	      (define-key yaml-mode-map "\C-m" 'newline-and-indent))))
 
 ;;; elixir
 (use-package elixir-mode
@@ -207,3 +213,8 @@ Inserted by installing org-mode or when a release is made."
 
 ;;; indent stuff
 (setq web-mode-markup-indent-offset 2)
+
+(setq visible-bell 1)
+
+(use-package magit
+  :straight t)
