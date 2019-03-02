@@ -157,8 +157,10 @@ bar {
 	status_command i3status
 }
 
-exec --no-startup-id xrandr --output DP-2 --auto --primary --output HDMI-0 --auto --left-of DP-2 --output DVI-D-0 --auto --right-of DP-2
+exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --right-of DisplayPort-1 --output DVI-D-0 --auto --left-of DisplayPort-1
 
 exec_always alttab -d 1 -vp total 
 
 exec_always compton
+
+exec setxkbmap -option "ctrl:nocaps" br
