@@ -42,6 +42,9 @@ if [[ $1 == "openbox" ]]
 then
 	pasystray &
 	exec openbox-session
+elif [[ $1 == "awesome" ]]
+then
+	exec awesome
 elif [[ $1 == "twm" ]]
 then
 	exec twm
