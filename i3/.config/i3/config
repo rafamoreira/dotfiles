@@ -166,8 +166,6 @@ exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDM
 # no idea
 exec_always alttab -d 1 -vp total 
 
-# exec_always compton
-
 # kb configs
 exec setxkbmap -option "ctrl:nocaps" br
 
@@ -191,10 +189,12 @@ mode "$mode_system" {
 
 bindsym $mod+Pause mode "$mode_system"
 
+# stop mouse warping to not lose the focus when moving windows around
 mouse_warping none
 
 bindsym $mod+p exec /home/rmc/.i3/i3lock-fancy-multimonitor/lock -p
 
+# start compton
 bindsym $mod+Mod1+c exec --no-startup-id compton -b
-# or killall, no big difference
+# kill compton
 bindsym $mod+Mod1+x exec --no-startup-id pkill compton
