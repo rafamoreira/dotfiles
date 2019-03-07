@@ -175,10 +175,10 @@ Inserted by installing org-mode or when a release is made."
   :config
   (global-set-key [f8] 'neotree-toggle))
 
-;; (use-package evil
-;;   :straight t
-;;   :config
-;;  (evil-mode 1))
+(use-package evil
+  :straight t
+  :config
+  (evil-mode 1))
 
 (use-package undo-tree
   :straight t
@@ -218,3 +218,7 @@ Inserted by installing org-mode or when a release is made."
 
 (use-package magit
   :straight t)
+
+(use-package highlight-indent-guides
+  :straight t
+  :init (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
