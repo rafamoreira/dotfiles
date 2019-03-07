@@ -126,4 +126,3 @@ alias lock="xscreensaver-command -lock"
 
 alias be="bundle exec"
 alias zrdm="zeus rake db:migrate && zeus rake db:test:prepare"
-
