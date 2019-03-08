@@ -117,15 +117,6 @@ Inserted by installing org-mode or when a release is made."
   :straight t
   :config (counsel-projectile-mode))
 
-;(use-package highlight-indentation
-;  :ensure t
-;  :config
-;  (progn
-;    (highlight-indentation-mode)
-;    (highlight-indentation-current-column-mode)
-;    (set-face-background 'highlight-indentation-face "#ffffff")
-;    (set-face-background 'highlight-indentation-current-column-face "#CCCCCC")))
-
 (global-hl-line-mode t) ;; hightlight the current line
 (electric-pair-mode 1) ;; auto add matching pair
 (show-paren-mode 1) ;; hightlight matching parens
@@ -221,4 +212,14 @@ Inserted by installing org-mode or when a release is made."
 
 (use-package highlight-indent-guides
   :straight t
-  :init (add-hook 'prog-mode-hook 'highlight-indent-guides-mode))
+  :init (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  :config (setq highlight-indent-guides-method 'character))
+
+(set-frame-font "Consolas 12" nil t)
+
+(use-package rspec-mode
+  :straight t)
+
+(use-package projectile-rails
+  :straight t
+  :config (projectile-rails-global-mode))
