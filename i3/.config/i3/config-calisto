@@ -164,7 +164,7 @@ bar {
 
 # xrandr configs
 # exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --right-of DisplayPort-1 --output DVI-D-0 --auto --left-of DisplayPort-1
-bindsym $mod+F12 exec "xrandr --output eDP-1 --off"
+bindsym $mod+F12 exec "xrandr --output eDP1 --off"
 
 # no idea
 exec_always alttab -d 1 -vp total 
@@ -201,3 +201,7 @@ bindsym $mod+p exec /home/rmc/.i3/i3lock-fancy-multimonitor/lock -p
 bindsym $mod+Mod1+c exec --no-startup-id compton -b
 # kill compton
 bindsym $mod+Mod1+x exec --no-startup-id pkill compton
+
+# bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
+
+exec --no-startup-id nm-applet
