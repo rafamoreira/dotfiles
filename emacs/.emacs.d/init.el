@@ -215,7 +215,7 @@ Inserted by installing org-mode or when a release is made."
   :init (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   :config (setq highlight-indent-guides-method 'character))
 
-(set-frame-font "Consolas 12" nil t)
+(set-frame-font "Source Code Pro" nil t)
 
 (use-package rspec-mode
   :straight t)
