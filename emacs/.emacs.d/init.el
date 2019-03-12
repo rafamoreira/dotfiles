@@ -126,7 +126,8 @@ Inserted by installing org-mode or when a release is made."
 (global-hl-line-mode t) ;; hightlight the current line
 (electric-pair-mode 1) ;; auto add matching pair
 (show-paren-mode 1) ;; hightlight matching parens
-(global-linum-mode 1) ;; show line numbers
+(global-display-line-numbers-mode) ;; show line numbers
+(setq display-line-numbers-type 'relative) ;; relative line numbers
 (column-number-mode 1) ;; show column number
 (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
 
@@ -176,6 +177,10 @@ Inserted by installing org-mode or when a release is made."
   :straight t
   :config
   (evil-mode 1))
+
+(use-package evil-surround
+  :straight t
+  :config (global-evil-surround-mode 1))
 
 (use-package undo-tree
   :straight t
