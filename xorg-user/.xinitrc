@@ -50,6 +50,7 @@ then
 	exec twm
 elif [[ $1 == "i3" ]]
 then
+  ~/.fehbg &
   pasystray &
   exec i3
 elif [[ $1 == "kde" ]]

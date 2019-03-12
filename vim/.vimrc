@@ -32,6 +32,7 @@ Plug 'wakatime/vim-wakatime'
 "Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
 Plug 'vim-airline/vim-airline'
 Plug 'kchmck/vim-coffee-script'
+Plug 'dracula/vim'
 
 " Initialize plugin system
 call plug#end()
@@ -185,8 +186,8 @@ endif
 """"""""""""""""""""""""""""""""""""""
 set t_Co=256
 set background=dark
-color railscasts
-set guifont=DejaVu\ Sans\ Mono\ 16
+color dracula
+set guifont=Source\ Code\ Pro\ SemiBold\ 12
 
 """"""""""""""""""""""
 " filetypes and indentation

@@ -77,8 +77,12 @@ Inserted by installing org-mode or when a release is made."
   :straight t)
 
 (use-package molokai-theme
+  :straight t)
+;; :config (load-theme 'molokai t))
+
+(use-package dracula-theme
   :straight t
-  :config (load-theme 'molokai t))
+  :config (load-theme 'dracula t))
 
 (use-package projectile
   :straight t
@@ -215,7 +219,7 @@ Inserted by installing org-mode or when a release is made."
   :init (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   :config (setq highlight-indent-guides-method 'character))
 
-(set-frame-font "Source Code Pro" nil t)
+(set-frame-font "Source Code Pro SemiBold" nil t)
 
 (use-package rspec-mode
   :straight t)
