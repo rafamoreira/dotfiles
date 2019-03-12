@@ -77,12 +77,14 @@ Inserted by installing org-mode or when a release is made."
   :straight t)
 
 (use-package molokai-theme
-  :straight t)
-;; :config (load-theme 'molokai t))
+  :straight t
+  :config (load-theme 'molokai t))
 
 (use-package dracula-theme
-  :straight t
-  :config (load-theme 'dracula t))
+  :straight t) 
+
+
+;; :config (load-theme 'dracula t))
 
 (use-package projectile
   :straight t
@@ -227,3 +229,70 @@ Inserted by installing org-mode or when a release is made."
 (use-package projectile-rails
   :straight t
   :config (projectile-rails-global-mode))
+
+(defun my-setup-indent (n)
+  ;; java/c/c++
+  (setq-local c-basic-offset n)
+  ;; web development
+  (setq-local coffee-tab-width n) ; coffeescript
+  (setq-local javascript-indent-level n) ; javascript-mode
+  (setq-local js-indent-level n) ; js-mode
+  (setq-local js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+  (setq-local web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+  (setq-local web-mode-css-indent-offset n) ; web-mode, css in html file
+  (setq-local web-mode-code-indent-offset n) ; web-mode, js code in html file
+  (setq-local css-indent-offset n) ; css-mode
+  )
+
+(defun my-office-code-style ()
+  (interactive)
+  (message "Office code style!")
+  ;; use tab instead of space
+  (setq-local indent-tabs-mode t)
+  ;; indent 4 spaces width
+  (my-setup-indent 4))
+
+(defun my-personal-code-style ()
+  (interactive)
+  (message "My personal code style!")
+  ;; use space instead of tab
+  (setq indent-tabs-mode nil)
+  ;; indent 2 spaces width
+  (my-setup-indent 2))
+
+(defun my-setup-develop-environment ()
+  (interactive)
+    (let ((hostname (with-temp-buffer
+                    (shell-command "hostname" t)
+                    (goto-char (point-max))
+                    (delete-char -1)
+                    (buffer-string))))
+
+  (if (string-match-p "archlinux" hostname)
+      (my-personal-code-style))
+
+  (if (string-match-p "office-pc" hostname)
+      (my-office-code-style))))
+
+;; prog-mode-hook requires emacs24+
+(add-hook 'prog-mode-hook 'my-setup-develop-environment)
+;; a few major-modes does NOT inherited from prog-mode
+(add-hook 'lua-mode-hook 'my-setup-develop-environment)
+(add-hook 'web-mode-hook 'my-setup-develop-environment)
+
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("0301a26dedfda81ca220ad6169588b5408884e7b4a5363f3e6a0e98d5c65a257" "1ba61848d0d8c78e037867c26f118875705c20f5ad64949a8cee8c8059e5c50f" default)))
+ '(wakatime-python-bin nil))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(default ((((min-colors 16777216)) (:background "#282a36" :foreground "#f8f8f2")) (t (:background "#000000" :foreground "#f8f8f2")))))
