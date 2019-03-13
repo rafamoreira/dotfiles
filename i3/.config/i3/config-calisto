@@ -167,7 +167,7 @@ exec --no-startup-id xrandr --output eDP1 --auto --primary --output DP1 --auto -
 # bindsym $mod+F12 exec "xrandr --output eDP1 --off"
 
 # no idea
-exec_always alttab -w 1 -d 1 -sc 0 -p center
+exec_always alttab -d 1 -p center
 
 # kb configs
 exec setxkbmap -option "ctrl:nocaps" br
