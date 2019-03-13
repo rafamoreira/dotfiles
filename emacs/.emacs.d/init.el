@@ -215,7 +215,7 @@ Inserted by installing org-mode or when a release is made."
   :init (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
   :config (setq highlight-indent-guides-method 'character))
 
-(set-frame-font "Source Code Pro" nil t)
+(set-frame-font "Source Code Pro SemiBold" nil t)
 
 (use-package rspec-mode
   :straight t)
@@ -223,3 +223,8 @@ Inserted by installing org-mode or when a release is made."
 (use-package projectile-rails
   :straight t
   :config (projectile-rails-global-mode))
+
+(use-package fill-column-indicator
+  :straight t
+  :init (add-hook 'ruby-mode-hook 'fci-mode)
+  :config (setq fci-rule-column 80))
