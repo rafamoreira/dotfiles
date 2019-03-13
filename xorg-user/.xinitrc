@@ -40,18 +40,23 @@ fi
 
 if [[ $1 == "openbox" ]]
 then
-	pasystray &
-	exec openbox-session
+  pasystray &
+  exec openbox-session
 elif [[ $1 == "awesome" ]]
 then
-	exec awesome
+  exec awesome
 elif [[ $1 == "twm" ]]
 then
-	exec twm
+  exec twm
 elif [[ $1 == "i3" ]]
 then
+  ~/.fehbg &
   pasystray &
   exec i3
+elif [[ $1 == "xmonad" ]]
+then
+  xterm &
+  xmonad
 elif [[ $1 == "kde" ]]
 then
 	exec startkde

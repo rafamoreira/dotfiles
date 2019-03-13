@@ -156,7 +156,7 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  # tray_output primary
+  tray_output primary
   # status_command i3status
   status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks
 }
@@ -205,3 +205,5 @@ bindsym $mod+Mod1+x exec --no-startup-id pkill compton
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 exec --no-startup-id nm-applet
+
+bindsym Print exec "flameshot gui"
