@@ -89,7 +89,7 @@ source $ZSH/oh-my-zsh.sh
 ################################################################################
 #                              MISC                                            #
 ################################################################################
-eval $(keychain --eval id_rsa)
+eval $(keychain --eval id_rsa id_rsa_calisto)
 
 # Awful way to determine if this is a VM and I should connect to host X11
 if [ -f ~/this-is-a-vm ]; then
@@ -127,4 +127,4 @@ alias lock="xscreensaver-command -lock"
 alias be="bundle exec"
 alias zrdm="zeus rake db:migrate && zeus rake db:test:prepare"
 
-export TERMINAL=alacritty
+# export TERMINAL=alacritty
