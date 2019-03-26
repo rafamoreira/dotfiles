@@ -80,6 +80,12 @@ Inserted by installing org-mode or when a release is made."
   :straight t
   :config (load-theme 'molokai t))
 
+(use-package dracula-theme
+  :straight t) 
+
+
+;; :config (load-theme 'dracula t))
+
 (use-package projectile
   :straight t
   :config (projectile-mode +1))
@@ -117,19 +123,11 @@ Inserted by installing org-mode or when a release is made."
   :straight t
   :config (counsel-projectile-mode))
 
-;(use-package highlight-indentation
-;  :ensure t
-;  :config
-;  (progn
-;    (highlight-indentation-mode)
-;    (highlight-indentation-current-column-mode)
-;    (set-face-background 'highlight-indentation-face "#ffffff")
-;    (set-face-background 'highlight-indentation-current-column-face "#CCCCCC")))
-
 (global-hl-line-mode t) ;; hightlight the current line
 (electric-pair-mode 1) ;; auto add matching pair
 (show-paren-mode 1) ;; hightlight matching parens
-(global-linum-mode 1) ;; show line numbers
+(global-display-line-numbers-mode) ;; show line numbers
+(setq display-line-numbers-type 'relative) ;; relative line numbers
 (column-number-mode 1) ;; show column number
 (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
 
@@ -175,10 +173,14 @@ Inserted by installing org-mode or when a release is made."
   :config
   (global-set-key [f8] 'neotree-toggle))
 
-;; (use-package evil
-;;   :straight t
-;;   :config
-;;  (evil-mode 1))
+(use-package evil
+  :straight t
+  :config
+  (evil-mode 1))
+
+(use-package evil-surround
+  :straight t
+  :config (global-evil-surround-mode 1))
 
 (use-package undo-tree
   :straight t
@@ -218,3 +220,73 @@ Inserted by installing org-mode or when a release is made."
 
 (use-package magit
   :straight t)
+
+(use-package highlight-indent-guides
+  :straight t
+  :init (add-hook 'prog-mode-hook 'highlight-indent-guides-mode)
+  :config (setq highlight-indent-guides-method 'character))
+
+(set-frame-font "Source Code Pro SemiBold" nil t)
+
+(use-package rspec-mode
+  :straight t)
+
+(use-package projectile-rails
+  :straight t
+  :config (projectile-rails-global-mode))
+
+(use-package fill-column-indicator
+  :straight t
+  :init (add-hook 'ruby-mode-hook 'fci-mode)
+  :config (setq fci-rule-column 80))
+
+(defun my-setup-indent (n)
+  ;; java/c/c++
+  (setq-local c-basic-offset n)
+  ;; web development
+  (setq-local coffee-tab-width n) ; coffeescript
+  (setq-local javascript-indent-level n) ; javascript-mode
+  (setq-local js-indent-level n) ; js-mode
+  (setq-local js2-basic-offset n) ; js2-mode, in latest js2-mode, it's alias of js-indent-level
+  (setq-local web-mode-markup-indent-offset n) ; web-mode, html tag in html file
+  (setq-local web-mode-css-indent-offset n) ; web-mode, css in html file
+  (setq-local web-mode-code-indent-offset n) ; web-mode, js code in html file
+  (setq-local css-indent-offset n) ; css-mode
+  )
+
+(defun my-office-code-style ()
+  (interactive)
+  (message "Office code style!")
+  ;; use tab instead of space
+  (setq-local indent-tabs-mode t)
+  ;; indent 4 spaces width
+  (my-setup-indent 4))
+
+(defun my-personal-code-style ()
+  (interactive)
+  (message "My personal code style!")
+  ;; use space instead of tab
+  (setq indent-tabs-mode nil)
+  ;; indent 2 spaces width
+  (my-setup-indent 2))
+
+(defun my-setup-develop-environment ()
+  (interactive)
+    (let ((hostname (with-temp-buffer
+                    (shell-command "hostname" t)
+                    (goto-char (point-max))
+                    (delete-char -1)
+                    (buffer-string))))
+
+  (if (string-match-p "archlinux" hostname)
+      (my-personal-code-style))
+
+  (if (string-match-p "office-pc" hostname)
+      (my-office-code-style))))
+
+;; prog-mode-hook requires emacs24+
+(add-hook 'prog-mode-hook 'my-setup-develop-environment)
+;; a few major-modes does NOT inherited from prog-mode
+(add-hook 'lua-mode-hook 'my-setup-develop-environment)
+(add-hook 'web-mode-hook 'my-setup-develop-environment)
+
