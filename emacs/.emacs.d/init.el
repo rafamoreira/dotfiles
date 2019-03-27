@@ -289,4 +289,13 @@ Inserted by installing org-mode or when a release is made."
 ;; a few major-modes does NOT inherited from prog-mode
 (add-hook 'lua-mode-hook 'my-setup-develop-environment)
 (add-hook 'web-mode-hook 'my-setup-develop-environment)
+(add-hook 'Rails-mode-hook 'my-setup-develop-environment)
 
+(use-package rubocop
+  :straight t
+  :config (add-hook 'ruby-mode-hook 'rubocop-mode))
+
+(use-package highlight-chars
+  :straight t
+  :config (hc-toggle-highlight-tabs)
+  (hc-toggle-highlight-trailing-whitespace)) 
