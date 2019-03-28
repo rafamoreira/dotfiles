@@ -53,6 +53,9 @@ then
   ~/.fehbg &
   pasystray &
   exec i3
+elif [[ $1 == "herbs" ]]
+then
+  exec herbstluftwm --locked
 elif [[ $1 == "xmonad" ]]
 then
   xterm &
