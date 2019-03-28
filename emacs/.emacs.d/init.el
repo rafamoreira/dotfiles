@@ -67,7 +67,7 @@ Inserted by installing org-mode or when a release is made."
 
 (use-package auto-complete
   :straight t
-  :init
+  :config
   (progn
     (ac-config-default)
     (global-auto-complete-mode t)
@@ -298,4 +298,16 @@ Inserted by installing org-mode or when a release is made."
 (use-package highlight-chars
   :straight t
   :config (hc-toggle-highlight-tabs)
-  (hc-toggle-highlight-trailing-whitespace)) 
+  (hc-toggle-highlight-trailing-whitespace))
+
+
+(use-package multi-web-mode
+  :straight t)
+
+(setq mweb-default-major-mode 'html-mode)
+(setq mweb-tags '((php-mode "<\\?php\\|<\\? \\|<\\?=" "\\?>")
+
+                  (js-mode "<script +\\(type=\"text/javascript\"\\|language=\"javascript\"\\)[^>]*>" "</script>")
+                  (css-mode "<style +type=\"text/css\"[^>]*>" "</style>")))
+(setq mweb-filename-extensions '("php" "htm" "html" "ctp" "phtml" "php4" "php5"))
+(multi-web-global-mode 1)
