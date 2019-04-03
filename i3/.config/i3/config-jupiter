@@ -195,6 +195,8 @@ bindsym $mod+Pause mode "$mode_system"
 # stop mouse warping to not lose the focus when moving windows around
 mouse_warping none
 
+focus_follows_mouse no
+
 bindsym Control+Mod1+l exec ~/opt/i3lock-fancy-multimonitor/lock -p
 
 # start compton
