@@ -69,10 +69,10 @@ set showmode
 """"""""""""""""""""""""""""""""""""""""""
 set mouse=a "On Gvim you can use the mouse to select text, and it will go direct to visual mode
 set guioptions-=L "Config which toolbal etc will appear on Gvim
-"set guioptions-=m "Config which toolbal etc will appear on Gvim
-"set guioptions-=T "Config which toolbal etc will appear on Gvim
+set guioptions-=m "Config which toolbal etc will appear on Gvim
+set guioptions-=T "Config which toolbal etc will appear on Gvim
 set ignorecase smartcase " make searches case-sensitive only if they contain upper-case characters
-"set cursorline " Highlight the current line
+set cursorline " Highlight the current line
 set cmdheight=1 " 2 lines height the command lines
 set showtabline=1 "always show tab line
 set winwidth=81 "set the width of the panes to auto resize when get focus if is less than
@@ -187,7 +187,7 @@ endif
 set t_Co=256
 set background=dark
 color dracula
-set guifont=Source\ Code\ Pro\ SemiBold\ 12
+set guifont=Source\ Code\ Pro\ SemiBold\ 10
 
 """"""""""""""""""""""
 " filetypes and indentation
