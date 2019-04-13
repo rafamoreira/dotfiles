@@ -17,7 +17,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 12
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -156,14 +156,29 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  tray_output primary
+  output DisplayPort-1
+  tray_output DisplayPort-1
   # status_command i3status
   status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks
+  font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+  font pango:DejaVu Sans Mono 12
+}
+
+bar {
+  output HDMI-A-1
+  tray_output DisplayPort-1
+
+  font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+  font pango:DejaVu Sans Mono 9
+
+  status_command i3blocks -c ~/.config/i3blocks/config-clean
 }
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # xrandr configs
-exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --right-of DisplayPort-1 --output DVI-D-0 --auto --left-of DisplayPort-1
+# exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --right-of DisplayPort-1 --output DVI-D-0 --auto --left-of DisplayPort-1
+exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --left-of DisplayPort-1
+# exec --no-startup-id xrandr --output DisplayPort-1 --primary --scale 0.75x0.75 --output HDMI-A-1 --auto --left-of DisplayPort-1
 # bindsym $mod+F12 exec "xrandr --output eDP1 --off"
 
 # no idea
