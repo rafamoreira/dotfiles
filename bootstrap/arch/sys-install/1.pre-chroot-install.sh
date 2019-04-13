@@ -20,11 +20,9 @@ elif [ $mtype == "sda" ]
 then
 	mkfs.fat -F32 /dev/sda1
 	mkfs.ext4 /dev/sda2
-	mkswap /dev/sda3
-	swapon /dev/sda3
 	mount /dev/sda2 /mnt
-	mkdir /mnt/boot
-	mount /dev/sda1 /mnt/boot
+	mkdir -p /mnt/boot/efi
+	mount /dev/sda1 /mnt/boot/efi
 elif [ $mtype == "nvme" ]
 then
   mkfs.fat -F32 /dev/nvme0n1p1
@@ -54,7 +52,7 @@ fi
 
 
 # pacstrap
-curl -o /etc/pacman.d/mirrorlist "https://www.archlinux.org/mirrorlist/?country=BR&protocol=http&protocol=https&ip_version=4&use_mirror_status=on"
+curl -o /etc/pacman.d/mirrorlist "https://www.archlinux.org/mirrorlist/?country=DK&protocol=http&protocol=https&ip_version=4&use_mirror_status=on"
 sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist
 pacstrap /mnt base base-devel vim 
 
