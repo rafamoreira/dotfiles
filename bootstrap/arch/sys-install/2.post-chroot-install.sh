@@ -1,6 +1,6 @@
 #! /bin/bash
 
-ln -sf /usr/share/zoneinfo/Europe/Copenhagen /etc/localtime
+ln -sf /usr/share/zoneinfo/America/Sao_Paulo /etc/localtime
 hwclock --systohc
 sed -i 's/^#en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen
 sed -i 's/^#pt_BR.UTF-8 UTF-8/pt_BR.UTF-8 UTF-8/' /etc/locale.gen
@@ -9,7 +9,7 @@ echo "LANG=en_US.UTF-8" >> /etc/locale.conf
 echo "KEYMAP=br-abnt2" >> /etc/vconsole.conf
 echo "127.0.0.1	localhost" >> /etc/hosts
 echo "::1 localhost" >> /etc/hosts
-echo "127.0.1.1 shakamaiden.localhost shakamaiden" >> /etc/hosts
+echo "127.0.1.1 jupiter.rafaelmoreira.org jupiter" >> /etc/hosts
 systemctl enable dhcpcd.service
 mkinitcpio -p linux
 passwd
