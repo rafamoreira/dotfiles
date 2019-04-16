@@ -132,3 +132,15 @@ alias zrdm="zeus rake db:migrate && zeus rake db:test:prepare"
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Start a wayland gnome session
+alias way_of_gnome="QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland dbus-run-session gnome-session"
+
+if [[ "$(tty)" == '/dev/tty1' ]]; then
+  xinit ~/.xinitrc i3
+fi
+
+if [[ $TERM == xterm-termite ]]; then
+  . /etc/profile.d/vte.sh
+  __vte_osc7
+fi
