@@ -101,7 +101,7 @@ set $workspace2 "2: browser"
 set $workspace3 "3: code"
 set $workspace4 "4: comm"
 set $workspace5 "5: rand"
-set $workspace10 "10: music"
+set $workspace10 "10: play"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
@@ -133,6 +133,7 @@ assign [class="Gvim"] $workspace3
 assign [class="Emacs"] $workspace3
 assign [class="Slack"] $workspace4
 assign [class="Thunderbird"] $workspace4
+assign [class="Steam"] $workspace10
 for_window [class="Spotify"] move container to workspace $workspace10
 
 # reload the configuration file
