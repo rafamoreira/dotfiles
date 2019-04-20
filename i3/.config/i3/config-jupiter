@@ -198,7 +198,9 @@ bar {
 
 # xrandr configs
 # exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --right-of DisplayPort-1 --output DVI-D-0 --auto --left-of DisplayPort-1
-exec_always --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --left-of DisplayPort-1
+# exec_always --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --left-of DisplayPort-1
+
+exec_always --no-startup-id xrandr --output DisplayPort-1 --primary --mode 3840x2160 --pos 1920x0 --rotate normal --output DisplayPort-0 --off --output DVI-D-0 --off --output HDMI-A-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 5760x240 --rotate left
 # exec --no-startup-id xrandr --output DisplayPort-1 --primary --scale 0.75x0.75 --output HDMI-A-1 --auto --left-of DisplayPort-1
 # bindsym $mod+F12 exec "xrandr --output eDP1 --off"
 
