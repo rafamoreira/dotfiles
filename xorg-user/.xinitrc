@@ -50,6 +50,7 @@ then
   exec twm
 elif [[ $1 == "i3" ]]
 then
+  /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
   ~/.fehbg &
   pasystray &
   exec i3
