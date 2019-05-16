@@ -6,7 +6,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'mattn/emmet-vim'
-Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -236,13 +236,16 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-snippets"]
 
 " CtrlP
 "######
-let g:ctrlp_custom_ignore = {
-      \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-      \ 'file': '\v\.(exe|so|dll)$',
-      \ 'link': 'some_bad_symbolic_links',
-      \ }
+" let g:ctrlp_custom_ignore = {
+"       \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+"       \ 'file': '\v\.(exe|so|dll)$',
+"       \ 'link': 'some_bad_symbolic_links',
+"       \ }
+"
+" let g:ctrlp_working_path_mode = 0
 
-let g:ctrlp_working_path_mode = 0
+" fzf
+nnoremap <leader>p :FZF<cr>
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
@@ -253,3 +256,7 @@ nmap ga <Plug>(EasyAlign)
 " Nerdcommenter config
 let NERDSpaceDelims=1
 
+set foldmethod=indent
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
