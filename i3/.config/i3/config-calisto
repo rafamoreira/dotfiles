@@ -221,3 +221,5 @@ bindsym $mod+Mod1+x exec --no-startup-id pkill compton
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 exec --no-startup-id nm-applet
+
+bindsym Print exec "flameshot gui"
