@@ -30,7 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec termite
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -221,3 +221,5 @@ bindsym $mod+Mod1+x exec --no-startup-id pkill compton
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 exec --no-startup-id nm-applet
+
+bindsym Print exec "flameshot gui"
