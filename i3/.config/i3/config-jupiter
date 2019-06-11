@@ -134,6 +134,7 @@ bindsym $mod+Mod1+Left move workspace to output left
 bindsym $mod+Mod1+Right move workspace to output right
 
 assign [class="Terminator"]    $workspace1
+assign [class="Alacritty"]    $workspace1
 assign [class="Termite"]       $workspace1
 assign [class="Chromium"]      $workspace2
 assign [class="Steam"]         $workspace3
