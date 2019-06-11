@@ -127,6 +127,7 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
 assign [class="Terminator"] $workspace1
+assign [class="Alacritty"] $workspace1
 assign [class="Chromium"] $workspace2
 assign [class="Gvim"] $workspace3
 assign [class="Emacs"] $workspace3
@@ -223,3 +224,10 @@ bindsym $mod+Mod1+x exec --no-startup-id pkill compton
 exec --no-startup-id nm-applet
 
 bindsym Print exec "flameshot gui"
+
+# gaps
+# You can also use any non-zero value if you'd like to have a border
+for_window [class=".*"] border pixel 5
+
+smart_gaps on
+smart_borders on
