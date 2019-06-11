@@ -96,7 +96,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 set $workspace1 "1: term"
-set $workspace2 "2: browser" 
+set $workspace2 "2: browser"
 set $workspace3 "3: code"
 set $workspace4 "4: comm"
 set $workspace5 "5: rand"
@@ -180,7 +180,7 @@ bar {
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # xrandr configs
-exec --no-startup-id xrandr --output eDP1 --auto --primary --output DP1 --auto --left-of eDP1 
+exec --no-startup-id xrandr --output eDP1 --auto --primary --output DP1 --auto --left-of eDP1
 # bindsym $mod+F12 exec "xrandr --output eDP1 --off"
 
 # no idea
@@ -211,6 +211,8 @@ bindsym $mod+Pause mode "$mode_system"
 
 # stop mouse warping to not lose the focus when moving windows around
 mouse_warping none
+
+focus_follows_mouse no
 
 bindsym Control+Mod1+l exec ~/opt/i3lock-fancy-multimonitor/lock -p
 
