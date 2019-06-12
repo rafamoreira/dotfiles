@@ -33,6 +33,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'vim-airline/vim-airline'
 Plug 'kchmck/vim-coffee-script'
 Plug 'dracula/vim'
+Plug 'dyng/ctrlsf.vim'
 
 " Initialize plugin system
 call plug#end()
