@@ -147,6 +147,8 @@ assign [class="Thunderbird"]   $workspace5
 for_window [class="Spotify"] move container to workspace $workspace10
 
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
+
+for_window [class="Pavucontrol"] floating enable
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -230,7 +232,7 @@ exec_always --no-startup-id xrandr --output DisplayPort-0 --off --output Display
 exec_always alttab -d 1 -vp total
 
 # kb configs
-exec setxkbmap -option "ctrl:nocaps" br
+exec setxkbmap -option "ctrl:nocaps" us intl
 
 # bindsym Mod1+Tab exec quickswitch
 
