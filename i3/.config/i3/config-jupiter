@@ -189,7 +189,7 @@ bar {
   output DisplayPort-1
   tray_output DisplayPort-1
   # status_command i3status
-  status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks
+  status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
   font pango:DejaVu Sans Mono 12
 }
@@ -201,7 +201,7 @@ bar {
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
   font pango:DejaVu Sans Mono 9
 
-  status_command i3blocks -c ~/.config/i3blocks/config-clean
+  status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
 }
 
 
@@ -212,7 +212,7 @@ bar {
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
   font pango:DejaVu Sans Mono 9
 
-  status_command i3blocks -c ~/.config/i3blocks/config-clean
+  status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
 }
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
@@ -232,7 +232,7 @@ exec_always --no-startup-id xrandr --output DisplayPort-0 --off --output Display
 exec_always alttab -d 1 -vp total
 
 # kb configs
-exec setxkbmap -option "ctrl:nocaps" us intl
+exec setxkbmap -layout "us,us" -variant "intl," -option "ctrl:nocaps" -option "grp:ctrl_alt_toggle" 
 
 # bindsym Mod1+Tab exec quickswitch
 
