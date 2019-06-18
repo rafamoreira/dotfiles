@@ -137,9 +137,9 @@ alias zrdm="zeus rake db:migrate && zeus rake db:test:prepare"
 # Start a wayland gnome session
 alias way_of_gnome="QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland dbus-run-session gnome-session"
 
-if [[ "$(tty)" == '/dev/tty1' ]]; then
-  xinit ~/.xinitrc i3
-fi
+# if [[ "$(tty)" == '/dev/tty1' ]]; then
+#   xinit ~/.xinitrc i3
+# fi
 
 if [[ $TERM == xterm-termite ]]; then
   . /etc/profile.d/vte.sh
