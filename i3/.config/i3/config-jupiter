@@ -101,6 +101,7 @@ set $workspace2 "2: browser"
 set $workspace3 "3: media"
 set $workspace4 "4: code"
 set $workspace5 "5: comms"
+set $workspace6 "6: logs"
 set $workspace10 "10: play"
 
 # switch to workspace
@@ -109,7 +110,7 @@ bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
 bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace $workspace5
-bindsym $mod+6 workspace 6
+bindsym $mod+6 workspace $workspace6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
@@ -121,7 +122,7 @@ bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
 bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace $workspace5
-bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+6 move container to workspace $workspace6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
@@ -231,8 +232,8 @@ exec_always --no-startup-id xrandr --output DisplayPort-0 --off --output Display
 # alttab confs
 exec_always alttab -d 1 -vp total
 
-# kb configs
-exec setxkbmap -layout "us,us" -variant "intl," -option "ctrl:nocaps" -option "grp:ctrl_alt_toggle" 
+
+# -option "grp:ctrl_alt_toggle" 
 
 # bindsym Mod1+Tab exec quickswitch
 
@@ -300,3 +301,17 @@ exec --no-startup-id flatpak run com.spotify.Client
 
 # wallpaper
 exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
+
+#Keyboard settings
+exec setxkbmap -layout "us" -variant "intl" -option "ctrl:nocaps" 
+
+bindsym $mod+Control+Shift+i mode $keyboardMode
+set $keyboardMode "keyboard b=us intl, u=us"
+mode $keyboardMode {
+    bindsym b exec "setxkbmap us intl", mode "default"
+    bindsym u exec "setxkbmap us", mode "default"
+    # bindsym e exec "setxkbmap gb", mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
