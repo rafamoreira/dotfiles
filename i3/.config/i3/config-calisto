@@ -30,6 +30,7 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
+# bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec alacritty
 
 # kill focused window
@@ -126,6 +127,12 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
+bindsym $mod+Mod1+h move workspace to output left
+bindsym $mod+Mod1+l move workspace to output right
+
+bindsym $mod+Mod1+Left move workspace to output left
+bindsym $mod+Mod1+Right move workspace to output right
+
 assign [class="Terminator"] $workspace1
 assign [class="Alacritty"] $workspace1
 assign [class="Chromium"] $workspace2
@@ -134,8 +141,11 @@ assign [class="Emacs"] $workspace3
 assign [class="Slack"] $workspace4
 assign [class="Thunderbird"] $workspace4
 assign [class="Steam"] $workspace10
+assign [class="GitKraken"]     $workspace3
+assign [class="Thunderbird"]   $workspace5
 for_window [class="Spotify"] move container to workspace $workspace10
 
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -151,11 +161,11 @@ mode "resize" {
   # Pressing right will grow the window’s width.
   # Pressing up will shrink the window’s height.
   # Pressing down will grow the window’s height.
-  bindsym j resize shrink width 10 px or 10 ppt
-  bindsym k resize grow height 10 px or 10 ppt
-  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
   #bindsym semicolon resize grow width 10 px or 10 ppt
-  bindsym ccedilla resize grow width 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
 
   # same bindings, but for the arrow keys
   bindsym Left resize shrink width 10 px or 10 ppt

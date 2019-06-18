@@ -133,6 +133,7 @@ alias zrdm="zeus rake db:migrate && zeus rake db:test:prepare"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
+
 # Start a wayland gnome session
 alias way_of_gnome="QT_QPA_PLATFORM=wayland XDG_SESSION_TYPE=wayland dbus-run-session gnome-session"
 
