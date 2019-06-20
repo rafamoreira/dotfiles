@@ -17,7 +17,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 8
+font pango:DejaVu Sans Mono 12
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -30,7 +30,8 @@ font pango:DejaVu Sans Mono 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -95,30 +96,60 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $workspace1 "1: term"
+set $workspace2 "2: browser" 
+set $workspace3 "3: media"
+set $workspace4 "4: code"
+set $workspace5 "5: comms"
+set $workspace6 "6: logs"
+set $workspace10 "10: play"
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
-bindsym $mod+6 workspace 6
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
+bindsym $mod+6 workspace $workspace6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
-bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
+bindsym $mod+Shift+6 move container to workspace $workspace6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
+bindsym $mod+Mod1+h move workspace to output left
+bindsym $mod+Mod1+l move workspace to output right
+
+bindsym $mod+Mod1+Left move workspace to output left
+bindsym $mod+Mod1+Right move workspace to output right
+
+assign [class="Terminator"]    $workspace1
+assign [class="Alacritty"]    $workspace1
+assign [class="Termite"]       $workspace1
+assign [class="Chromium"]      $workspace2
+assign [class="Steam"]         $workspace3
+assign [class="Gvim"]          $workspace4
+assign [class="Emacs"]         $workspace4
+assign [class="^jetbrains-.+"] $workspace4
+assign [class="GitKraken"]     $workspace4
+assign [class="Slack"]         $workspace5
+assign [class="Thunderbird"]   $workspace5
+for_window [class="Spotify"] move container to workspace $workspace10
+
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
+
+for_window [class="Pavucontrol"] floating enable
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -134,11 +165,11 @@ mode "resize" {
   # Pressing right will grow the window’s width.
   # Pressing up will shrink the window’s height.
   # Pressing down will grow the window’s height.
-  bindsym j resize shrink width 10 px or 10 ppt
-  bindsym k resize grow height 10 px or 10 ppt
-  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
   #bindsym semicolon resize grow width 10 px or 10 ppt
-  bindsym ccedilla resize grow width 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
 
   # same bindings, but for the arrow keys
   bindsym Left resize shrink width 10 px or 10 ppt
@@ -156,21 +187,53 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  tray_output primary
+  output DisplayPort-1
+  tray_output DisplayPort-1
   # status_command i3status
-  status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks
+  status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config
+  font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+  font pango:DejaVu Sans Mono 12
+}
+
+bar {
+  output HDMI-A-1
+  tray_output DisplayPort-1
+
+  font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+  font pango:DejaVu Sans Mono 9
+
+  status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
+}
+
+
+bar {
+  output HDMI-A-0
+  tray_output DisplayPort-1
+
+  font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+  font pango:DejaVu Sans Mono 9
+
+  status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
 }
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # xrandr configs
-exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --right-of DisplayPort-1 --output DVI-D-0 --auto --left-of DisplayPort-1
+# exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --right-of DisplayPort-1 --output DVI-D-0 --auto --left-of DisplayPort-1
+# exec_always --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --left-of DisplayPort-1
+
+# exec_always --no-startup-id xrandr --output DisplayPort-1 --primary --mode 3840x2160 --pos 1920x0 --rotate normal --output DisplayPort-0 --off --output DVI-D-0 --off --output HDMI-A-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 5760x240 --rotate left
+
+# exec --no-startup-id xrandr --output DisplayPort-1 --primary --scale 0.75x0.75 --output HDMI-A-1 --auto --left-of DisplayPort-1
 # bindsym $mod+F12 exec "xrandr --output eDP1 --off"
 
-# no idea
+# all horizontal displays
+exec_always --no-startup-id xrandr --output DisplayPort-0 --off --output DisplayPort-1 --primary --mode 3840x2160 --pos 1920x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 5760x0 --rotate normal --output HDMI-A-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-D-0 --off
+
+# alttab confs
 exec_always alttab -d 1 -vp total
 
-# kb configs
-exec setxkbmap -option "ctrl:nocaps" br
+
+# -option "grp:ctrl_alt_toggle" 
 
 # bindsym Mod1+Tab exec quickswitch
 
@@ -195,6 +258,8 @@ bindsym $mod+Pause mode "$mode_system"
 # stop mouse warping to not lose the focus when moving windows around
 mouse_warping none
 
+focus_follows_mouse no
+
 bindsym Control+Mod1+l exec ~/opt/i3lock-fancy-multimonitor/lock -p
 
 # start compton
@@ -207,3 +272,46 @@ bindsym $mod+Mod1+x exec --no-startup-id pkill compton
 exec --no-startup-id nm-applet
 
 bindsym Print exec "flameshot gui"
+
+# media controls
+bindsym XF86AudioPlay exec playerctl play
+bindsym XF86AudioPause exec playerctl pause
+bindsym XF86AudioNext exec playerctl next
+bindsym XF86AudioPrev exec playerctl previous
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+
+# gaps
+# You can also use any non-zero value if you'd like to have a border
+for_window [class=".*"] border pixel 5
+
+smart_gaps on
+smart_borders on
+
+# gaps outer 0
+# gaps inner 5
+
+# default apps
+exec --no-startup-id flatpak run com.slack.Slack
+exec --no-startup-id flatpak run com.spotify.Client
+
+# wallpaper
+exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
+
+#Keyboard settings
+exec setxkbmap -layout "us" -variant "intl" -option "ctrl:nocaps" 
+
+bindsym $mod+Control+Shift+i mode $keyboardMode
+set $keyboardMode "keyboard b=us intl, u=us"
+mode $keyboardMode {
+    bindsym b exec "setxkbmap us intl", mode "default"
+    bindsym u exec "setxkbmap us", mode "default"
+    # bindsym e exec "setxkbmap gb", mode "default"
+    # back to normal: Enter or Escape
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}

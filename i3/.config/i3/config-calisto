@@ -30,7 +30,8 @@ font pango:monospace 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -95,30 +96,56 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
+set $workspace1 "1: term"
+set $workspace2 "2: browser"
+set $workspace3 "3: code"
+set $workspace4 "4: comm"
+set $workspace5 "5: rand"
+set $workspace10 "10: play"
+
 # switch to workspace
-bindsym $mod+1 workspace 1
-bindsym $mod+2 workspace 2
-bindsym $mod+3 workspace 3
-bindsym $mod+4 workspace 4
-bindsym $mod+5 workspace 5
+bindsym $mod+1 workspace $workspace1
+bindsym $mod+2 workspace $workspace2
+bindsym $mod+3 workspace $workspace3
+bindsym $mod+4 workspace $workspace4
+bindsym $mod+5 workspace $workspace5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
 bindsym $mod+8 workspace 8
 bindsym $mod+9 workspace 9
-bindsym $mod+0 workspace 10
+bindsym $mod+0 workspace $workspace10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1
-bindsym $mod+Shift+2 move container to workspace 2
-bindsym $mod+Shift+3 move container to workspace 3
-bindsym $mod+Shift+4 move container to workspace 4
-bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+1 move container to workspace $workspace1
+bindsym $mod+Shift+2 move container to workspace $workspace2
+bindsym $mod+Shift+3 move container to workspace $workspace3
+bindsym $mod+Shift+4 move container to workspace $workspace4
+bindsym $mod+Shift+5 move container to workspace $workspace5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
 bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
-bindsym $mod+Shift+0 move container to workspace 10
+bindsym $mod+Shift+0 move container to workspace $workspace10
 
+bindsym $mod+Mod1+h move workspace to output left
+bindsym $mod+Mod1+l move workspace to output right
+
+bindsym $mod+Mod1+Left move workspace to output left
+bindsym $mod+Mod1+Right move workspace to output right
+
+assign [class="Terminator"] $workspace1
+assign [class="Alacritty"] $workspace1
+assign [class="Chromium"] $workspace2
+assign [class="Gvim"] $workspace3
+assign [class="Emacs"] $workspace3
+assign [class="Slack"] $workspace4
+assign [class="Thunderbird"] $workspace4
+assign [class="Steam"] $workspace10
+assign [class="GitKraken"]     $workspace3
+assign [class="Thunderbird"]   $workspace5
+for_window [class="Spotify"] move container to workspace $workspace10
+
+for_window [class="^jetbrains-.+"][window_type=dialog] focus
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -134,11 +161,11 @@ mode "resize" {
   # Pressing right will grow the window’s width.
   # Pressing up will shrink the window’s height.
   # Pressing down will grow the window’s height.
-  bindsym j resize shrink width 10 px or 10 ppt
-  bindsym k resize grow height 10 px or 10 ppt
-  bindsym l resize shrink height 10 px or 10 ppt
+  bindsym h resize shrink width 10 px or 10 ppt
+  bindsym j resize grow height 10 px or 10 ppt
+  bindsym k resize shrink height 10 px or 10 ppt
   #bindsym semicolon resize grow width 10 px or 10 ppt
-  bindsym ccedilla resize grow width 10 px or 10 ppt
+  bindsym l resize grow width 10 px or 10 ppt
 
   # same bindings, but for the arrow keys
   bindsym Left resize shrink width 10 px or 10 ppt
@@ -163,11 +190,11 @@ bar {
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # xrandr configs
-exec --no-startup-id xrandr --output eDP1 --auto --primary --output DP1 --auto --left-of eDP1 
+exec --no-startup-id xrandr --output eDP1 --auto --primary --output DP1 --auto --left-of eDP1
 # bindsym $mod+F12 exec "xrandr --output eDP1 --off"
 
 # no idea
-exec_always alttab -d 1 -p center
+exec_always alttab -d 1 -p center # -sc 1 # -vp total
 
 # kb configs
 exec setxkbmap -option "ctrl:nocaps" br
@@ -195,6 +222,8 @@ bindsym $mod+Pause mode "$mode_system"
 # stop mouse warping to not lose the focus when moving windows around
 mouse_warping none
 
+focus_follows_mouse no
+
 bindsym Control+Mod1+l exec ~/opt/i3lock-fancy-multimonitor/lock -p
 
 # start compton
@@ -205,3 +234,12 @@ bindsym $mod+Mod1+x exec --no-startup-id pkill compton
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 exec --no-startup-id nm-applet
+
+bindsym Print exec "flameshot gui"
+
+# gaps
+# You can also use any non-zero value if you'd like to have a border
+for_window [class=".*"] border pixel 5
+
+smart_gaps on
+smart_borders on

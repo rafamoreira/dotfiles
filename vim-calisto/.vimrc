@@ -6,7 +6,7 @@ Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'mattn/emmet-vim'
-" Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'nathanaelkane/vim-indent-guides'
@@ -33,6 +33,7 @@ Plug 'wakatime/vim-wakatime'
 Plug 'vim-airline/vim-airline'
 Plug 'kchmck/vim-coffee-script'
 Plug 'dracula/vim'
+Plug 'dyng/ctrlsf.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -187,7 +188,7 @@ endif
 set t_Co=256
 set background=dark
 color dracula
-set guifont=Source\ Code\ Pro\ SemiBold\ 14
+set guifont=Source\ Code\ Pro\ SemiBold\ 9
 
 """"""""""""""""""""""
 " filetypes and indentation
@@ -234,16 +235,6 @@ let g:UltiSnipsSnippetDirectories=["UltiSnips", "my-snippets"]
 " If you want :UltiSnipsEdit to split your window.
 "let g:UltiSnipsEditSplit="vertical"
 
-" CtrlP
-"######
-" let g:ctrlp_custom_ignore = {
-"       \ 'dir':  '\v[\/]\.(git|hg|svn)$',
-"       \ 'file': '\v\.(exe|so|dll)$',
-"       \ 'link': 'some_bad_symbolic_links',
-"       \ }
-"
-" let g:ctrlp_working_path_mode = 0
-
 " fzf
 nnoremap <leader>p :FZF<cr>
 
@@ -256,7 +247,3 @@ nmap ga <Plug>(EasyAlign)
 " Nerdcommenter config
 let NERDSpaceDelims=1
 
-set foldmethod=indent
-set foldnestmax=10
-set nofoldenable
-set foldlevel=2

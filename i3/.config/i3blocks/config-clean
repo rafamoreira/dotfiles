@@ -42,12 +42,12 @@ markup=none
 # signal=10
 # #STEP=5%
 
-[volume]
-#LABEL=♪
-label=VOL
-interval=once
-signal=10
-STEP=5%
+# [volume]
+# #LABEL=♪
+# label=VOL
+# interval=once
+# signal=10
+# STEP=5%
 
 
 # [volume-pulseaudio]
@@ -75,10 +75,10 @@ STEP=5%
 # Memory usage
 #
 # The type defaults to "mem" if the instance is not specified.
-[memory]
-label=RAM 
-separator=false
-interval=30
+# [memory]
+# label=RAM 
+# separator=false
+# interval=30
 
 # [memory]
 # label=SWAP 
@@ -91,26 +91,26 @@ interval=30
 # The directory defaults to $HOME if the instance is not specified.
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
-[disk]
-label=/ 
-DIR=/
-interval=30
+# [disk]
+# label=/ 
+# DIR=/
+# interval=30
 
 # Network interface monitoring
 #
 # If the instance is not specified, use the interface used for default route.
 # The address can be forced to IPv4 or IPv6 with -4 or -6 switches.
-[iface]
-#IFACE=wlan0
-color=#00FF00
-interval=10
-separator=false
-
-[wifi]
-#INTERFACE=wlp3s0
-label=wifi:
-interval=10
-separator=false
+# [iface]
+# #IFACE=wlan0
+# color=#00FF00
+# interval=10
+# separator=false
+# 
+# [wifi]
+# #INTERFACE=wlp3s0
+# label=wifi:
+# interval=10
+# separator=false
 
 # [bandwidth]
 # #INTERFACE=eth0
@@ -120,15 +120,15 @@ separator=false
 #
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
-[cpu_usage]
-label=CPU 
-interval=10
-min_width=CPU 100.00%
+# [cpu_usage]
+# label=CPU 
+# interval=10
+# min_width=CPU 100.00%
 #separator=false
 
-[load_average]
-label=LOAD 
-interval=10
+# [load_average]
+# label=LOAD 
+# interval=10
 
 # Battery indicator
 #
@@ -138,19 +138,12 @@ interval=10
 # label=⚡
 # interval=30
 
-[battery2]
-markup=pango
-interval=60
-
-# [key_layout]
+# [battery2]
 # markup=pango
-# interval=persist
-[kbdd_layout]
-# command=$SCRIPT_DIR/kbdd_layout
-interval=persist
-# interval=30
+# interval=60
 
 # Date Time
+#
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'
 interval=5
@@ -185,15 +178,19 @@ interval=5
 #
 # bindsym --release Caps_Lock exec pkill -SIGRTMIN+11 i3blocks
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
-# [keyindicator]
-# KEY=CAPS
-# markup=pango
-# interval=once
-# signal=11
-# 
+#[keyindicator]
+#KEY=CAPS
+#markup=pango
+#interval=once
+#signal=11
+
 # [keyindicator]
 # KEY=NUM
 # markup=pango
 # interval=once
 # signal=11
 
+
+[key_layout]
+label=Layout
+interval=30
