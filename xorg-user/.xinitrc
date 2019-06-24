@@ -72,5 +72,6 @@ then
   exec startxfce4
 elif [[ $1 == "bspwm" ]]
 then
+  sxhkd &
   exec bspwm
 fi
