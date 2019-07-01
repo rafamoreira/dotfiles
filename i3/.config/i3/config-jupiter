@@ -190,8 +190,8 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  output DisplayPort-1
-  tray_output DisplayPort-1
+  output DisplayPort-0
+  tray_output DisplayPort-0
   # status_command i3status
   status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -200,7 +200,7 @@ bar {
 
 bar {
   output HDMI-A-1
-  tray_output DisplayPort-1
+  tray_output DisplayPort-0
 
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
   font pango:DejaVu Sans Mono 9
@@ -211,7 +211,7 @@ bar {
 
 bar {
   output HDMI-A-0
-  tray_output DisplayPort-1
+  tray_output DisplayPort-0
 
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
   font pango:DejaVu Sans Mono 9
@@ -230,7 +230,8 @@ bar {
 # bindsym $mod+F12 exec "xrandr --output eDP1 --off"
 
 # all horizontal displays
-exec_always --no-startup-id xrandr --output DisplayPort-0 --off --output DisplayPort-1 --primary --mode 3840x2160 --pos 1920x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 5760x0 --rotate normal --output HDMI-A-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-D-0 --off
+
+exec_always --no-startup-id xrandr --output DisplayPort-0 --primary --mode 3840x2160 --pos 1920x0 --rotate normal --output DisplayPort-1 --off --output HDMI-A-0 --mode 1920x1080 --pos 5760x0 --rotate normal --output HDMI-A-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-D-0 --off
 
 # alttab confs
 exec_always alttab -d 1 -vp total
