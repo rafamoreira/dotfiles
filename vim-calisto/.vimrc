@@ -49,6 +49,8 @@ let os = substitute(system('uname'), "\n", "", "")
 set backspace=indent,eol,start "Act as regular backspace
 set encoding=utf-8
 
+set exrc
+
 
 "source ~/codestats.vim
 
