@@ -1,1 +1,5 @@
 Xcursor.size: 16
+
+URxvt.font: xft:Source Code Pro:style=Semibold:antialias=true:size=18
+
+#include "/home/rmc/opt/Xresources-themes/base16-dracula-256.Xresources"
