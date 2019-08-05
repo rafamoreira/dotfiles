@@ -31,7 +31,7 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -136,6 +136,7 @@ bindsym $mod+Mod1+Right move workspace to output right
 
 assign [class="Terminator"] $workspace1
 assign [class="Alacritty"] $workspace1
+assign [class="Termite"] $workspace1
 assign [class="Chromium"] $workspace2
 assign [class="Firefox"] $workspace2
 assign [class="Gvim"] $workspace3
@@ -148,6 +149,7 @@ assign [class="Thunderbird"]   $workspace5
 for_window [class="Spotify"] move container to workspace $workspace10
 
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
+for_window [instance="sun-awt-X11-XWindowPeer"] border pixel 0
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
