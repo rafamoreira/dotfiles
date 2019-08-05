@@ -23,7 +23,8 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'felixhummel/setcolors.vim'
 Plug 'tpope/vim-eunuch'
-Plug 'w0rp/ale'
+"Plug 'w0rp/ale'
+Plug 'neomake/neomake'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-dispatch'
@@ -249,3 +250,15 @@ nmap ga <Plug>(EasyAlign)
 " Nerdcommenter config
 let NERDSpaceDelims=1
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                      NEOMAKE                                 "
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" When writing a buffer (no delay).
+" call neomake#configure#automake('w')
+" " When writing a buffer (no delay), and on normal mode changes (after 750ms).
+" call neomake#configure#automake('nw', 750)
+" " When reading a buffer (after 1s), and when writing (no delay).
+" call neomake#configure#automake('rw', 1000)
+" Full config: when writing or reading a buffer, and on changes in insert and
+" normal mode (after 1s; no delay when writing).
+call neomake#configure#automake('nrwi', 500)
