@@ -76,12 +76,12 @@ STEP=5%
 #
 # The type defaults to "mem" if the instance is not specified.
 [memory]
-label=RAM 
+label=RAM
 separator=false
 interval=30
 
 # [memory]
-# label=SWAP 
+# label=SWAP
 # instance=swap
 # separator=false
 # interval=30
@@ -92,8 +92,13 @@ interval=30
 # The script may be called with a optional argument to set the alert
 # (defaults to 10 for 10%).
 [disk]
-label=/ 
+label=/:
 DIR=/
+interval=30
+
+[disk]
+label=/home:
+DIR=/home
 interval=30
 
 # Network interface monitoring
@@ -121,13 +126,13 @@ separator=false
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 [cpu_usage]
-label=CPU 
+label=CPU
 interval=10
 min_width=CPU 100.00%
 #separator=false
 
 [load_average]
-label=LOAD 
+label=LOAD
 interval=10
 
 # Battery indicator
@@ -176,7 +181,7 @@ interval=5
 # The script may be called with -w and -c switches to specify thresholds,
 # see the script for details.
 # [temperature]
-# label=TEMP 
+# label=TEMP
 # interval=10
 
 # Key indicators
@@ -190,7 +195,7 @@ interval=5
 # markup=pango
 # interval=once
 # signal=11
-# 
+#
 # [keyindicator]
 # KEY=NUM
 # markup=pango
