@@ -38,7 +38,8 @@ bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
 #bindsym $mod+d exec dmenu_run
-bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -modi combi -monitor 0"
+bindsym $mod+space exec "rofi -combi-modi window,drun -show combi -modi combi -monitor primary"
+bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -modi combi -monitor primary"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -88,7 +89,8 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
+bindsym $mod+t focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -97,7 +99,7 @@ bindsym $mod+a focus parent
 #bindsym $mod+d focus child
 
 set $workspace1 "1: term"
-set $workspace2 "2: browser" 
+set $workspace2 "2: browser"
 set $workspace3 "3: media"
 set $workspace4 "4: code"
 set $workspace5 "5: comms"
@@ -135,11 +137,13 @@ bindsym $mod+Mod1+Left move workspace to output left
 bindsym $mod+Mod1+Right move workspace to output right
 
 assign [class="Terminator"]    $workspace1
-assign [class="Alacritty"]    $workspace1
+assign [class="Alacritty"]     $workspace1
 assign [class="Termite"]       $workspace1
+assign [class="Firefox"]       $workspace2
 assign [class="Chromium"]      $workspace2
-assign [class="Steam"]         $workspace3
+assign [class="Steam"]         $workspace10
 assign [class="Gvim"]          $workspace4
+assign [class="Code"]          $workspace4
 assign [class="Emacs"]         $workspace4
 assign [class="^jetbrains-.+"] $workspace4
 assign [class="GitKraken"]     $workspace4
@@ -218,22 +222,13 @@ bar {
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # xrandr configs
-# exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --right-of DisplayPort-1 --output DVI-D-0 --auto --left-of DisplayPort-1
-# exec_always --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --left-of DisplayPort-1
-
-# exec_always --no-startup-id xrandr --output DisplayPort-1 --primary --mode 3840x2160 --pos 1920x0 --rotate normal --output DisplayPort-0 --off --output DVI-D-0 --off --output HDMI-A-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 5760x240 --rotate left
-
-# exec --no-startup-id xrandr --output DisplayPort-1 --primary --scale 0.75x0.75 --output HDMI-A-1 --auto --left-of DisplayPort-1
-# bindsym $mod+F12 exec "xrandr --output eDP1 --off"
-
-# all horizontal displays
-exec_always --no-startup-id xrandr --output DisplayPort-0 --off --output DisplayPort-1 --primary --mode 3840x2160 --pos 1920x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 5760x0 --rotate normal --output HDMI-A-1 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-D-0 --off
+exec --no-startup-id xrandr --output DisplayPort-0 --off --output DisplayPort-1 --mode 3840x2160 --primary --pos 1920x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 5760x471 --rotate normal --output HDMI-A-1 --mode 1920x1080 --pos 0x471 --rotate normal --output DVI-D-0 --off
 
 # alttab confs
 exec_always alttab -d 1 -vp total
 
 
-# -option "grp:ctrl_alt_toggle" 
+# -option "grp:ctrl_alt_toggle"
 
 # bindsym Mod1+Tab exec quickswitch
 
@@ -303,15 +298,21 @@ exec --no-startup-id flatpak run com.spotify.Client
 exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
 
 #Keyboard settings
-exec setxkbmap -layout "us" -variant "intl" -option "ctrl:nocaps" 
+# exec setxkbmap -layout "us" -variant "intl" -option "ctrl:nocaps"
+exec setxkbmap -option "ctrl:nocaps" br
+
 
 bindsym $mod+Control+Shift+i mode $keyboardMode
-set $keyboardMode "keyboard b=us intl, u=us"
+set $keyboardMode "keyboard i=us intl, u=us, b=br"
 mode $keyboardMode {
-    bindsym b exec "setxkbmap us intl", mode "default"
+    bindsym i exec "setxkbmap us intl", mode "default"
     bindsym u exec "setxkbmap us", mode "default"
+    bindsym b exec "setxkbmap br -option 'ctrl:nocaps'", mode "default"
     # bindsym e exec "setxkbmap gb", mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+
+# Dunst
+exec --no-startup-id dunst -config ~/.config/dunst/dunstrc

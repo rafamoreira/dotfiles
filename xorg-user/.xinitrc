@@ -72,5 +72,8 @@ then
   exec startxfce4
 elif [[ $1 == "bspwm" ]]
 then
+  setxkbmap -option "ctrl:nocaps" br &
+  sh ~/.screenlayout/jupiter-default.sh &
+  sxhkd &
   exec bspwm
 fi
