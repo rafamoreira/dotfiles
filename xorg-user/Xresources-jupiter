@@ -1,8 +1,17 @@
 Xcursor.size: 16
 
+! general configs
 URxvt.font: xft:Source Code Pro:style=Semibold:antialias=true:size=16
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+! this 2 configs are for the ctrl+shift shurtcuts be available
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+! shortcuts to make ctrl+arrow works
+URxvt.keysym.Control-Up:     \033[1;5A
+URxvt.keysym.Control-Down:   \033[1;5B
+URxvt.keysym.Control-Left:   \033[1;5D
+URxvt.keysym.Control-Right:  \033[1;5C
 
 ! Dracula Xresources palette
 URxvt.foreground: #F8F8F2
