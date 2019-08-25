@@ -1,6 +1,7 @@
 "Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
+Plug 'OmniSharp/omnisharp-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-bundler'
@@ -10,11 +11,11 @@ Plug 'mattn/emmet-vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-endwise'
 Plug 'nathanaelkane/vim-indent-guides'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'valloric/youcompleteme'
-endif
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'valloric/youcompleteme'
+" endif
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-ragtag'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -42,12 +43,14 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""
 set nocompatible
 syntax on
-filetype plugin indent on
+filetype indent plugin on
 let mapleader=","
 let os = substitute(system('uname'), "\n", "", "")
 set backspace=indent,eol,start "Act as regular backspace
 set encoding=utf-8
 
+let g:OmniSharp_server_stdio = 1
+let g:OmniSharp_server_use_mono = 1
 
 "source ~/codestats.vim
 
@@ -207,6 +210,7 @@ if has("autocmd")
   autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType eruby.yaml setlocal ts=2 sts=2 sw=2 expandtab
   autocmd FileType python setlocal ts=4 sts=4 sw=4 expandtab
+  autocmd FileType cs setlocal ts=4 sts=4 sw=4 expandtab
 
   " Customisations based on house-style (arbitrary)
   autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
@@ -261,5 +265,9 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=2
 
+
+
 " per project vimrc
 set exrc
+
+
