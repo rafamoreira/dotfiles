@@ -9,7 +9,7 @@
 #
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
-set $mod Mod4
+set $mod Mod1
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -129,11 +129,11 @@ bindsym $mod+Shift+8 move container to workspace 8
 bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace $workspace10
 
-bindsym $mod+Mod1+h move workspace to output left
-bindsym $mod+Mod1+l move workspace to output right
+bindsym $mod+Control+h move workspace to output left
+bindsym $mod+Control+l move workspace to output right
 
-bindsym $mod+Mod1+Left move workspace to output left
-bindsym $mod+Mod1+Right move workspace to output right
+bindsym $mod+Control+Left move workspace to output left
+bindsym $mod+Control+Right move workspace to output right
 
 assign [class="Terminator"]    $workspace1
 assign [class="Alacritty"]     $workspace1
@@ -254,12 +254,12 @@ mouse_warping none
 
 focus_follows_mouse no
 
-bindsym Control+Mod1+l exec ~/opt/i3lock-fancy-multimonitor/lock -p
+# bindsym $mod+Control+l exec ~/opt/i3lock-fancy-multimonitor/lock -p
 
 # start compton
-bindsym $mod+Mod1+c exec --no-startup-id compton -b
-# kill compton
-bindsym $mod+Mod1+x exec --no-startup-id pkill compton
+bindsym $mod+Control+slash exec --no-startup-id compton -b
+# # kill compton
+bindsym $mod+Control+asterisk exec --no-startup-id pkill compton
 
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
