@@ -17,7 +17,7 @@ set $mod Mod1
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:DejaVu Sans Mono 12
+font pango:Source Code Pro 12
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -195,7 +195,7 @@ bar {
   # status_command i3status
   status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:DejaVu Sans Mono 12
+  font pango:Source Code Pro 12
 }
 
 bar {
@@ -203,7 +203,7 @@ bar {
   tray_output DisplayPort-1
 
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:DejaVu Sans Mono 9
+  font pango:Source Code Pro 9
 
   status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
 }
@@ -214,7 +214,7 @@ bar {
   tray_output DisplayPort-1
 
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:DejaVu Sans Mono 9
+  font pango:Source Code Pro 9
 
   status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
 }
