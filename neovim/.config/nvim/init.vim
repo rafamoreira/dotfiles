@@ -2,23 +2,25 @@
 call plug#begin()
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 call plug#end()
 
-" basic configs
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                    BASE                                     "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set shell=/bin/zsh
 
-"using number with relativenumber, use relative for all lines except the current one
+" using number with relativenumber to achieve relative line numbers except for 
+" the current line
 set number
 set relativenumber
-set clipboard=unnamedplus "use global clipboard
 
-" Basic Remaps
+" use global clipboard
+set clipboard=unnamedplus 
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"                                   REMAPS                                    "
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 let mapleader=","
-
-" FZF
 nnoremap <leader>p :FZF<cr>
-
-"coc configs
-
 
