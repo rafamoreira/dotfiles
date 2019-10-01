@@ -19,7 +19,7 @@ read mtype
 if [ $mtype == "vmware" ]
 then
   # vmware setup
-  pacman -S vim grub 
+  pacman -S vim grub
   grub-install --target=i368-pc /dev/sda
 elif [ $mtype == "hyper-v" ]
 then
@@ -28,7 +28,7 @@ then
 elif [ $mtype == "physical" ]
 then
   # phys machine setup
-  pacman -S vim intel-ucode grub efibootmgr
+  pacman -S vim intel-ucode grub efibootmgr osprober
   grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=arch
 fi
 sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT="quiet"/GRUB_CMDLINE_LINUX_DEFAULT=""/' /etc/default/grub

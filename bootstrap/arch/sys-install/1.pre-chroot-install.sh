@@ -18,11 +18,11 @@ then
   mount /dev/sda1 /mnt
 elif [ $mtype == "sda" ]
 then
-	mkfs.fat -F32 /dev/sda1
-	mkfs.ext4 /dev/sda2
-	mount /dev/sda2 /mnt
-	mkdir -p /mnt/boot/efi
-	mount /dev/sda1 /mnt/boot/efi
+  mkfs.fat -F32 /dev/sda1
+  mkfs.ext4 /dev/sda2
+  mount /dev/sda2 /mnt
+  mkdir -p /mnt/boot/efi
+  mount /dev/sda1 /mnt/boot/efi
 elif [ $mtype == "nvme" ]
 then
   mkfs.fat -F32 /dev/nvme0n1p1
@@ -37,17 +37,15 @@ then
 elif [ $mtype == "lvm" ]
 then
   mkfs.fat -F32 /dev/nvme0n1p1
-  mkfs.ext4 /dev/mapper/VG0-lvolroot
-  mkfs.ext4 /dev/mapper/VG0-lvolhome
-  mkswap /dev/nvme0n1p3
-  swapon /dev/nvme0n1p3
+  mkfs.ext4 /dev/mapper/VG0-LVarchroot
+  mkfs.ext4 /dev/mapper/VG0-LVhome
 
   # mount
-  mount /dev/mapper/VG0-lvolroot /mnt
-  mkdir /mnt/boot 
-  mount /dev/nvme0n1p1 /mnt/boot
+  mount /dev/mapper/VG0-LVarchroot /mnt
+  mkdir -p /mnt/boot/efi
+  mount /dev/nvme0n1p1 /mnt/boot/efi
   mkdir /mnt/home
-  mount /dev/mapper/VG0-lvolhome /mnt
+  mount /dev/mapper/VG0-LVhome /mnt/home
 fi
 
 
@@ -64,10 +62,5 @@ wget https://raw.githubusercontent.com/rafamoreira/dotfiles/master/bootstrap/arc
 chmod +x /mnt/root/2.post-chroot-install.sh
 wget https://raw.githubusercontent.com/rafamoreira/dotfiles/master/bootstrap/arch/sys-install/3.first-boot-install.sh
 chmod +x /mnt/root/3.first-boot-install.sh
-
-mkdir /mnt/hostlvm
-mount --bind /run/lvm /mnt/hostlvm
-# arch-chroot /mnt
-# ln -s /hostlvm /run/lvm
 
 arch-chroot /mnt
