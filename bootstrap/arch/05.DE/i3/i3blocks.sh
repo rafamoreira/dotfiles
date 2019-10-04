@@ -1,5 +1,5 @@
 #!/bin/bash
-mkdir -p ~/opt
-yay -S i3blocks-git
-cd ~/opt
+mkdir -p ~/.local/opt
+sudo pacman -S i3blocks
+cd ~/.local/opt
 git clone https://github.com/vivien/i3blocks-contrib.git
