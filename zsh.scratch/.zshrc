@@ -2,7 +2,7 @@
 ################################################################################
 #                            COMPLETION                                        #
 ################################################################################
-autoload -Uz compinit 
+autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select # interactive completion
 setopt COMPLETE_ALIASES # auto complete command line aliases
@@ -13,7 +13,7 @@ setopt complete_in_word # not just at the end
 ################################################################################
 autoload -Uz promptinit
 promptinit
-# prompt walters # Set the theme 
+# prompt walters # Set the theme
 PROMPT='%F{red}%n%f@%F{blue}%m%f %F{yellow}%~%f %# '
 RPROMPT='%?'
 
@@ -99,47 +99,47 @@ HISTSIZE=50000                 # How many lines of history to keep in memory
 SAVEHIST=10000                 # Number of history entries to save to disk
 HISTFILE="$HOME/.zsh_history"  # Where to save history to disk
 
-setopt extended_history 
-# Save each command’s beginning timestamp (in seconds since the epoch) and the 
+setopt extended_history
+# Save each command’s beginning timestamp (in seconds since the epoch) and the
 # duration (in seconds) to the history file.
 
-# setopt hist_expire_dups_first 
+# setopt hist_expire_dups_first
 # # delete duplicates first when HISTFILE size exceeds HISTSIZE
 
-setopt hist_ignore_all_dups 
-# If a new command line being added to the history list duplicates an older one, 
-# the older command is removed from the list (even if it is not the previous 
+setopt hist_ignore_all_dups
+# If a new command line being added to the history list duplicates an older one,
+# the older command is removed from the list (even if it is not the previous
 # event).
 
-setopt hist_ignore_space 
+setopt hist_ignore_space
 # ignore commands that start with space
 
-setopt hist_verify            
+setopt hist_verify
 # show command with history expansion to user before running it
 
-setopt inc_append_history     
+setopt inc_append_history
 # add commands to HISTFILE in order of execution
 
 setopt share_history
-# This option both imports new commands from the history file, and also causes 
-# your typed commands to be appended to the history file (the latter is like 
-# specifying INC_APPEND_HISTORY, which should be turned off if this option is 
-# in effect). The history lines are also output with timestamps ala 
-# EXTENDED_HISTORY (which makes it easier to find the spot where we left off 
+# This option both imports new commands from the history file, and also causes
+# your typed commands to be appended to the history file (the latter is like
+# specifying INC_APPEND_HISTORY, which should be turned off if this option is
+# in effect). The history lines are also output with timestamps ala
+# EXTENDED_HISTORY (which makes it easier to find the spot where we left off
 # reading the file after it gets re-written).
-# By default, history movement commands visit the imported lines as well as 
-# the local lines, but you can toggle this on and off with the set-local-history 
-# zle binding. It is also possible to create a zle widget that will make some 
+# By default, history movement commands visit the imported lines as well as
+# the local lines, but you can toggle this on and off with the set-local-history
+# zle binding. It is also possible to create a zle widget that will make some
 # commands ignore imported commands, and some include them.
-# If you find that you want more control over when commands get imported, 
-# you may wish to turn SHARE_HISTORY off, INC_APPEND_HISTORY or 
-# INC_APPEND_HISTORY_TIME (see above) on, and then manually import commands 
+# If you find that you want more control over when commands get imported,
+# you may wish to turn SHARE_HISTORY off, INC_APPEND_HISTORY or
+# INC_APPEND_HISTORY_TIME (see above) on, and then manually import commands
 # whenever you need them using ‘fc -RI’.
 
 ################################################################################
 #                            HISTORY SEARCH                                    #
 ################################################################################
-autoload -U up-line-or-beginning-search 
+autoload -U up-line-or-beginning-search
 autoload -U down-line-or-beginning-search
 zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
@@ -157,7 +157,10 @@ setopt nohup # Don't send SIGHUP to background processes when the shell exits.
 #                            COMMON ALIASES                                    #
 ################################################################################
 alias ls="command ls --color=auto -h" # ls colors
-alias la="ls -lah" 
+alias l="ls -lah"
+alias startx="xinit ~/.xinitrc $2"
+alias rds_dump="pg_dump -h antonov.mobbiz.com.br -U gigaservices -F c -v"
+alias easy_restore="pg_restore -h 127.0.0.1 -U postgres -x -c -v -O -d "
 
 ################################################################################
 #                            PATH                                              #
@@ -169,3 +172,16 @@ case $TERM in
         precmd () {print -Pn "\e]0;%n@%m: %~\a"}
         ;;
     esac
+
+################################################################################
+#                            PLUGINS                                           #
+################################################################################
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+. $HOME/.asdf/asdf.sh
+
+. $HOME/.asdf/completions/asdf.bash
+
+eval $(keychain --eval id_rsa id_rsa_calisto)
