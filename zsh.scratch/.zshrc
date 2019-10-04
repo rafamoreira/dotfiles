@@ -185,3 +185,15 @@ case $TERM in
 . $HOME/.asdf/completions/asdf.bash
 
 eval $(keychain --eval id_rsa id_rsa_calisto)
+
+### Added by Zplugin's installer
+source '/home/rmc/.zplugin/bin/zplugin.zsh'
+autoload -Uz _zplugin
+(( ${+_comps} )) && _comps[zplugin]=_zplugin
+### End of Zplugin installer's chunk
+
+# Load the pure theme, with zsh-async library that's bundled with it.
+zplugin ice pick"async.zsh" src"pure.zsh"
+zplugin light sindresorhus/pure
+
+PURE_PROMPT_SYMBOL='$'
