@@ -11,11 +11,11 @@ setopt complete_in_word # not just at the end
 ################################################################################
 #                            PROMPT                                            #
 ################################################################################
-autoload -Uz promptinit
-promptinit
-# prompt walters # Set the theme
-PROMPT='%F{red}%n%f@%F{blue}%m%f %F{yellow}%~%f %# '
-RPROMPT='%?'
+# autoload -Uz promptinit
+# promptinit
+# # prompt walters # Set the theme
+# PROMPT='%F{red}%n%f@%F{blue}%m%f %F{yellow}%~%f %# '
+# RPROMPT='%?'
 
 ################################################################################
 #                            KEY BINDINGS                                      #
@@ -197,3 +197,6 @@ zplugin ice pick"async.zsh" src"pure.zsh"
 zplugin light sindresorhus/pure
 
 PURE_PROMPT_SYMBOL='$'
+
+# prompt pure
+PROMPT='%m%(?.%F{magenta}$.%F{red}$)%f '
