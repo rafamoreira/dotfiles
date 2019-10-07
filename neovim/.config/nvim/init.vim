@@ -12,6 +12,7 @@ Plug 'mattn/emmet-vim'
 " LANGS
 Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-rails'
+Plug 'stephpy/vim-yaml'
 " THEMES
 Plug 'dracula/vim'
 Plug 'nanotech/jellybeans.vim'
