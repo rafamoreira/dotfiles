@@ -9,6 +9,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-endwise'
 Plug 'mattn/emmet-vim'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 " LANGS
 Plug 'kchmck/vim-coffee-script'
 Plug 'tpope/vim-rails'
@@ -89,7 +91,7 @@ let g:strip_whitespace_confirm=0 " disable the whitespace remove confirmation
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " PLUGIN -- COC                                                               "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:coc_global_extensions = ['coc-solargraph', 'coc-json']
+let g:coc_global_extensions = ['coc-solargraph', 'coc-json', 'coc-snippets']
 
 " if hidden is not set, TextEdit might fail.
 set hidden
