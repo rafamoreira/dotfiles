@@ -320,3 +320,6 @@ mode $keyboardMode {
 
 # Dunst
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+
+# autostart
+exec --no-startup-id dropbox
