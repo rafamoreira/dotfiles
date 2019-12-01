@@ -11,6 +11,7 @@ Plug 'tpope/vim-endwise'
 Plug 'nathanaelkane/vim-indent-guides'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-ragtag'
+Plug 'tpope/vim-fugitive'
 Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
 Plug 'tobyS/vmustache'
 Plug 'SirVer/ultisnips'
