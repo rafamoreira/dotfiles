@@ -64,7 +64,7 @@ then
   xmonad
 elif [[ $1 == "kde" ]]
 then
-  exec startkde
+  exec startplasma-x11
 elif [[ $1 == "mate" ]]
 then
   exec mate-session
