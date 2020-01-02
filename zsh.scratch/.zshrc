@@ -158,7 +158,7 @@ setopt nohup # Don't send SIGHUP to background processes when the shell exits.
 ################################################################################
 alias ls="command ls --color=auto -h" # ls colors
 alias l="ls -lah"
-alias startx="xinit ~/.xinitrc $2"
+alias startx="xinit $HOME/.xinitrc $2"
 alias rds_dump="pg_dump -h antonov.mobbiz.com.br -U gigaservices -F c -v"
 alias easy_restore="pg_restore -h 127.0.0.1 -U postgres -x -c -v -O -d "
 
