@@ -78,3 +78,6 @@ then
   sxhkd &
   exec bspwm
 fi
+
+pasystray &
+exec i3
