@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=2000
+HISTFILESIZE=4000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -112,18 +112,21 @@ if ! shopt -oq posix; then
   fi
 fi
 
-bind 'set show-all-if-ambiguous on'
-bind 'TAB:menu-complete'
+# autocomplete zsh like
+bind "TAB:menu-complete"
+bind "set menu-complete-display-prefix on"
 
 if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
     source $HOME/.bash-git-prompt/gitprompt.sh
 fi
 
-eval $(keychain --eval id_rsa id_rsa_calisto)
-
 . $HOME/.asdf/asdf.sh
 
 . $HOME/.asdf/completions/asdf.bash
 
+eval $(keychain --eval id_rsa id_rsa_calisto)
+
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+export PATH="$HOME/.local/bin:$PATH"
