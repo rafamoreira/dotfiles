@@ -174,7 +174,7 @@ endif
 set t_Co=256
 set background=dark
 color dracula
-set guifont=Source\ Code\ Pro\ SemiBold\ 9
+set guifont=DejaVu\ Sans\ Mono\ 10
 
 """"""""""""""""""""""
 " filetypes and indentation
