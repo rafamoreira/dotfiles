@@ -30,9 +30,8 @@ font pango:Source Code Pro 12
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Return exec termite
-bindsym $mod+Return exec alacritty
 
 
 
@@ -196,8 +195,8 @@ bindsym $mod+r mode "resize"
 bar {
   output DisplayPort-1
   tray_output DisplayPort-1
-  # status_command i3status
-  status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config
+  status_command i3status
+  # status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
   font pango:Source Code Pro 12
 }
@@ -209,7 +208,7 @@ bar {
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
   font pango:Source Code Pro 9
 
-  status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
+  # status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
 }
 
 
@@ -220,7 +219,7 @@ bar {
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
   font pango:Source Code Pro 9
 
-  status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
+  # status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
 }
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
@@ -287,8 +286,8 @@ bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute s
 # You can also use any non-zero value if you'd like to have a border
 for_window [class=".*"] border pixel 5
 
-smart_gaps on
-smart_borders on
+# smart_gaps on
+# smart_borders on
 
 # gaps outer 0
 # gaps inner 5

@@ -38,46 +38,49 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
 fi
 
 
-if [ $1 = "openbox" ]
-then
-  pasystray &
-  exec openbox-session
-elif [ $1 = "awesome" ]
-then
-  exec awesome
-elif [ $1 = "twm" ]
-then
-  exec twm
-elif [ $1 = "i3" ]
-then
-  # /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
-  # /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-  # ~/.fehbg &
-  pasystray &
-  exec i3
-elif [ $1 = "herbs" ]
-then
-  exec herbstluftwm --locked
-elif [ $1 = "xmonad" ]
-then
-  xterm &
-  xmonad
-elif [ $1 == "kde" ]
-then
-  exec startplasma-x11
-elif [ $1 = "mate" ]
-then
-  exec mate-session
-elif [ $1 = "xfce" ]
-then
-  exec startxfce4
-elif [ $1 = "bspwm" ]
-then
-  setxkbmap -option "ctrl:nocaps" br &
-  sh ~/.screenlayout/jupiter-default.sh &
-  sxhkd &
-  exec bspwm
-fi
+# if [ $1 = "openbox" ]
+# then
+#   pasystray &
+#   exec openbox-session
+# elif [ $1 = "awesome" ]
+# then
+#   exec awesome
+# elif [ $1 = "twm" ]
+# then
+#   exec twm
+# elif [ $1 = "i3" ]
+# then
+#   # /usr/lib/mate-polkit/polkit-mate-authentication-agent-1 &
+#   # /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+#   # ~/.fehbg &
+#   pasystray &
+#   exec i3
+# elif [ $1 = "herbs" ]
+# then
+#   exec herbstluftwm --locked
+# elif [ $1 = "xmonad" ]
+# then
+#   xterm &
+#   xmonad
+# elif [ $1 == "kde" ]
+# then
+#   exec startplasma-x11
+# elif [ $1 = "mate" ]
+# then
+#   exec mate-session
+# elif [ $1 = "xfce" ]
+# then
+#   exec startxfce4
+# elif [ $1 = "bspwm" ]
+# then
+#   setxkbmap -option "ctrl:nocaps" br &
+#   sh ~/.screenlayout/jupiter-default.sh &
+#   sxhkd &
+#   exec bspwm
+# fi
+
+eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+export SSH_AUTH_SOCK
 
 pasystray &
 exec i3
