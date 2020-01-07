@@ -302,15 +302,16 @@ exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
 #Keyboard settings
 # exec setxkbmap -layout "us" -variant "intl" -option "ctrl:nocaps"
 # exec setxkbmap -option "ctrl:nocaps" br
-exec setxkbmap -layout "br" -variant "thinkpad" -option "ctrl:nocaps"
+exec setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
 
 
 bindsym $mod+Control+Shift+i mode $keyboardMode
-set $keyboardMode "keyboard i=us intl, u=us, b=br"
+set $keyboardMode "keyboard i=us intl, u=us, b=br m=modelM"
 mode $keyboardMode {
     bindsym i exec "setxkbmap us intl", mode "default"
     bindsym u exec "setxkbmap us", mode "default"
-    bindsym b exec "setxkbmap br -option 'ctrl:nocaps'", mode "default"
+    bindsym b exec "setxkbmap -option; setxkbmap br -option 'ctrl:nocaps'", mode "default"
+    bindsym m exec "setxkbmap -option; setxkbmap br -variant 'thinkpad' -option 'caps:super'", mode "default"
     # bindsym e exec "setxkbmap gb", mode "default"
     # back to normal: Enter or Escape
     bindsym Return mode "default"
