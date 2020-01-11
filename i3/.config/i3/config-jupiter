@@ -140,10 +140,10 @@ bindsym $mod+Control+Right move workspace to output right
 assign [class="Terminator"]    $workspace1
 assign [class="Alacritty"]     $workspace1
 assign [class="Termite"]       $workspace1
+assign [class="URxvt"]         $workspace1
 assign [class="Firefox"]       $workspace2
 assign [class="Chromium"]      $workspace2
 assign [class="qutebrowser"]   $workspace2
-assign [class="Steam"]         $workspace10
 assign [class="Gvim"]          $workspace4
 assign [class="Code"]          $workspace4
 assign [class="Emacs"]         $workspace4
@@ -151,6 +151,7 @@ assign [class="^jetbrains-.+"] $workspace4
 assign [class="GitKraken"]     $workspace4
 assign [class="Slack"]         $workspace5
 assign [class="Thunderbird"]   $workspace5
+assign [class="Steam"]         $workspace10
 for_window [class="Spotify"] move container to workspace $workspace10
 
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
@@ -262,7 +263,7 @@ focus_follows_mouse no
 # start compton
 bindsym $mod+Control+slash exec --no-startup-id compton -b
 # # kill compton
-bindsym $mod+Control+asterisk exec --no-startup-id pkill compton
+bindsym $mod+Control+p exec --no-startup-id pkill compton
 
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
