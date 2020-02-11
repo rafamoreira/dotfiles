@@ -30,8 +30,7 @@ font pango:Source Code Pro 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
-# bindsym $mod+Return exec termite
+bindsym $mod+Return exec urxvt
 
 
 
@@ -301,9 +300,9 @@ exec --no-startup-id flatpak run com.spotify.Client
 exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
 
 #Keyboard settings
-# exec setxkbmap -layout "us" -variant "intl" -option "ctrl:nocaps"
+exec setxkbmap -layout "us" -variant "intl" -option "ctrl:nocaps"
 # exec setxkbmap -option "ctrl:nocaps" br
-exec setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
+# exec setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
 
 
 bindsym $mod+Control+Shift+i mode $keyboardMode
