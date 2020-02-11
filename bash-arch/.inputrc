@@ -1,8 +1,3 @@
 # use up arrow to autocomplete from history
 "\e[A": history-search-backward
 "\eOA": history-previous-history
-
-set show-all-if-ambiguous on
-set completion-ignore-case on
-
-set bell-style none

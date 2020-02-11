@@ -48,6 +48,11 @@ alias ls='ls --color=auto'
 # autocomplete zsh like
 bind "TAB:menu-complete"
 bind "set menu-complete-display-prefix on"
+bind "set show-all-if-ambiguous on"
+bind "set completion-ignore-case on"
+
+# remove bell 
+set bell-style none
 
 if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
     GIT_PROMPT_ONLY_IN_REPO=1
