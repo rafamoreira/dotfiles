@@ -1,6 +1,6 @@
 Xcursor.size: 16
 
-URxvt.font: xft:Source Code Pro:style=Semibold:antialias=true:size=10
+URxvt.font: xft:DejaVu Sans Mono:style=Regular:antialias=true:size=16
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 ! this 2 configs are for the ctrl+shift shurtcuts be available
