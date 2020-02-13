@@ -17,7 +17,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Source Code Pro 12
+font pango:Source Code Pro 9
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -30,7 +30,7 @@ font pango:Source Code Pro 12
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 
 
@@ -193,39 +193,38 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  output DisplayPort-1
-  tray_output DisplayPort-1
+  output DP-0
+  tray_output DP-0
   status_command i3status
   # status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:Source Code Pro 12
+  font pango:Source Code Pro 7
 }
 
 bar {
-  output HDMI-A-1
-  tray_output DisplayPort-1
+  output HDMI-0
+  tray_output DP-0
 
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:Source Code Pro 9
+  font pango:Source Code Pro 5
 
   # status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
 }
 
 
 bar {
-  output HDMI-A-0
-  tray_output DisplayPort-1
+  output DP-4
+  tray_output DP-0
 
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:Source Code Pro 9
+  font pango:Source Code Pro 5
 
   # status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
 }
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # xrandr configs
-exec --no-startup-id xrandr --output DisplayPort-0 --off --output DisplayPort-1 --mode 3840x2160 --primary --pos 1920x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 5760x471 --rotate normal --output HDMI-A-1 --mode 1920x1080 --pos 0x471 --rotate normal --output DVI-D-0 --off
-
+exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 5760x0 --rotate normal --output DP-2 --off --output DP-3 --off --output DP-4 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-5 --off
 # alttab confs
 exec_always alttab -d 1 -vp total
 
@@ -300,9 +299,9 @@ exec --no-startup-id flatpak run com.spotify.Client
 exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
 
 #Keyboard settings
-exec setxkbmap -layout "us" -variant "intl" -option "ctrl:nocaps"
+# exec setxkbmap -layout "us" -variant "intl" -option "ctrl:nocaps"
 # exec setxkbmap -option "ctrl:nocaps" br
-# exec setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
+exec setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
 
 
 bindsym $mod+Control+Shift+i mode $keyboardMode
