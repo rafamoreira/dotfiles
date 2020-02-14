@@ -16,6 +16,18 @@ setopt complete_in_word # not just at the end
 # # prompt walters # Set the theme
 # PROMPT='%F{red}%n%f@%F{blue}%m%f %F{yellow}%~%f %# '
 # RPROMPT='%?'
+#
+# PURE
+fpath+=$HOME/.zsh/pure
+
+autoload -U promptinit; promptinit
+prompt pure
+
+
+PURE_PROMPT_SYMBOL='$'
+
+# prompt pure
+PROMPT='%m%(?.%F{magenta}$.%F{red}$)%f '
 
 ################################################################################
 #                            KEY BINDINGS                                      #
@@ -186,9 +198,3 @@ case $TERM in
 
 eval $(keychain --eval id_rsa id_rsa_calisto)
 
-
-
-PURE_PROMPT_SYMBOL='$'
-
-# prompt pure
-PROMPT='%m%(?.%F{magenta}$.%F{red}$)%f '
