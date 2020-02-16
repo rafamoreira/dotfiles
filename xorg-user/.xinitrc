@@ -86,7 +86,7 @@ fi
 # exec i3
 
 # setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
-setxkbmap -layout "us-acentos" 
+# setxkbmap -layout "us-acentos" 
 
 # Here Xfce is kept as default
 session=${1:-i3}
