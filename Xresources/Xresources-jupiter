@@ -1,7 +1,20 @@
 Xcursor.size: 16
 
 ! general configs
-URxvt.font: xft:DejaVu Sans Mono:style=Semibold:antialias=true:size=16
+URxvt.font: xft:DejaVu Sans Mono:style=Semibold:antialias=true:size=16, \
+            xft:DejaVu Sans Mono for Powerline:style=Bold:size=16, \
+            xft:Noto Sans Mono:style=Bold:size=16, \
+            xft:Hack:style=Bold:size=16, \
+!           xft:Droid Sans Mono:style=Regular:size=16
+!
+!            xft:PowerlineSymbols:style=Medium:antialias=true:size=16
+
+! URxvt.font:xft:dejavu sans mono:medium:pixelsize=16, \
+!              xft:WenQuanYi Bitmap Song:size=8, \
+!              xft:FreeSerif:style=Regular, \
+!              xft:unifont:style=Medium:antialias=false, \
+!              xft:Serif:style=Regular, \
+
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 ! this 2 configs are for the ctrl+shift shurtcuts be available
@@ -12,26 +25,26 @@ URxvt.keysym.Control-Up:     \033[1;5A
 URxvt.keysym.Control-Down:   \033[1;5B
 URxvt.keysym.Control-Left:   \033[1;5D
 URxvt.keysym.Control-Right:  \033[1;5C
-
-! ! Dracula Xresources palette
-! URxvt.foreground: #F8F8F2
-! URxvt.background: #282A36
-! URxvt.color0:     #000000
-! URxvt.color8:     #4D4D4D
-! URxvt.color1:     #FF5555
-! URxvt.color9:     #FF6E67
-! URxvt.color2:     #50FA7B
-! URxvt.color10:    #5AF78E
-! URxvt.color3:     #F1FA8C
-! URxvt.color11:    #F4F99D
-! URxvt.color4:     #BD93F9
-! URxvt.color12:    #CAA9FA
-! URxvt.color5:     #FF79C6
-! URxvt.color13:    #FF92D0
-! URxvt.color6:     #8BE9FD
-! URxvt.color14:    #9AEDFE
-! URxvt.color7:     #BFBFBF
-! URxvt.color15:    #E6E6E6
+URxvt.loginShell:            true
+! Dracula Xresources palette
+URxvt.foreground: #F8F8F2
+URxvt.background: #282A36
+URxvt.color0:     #000000
+URxvt.color8:     #4D4D4D
+URxvt.color1:     #FF5555
+URxvt.color9:     #FF6E67
+URxvt.color2:     #50FA7B
+URxvt.color10:    #5AF78E
+URxvt.color3:     #F1FA8C
+URxvt.color11:    #F4F99D
+URxvt.color4:     #BD93F9
+URxvt.color12:    #CAA9FA
+URxvt.color5:     #FF79C6
+URxvt.color13:    #FF92D0
+URxvt.color6:     #8BE9FD
+URxvt.color14:    #9AEDFE
+URxvt.color7:     #BFBFBF
+URxvt.color15:    #E6E6E6
 
 ! special
 *.foreground:   #c5c8c6
