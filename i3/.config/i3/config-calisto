@@ -195,7 +195,7 @@ bar {
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # xrandr configs
-exec --no-startup-id xrandr --output eDP-1 --auto --primary --output DP-1 --auto --left-of eDP-1
+exec --no-startup-id xrandr --output eDP1 --mode 1366x768 --pos 0x0 --rotate normal --output DP1 --mode 1366x768 --pos 1366x0 --rotate normal --output HDMI1 --off --output HDMI2 --off --output VIRTUAL1 --off
 # bindsym $mod+F12 exec "xrandr --output eDP1 --off"
 
 # no idea
@@ -246,5 +246,5 @@ bindsym Print exec "flameshot gui"
 # You can also use any non-zero value if you'd like to have a border
 for_window [class=".*"] border pixel 5
 
-# smart_gaps on
-# smart_borders on
+smart_gaps on
+smart_borders on

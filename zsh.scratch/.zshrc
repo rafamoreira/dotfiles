@@ -18,16 +18,16 @@ setopt complete_in_word # not just at the end
 # RPROMPT='%?'
 #
 # PURE
-fpath+=$HOME/.zsh/pure
-
-autoload -U promptinit; promptinit
-prompt pure
-
-
-PURE_PROMPT_SYMBOL='$'
-
+# fpath+=$HOME/.zsh/pure
+# 
+# autoload -U promptinit; promptinit
 # prompt pure
-PROMPT='%m%(?.%F{magenta}$.%F{red}$)%f '
+# 
+# 
+# PURE_PROMPT_SYMBOL='$'
+# 
+# # prompt pure
+# PROMPT='%m%(?.%F{magenta}$.%F{red}$)%f '
 
 ################################################################################
 #                            KEY BINDINGS                                      #
@@ -200,4 +200,4 @@ eval $(keychain --eval id_rsa id_rsa_calisto)
 
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
