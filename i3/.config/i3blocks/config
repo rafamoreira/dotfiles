@@ -80,11 +80,11 @@ label=RAM
 separator=false
 interval=30
 
-# [memory]
-# label=SWAP
-# instance=swap
-# separator=false
-# interval=30
+[memory]
+label=SWAP
+instance=swap
+separator=false
+interval=30
 
 # Disk usage
 #
@@ -96,10 +96,10 @@ label=/:
 DIR=/
 interval=30
 
-[disk]
-label=/home:
-DIR=/home
-interval=30
+# [disk]
+# label=/home:
+# DIR=/home
+# interval=30
 
 # Network interface monitoring
 #

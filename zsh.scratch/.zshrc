@@ -11,23 +11,22 @@ setopt complete_in_word # not just at the end
 ################################################################################
 #                            PROMPT                                            #
 ################################################################################
-# autoload -Uz promptinit
-# promptinit
-# # prompt walters # Set the theme
-# PROMPT='%F{red}%n%f@%F{blue}%m%f %F{yellow}%~%f %# '
-# RPROMPT='%?'
-#
-# PURE
-# fpath+=$HOME/.zsh/pure
-# 
-# autoload -U promptinit; promptinit
+autoload -Uz promptinit
+promptinit
+# prompt walters # Set the theme
+PROMPT='%F{red}%n%f@%F{blue}%m%f %F{yellow}%~%f %# '
+RPROMPT='%?'
+
+fpath+=$HOME/.zsh/pure
+
+autoload -U promptinit; promptinit
+prompt pure
+
+
+PURE_PROMPT_SYMBOL='$'
+
 # prompt pure
-# 
-# 
-# PURE_PROMPT_SYMBOL='$'
-# 
-# # prompt pure
-# PROMPT='%m%(?.%F{magenta}$.%F{red}$)%f '
+PROMPT='%m%(?.%F{magenta}$.%F{red}$)%f '
 
 ################################################################################
 #                            KEY BINDINGS                                      #
@@ -201,3 +200,7 @@ eval $(keychain --eval id_rsa id_rsa_calisto)
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 # export PATH="$PATH:$HOME/.rvm/bin"
+#
+source /usr/share/chruby/chruby.sh
+source /usr/share/chruby/auto.sh
+

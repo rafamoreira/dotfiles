@@ -14,14 +14,6 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="candy"
 # ZSH_THEME="spaceship"
 
-if [ $ZSH_THEME = "spaceship" ]; then
-  SPACESHIP_CHAR_SYMBOL="$ "
-  SPACESHIP_CHAR_SYMBOL_ROOT="# "
-  SPACESHIP_USER_SHOW=always
-  SPACESHIP_HOST_SHOW=always
-fi
-
-
 ################################################################################
 #                              DEFAULT OH MY ZSH                               #
 ################################################################################
@@ -102,6 +94,22 @@ if [ -f ~/using-rvm ]; then
   [[ -s "$HOME/.rvm/scripts/rvm" ]] && . "$HOME/.rvm/scripts/rvm"
 fi
 
+if [ -f ~/using-rbenv ]; then
+  export PATH="$HOME/.rbenv/bin:$PATH"
+  eval "$(rbenv init -)"
+fi
+
+if [ -f ~/using-asdf ]; then
+  . $HOME/.asdf/asdf.sh
+
+  . $HOME/.asdf/completions/asdf.bash
+fi
+
+if [ -f ~/using-chruby ]; then
+  source /usr/share/chruby/chruby.sh
+  source /usr/share/chruby/auto.sh
+fi
+
 # export PATH="$HOME/.rbenv/bin:$PATH"
 # eval "$(rbenv init -)"
 
@@ -139,10 +147,6 @@ if [[ $TERM == xterm-termite ]]; then
   . /etc/profile.d/vte.sh
   __vte_osc7
 fi
-
-. $HOME/.asdf/asdf.sh
-
-. $HOME/.asdf/completions/asdf.bash
 
 export EDITOR=vim
 export VISUAL=vim
