@@ -2,11 +2,11 @@ Xcursor.size: 16
 
 ! general configs
 ! URxvt.font: xft:DejaVu Sans Mono:style=Semibold:antialias=true:size=12
-URxvt.font: xft:DejaVu Sans Mono:style=Semibold:antialias=true:size=12, \
-            xft:DejaVu Sans Mono for Powerline:style=Bold:size=12, \
-            xft:Noto Sans Mono:style=Bold:size=12, \
-            xft:Hack:style=Bold:size=12, \
-!           xft:Droid Sans Mono:style=Regular:size=12
+URxvt.font: xft:DejaVu Sans Mono:style=Semibold:antialias=true:size=11, \
+            xft:DejaVu Sans Mono for Powerline:style=Bold:size=11, \
+            xft:Noto Sans Mono:style=Bold:size=11, \
+            xft:Hack:style=Bold:size=11, \
+!           xft:Droid Sans Mono:style=Regular:size=11
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 ! this 2 configs are for the ctrl+shift shurtcuts be available
