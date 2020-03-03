@@ -144,6 +144,7 @@ assign [class="Firefox"] $workspace2
 assign [class="firefox"] $workspace2
 assign [class="Gvim"] $workspace3
 assign [class="Emacs"] $workspace3
+assign [class="DataGrip"] $workspace3
 assign [class="Slack"] $workspace4
 assign [class="Thunderbird"] $workspace4
 assign [class="Steam"] $workspace10
