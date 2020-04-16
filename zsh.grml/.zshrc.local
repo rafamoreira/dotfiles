@@ -16,6 +16,7 @@ eval $(keychain --eval id_rsa)
 
 export DISPLAY=192.168.1.2:0.0
 
-if [ -f ~/.config/using-wsl ]; then
+if [ -f ~/.config/using-wsl2 ]; then
+	export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 	cd ~
 fi
