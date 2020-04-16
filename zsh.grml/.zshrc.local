@@ -1,7 +1,7 @@
 HISTSIZE=10000
 SAVEHIST=15000
 
-if [ -f ~/.config/usign-rbenv ]; then
+if [ -f ~/.config/using-rbenv ]; then
 	export PATH="$HOME/.rbenv/bin:$PATH"
 	eval "$(rbenv init -)"
 fi
