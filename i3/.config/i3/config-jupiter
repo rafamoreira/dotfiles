@@ -198,7 +198,7 @@ bar {
   # status_command i3status
   status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config 
   # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:Source Code Pro 10
+  font pango:Source Code Pro 12
 }
 
 bar {
@@ -308,8 +308,8 @@ exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
 
 #Keyboard settings
 # exec setxkbmap -layout "us" -variant "intl" -option "ctrl:nocaps"
-# exec setxkbmap -option "ctrl:nocaps" br
-exec setxkbmap -layout "br" # -variant "thinkpad" -option "caps:super"
+# exec setxkbmap -layout "br" -option "ctrl:nocaps"
+# exec setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
 
 
 bindsym $mod+Control+Shift+i mode $keyboardMode

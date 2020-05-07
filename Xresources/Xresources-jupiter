@@ -1,11 +1,11 @@
 Xcursor.size: 16
 
 ! general configs
-URxvt.font: xft:DejaVu Sans Mono:style=Semibold:antialias=true:size=16, \
-            xft:DejaVu Sans Mono for Powerline:style=Bold:size=16, \
-            xft:Noto Sans Mono:style=Bold:size=16, \
-            xft:Hack:style=Bold:size=16, \
-!           xft:Droid Sans Mono:style=Regular:size=16
+URxvt.font: xft:DejaVu Sans Mono:style=Semibold:antialias=true:size=10, \
+            xft:DejaVu Sans Mono for Powerline:style=Bold:size=10, \
+            xft:Noto Sans Mono:style=Bold:size=10, \
+            xft:Hack:style=Bold:size=10
+!           xft:Droid Sans Mono:style=Regular:size=12
 !
 !            xft:PowerlineSymbols:style=Medium:antialias=true:size=16
 
@@ -17,6 +17,8 @@ URxvt.font: xft:DejaVu Sans Mono:style=Semibold:antialias=true:size=16, \
 
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+! Clear scrollback
+URxvt.keysym.Control-l: command:\033c
 ! this 2 configs are for the ctrl+shift shurtcuts be available
 URxvt.iso14755: false
 URxvt.iso14755_52: false
