@@ -308,7 +308,7 @@ exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
 
 #Keyboard settings
 # exec setxkbmap -layout "us" -variant "intl" -option "ctrl:nocaps"
-# exec setxkbmap -layout "br" -option "ctrl:nocaps"
+exec setxkbmap -layout "br" -option "ctrl:nocaps"
 # exec setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
 
 

@@ -14,7 +14,7 @@ URxvt.font: xft:DejaVu Sans Mono:style=Semibold:antialias=true:size=10, \
 !              xft:FreeSerif:style=Regular, \
 !              xft:unifont:style=Medium:antialias=false, \
 !              xft:Serif:style=Regular, \
-
+URxvt.saveLines: 200000
 URxvt.keysym.Shift-Control-V: eval:paste_clipboard
 URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
 ! Clear scrollback
