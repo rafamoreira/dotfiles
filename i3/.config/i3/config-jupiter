@@ -148,6 +148,7 @@ assign [class="Code"]          $workspace4
 assign [class="Emacs"]         $workspace4
 assign [class="^jetbrains-.+"] $workspace4
 assign [class="GitKraken"]     $workspace4
+assign [class="Insomnia"]      $workspace4
 assign [class="Slack"]         $workspace5
 assign [class="Thunderbird"]   $workspace5
 assign [class="Steam"]         $workspace10
