@@ -203,3 +203,9 @@ if [ -f ~/using-rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
+if [ -f ~/.local/opt/code-stats-zsh/codestats.plugin.zsh ]; then
+  CODESTATS_API_KEY="SFMyNTY.Y20xaiMjTXpNd01nPT0.Drcb1sRjTOvfTI_7ygtXps_R-rheSTKFAASn3pJPXEc"
+  source ~/.local/opt/code-stats-zsh/codestats.plugin.zsh
+fi
+
+
