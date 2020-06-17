@@ -30,7 +30,8 @@ font pango:Source Code Pro 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec urxvt -cd "`xcwd`"
 
 
 
@@ -148,6 +149,7 @@ assign [class="Code"]          $workspace4
 assign [class="Emacs"]         $workspace4
 assign [class="^jetbrains-.+"] $workspace4
 assign [class="GitKraken"]     $workspace4
+assign [class="Insomnia"]      $workspace4
 assign [class="Slack"]         $workspace5
 assign [class="Thunderbird"]   $workspace5
 assign [class="Steam"]         $workspace10
@@ -308,7 +310,7 @@ exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
 
 #Keyboard settings
 # exec setxkbmap -layout "us" -variant "intl" -option "ctrl:nocaps"
-# exec setxkbmap -layout "br" -option "ctrl:nocaps"
+exec setxkbmap -layout "br" -option "ctrl:nocaps"
 # exec setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
 
 
