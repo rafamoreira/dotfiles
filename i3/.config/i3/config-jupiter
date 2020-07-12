@@ -142,6 +142,7 @@ assign [class="Alacritty"]     $workspace1
 assign [class="Termite"]       $workspace1
 assign [class="URxvt"]         $workspace1
 assign [class="Firefox"]       $workspace2
+assign [class="firefox"]       $workspace2
 assign [class="Chromium"]      $workspace2
 assign [class="qutebrowser"]   $workspace2
 assign [class="Gvim"]          $workspace4
@@ -227,6 +228,8 @@ bar {
 
 # xrandr configs
 exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 5760x0 --rotate normal --output DP-2 --off --output DP-3 --off --output DP-4 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-5 --off
+# right vertical
+# exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 5760x0 --rotate left --output DP-2 --off --output DP-3 --off --output DP-4 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-5 --off
 # alttab confs
 exec_always alttab -d 1 -vp total
 
