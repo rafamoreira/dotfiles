@@ -8,4 +8,4 @@
 [github]
 	user = rafamoreira
 [core]
-	excludesfile = ~/.gitignore
+	excludesFile = ~/.gitignore
