@@ -3758,3 +3758,5 @@ zrclocal
 # Local variables:
 # mode: sh
 # End:
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
