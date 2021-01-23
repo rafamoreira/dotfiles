@@ -1,7 +1,7 @@
 Xcursor.size: 16
 
 ! general configs
-URxvt.font: xft:Cascadia Code:style=Regular:antialias=true:size=14, \
+URxvt.font: xft:Cascadia Code:style=Regular:antialias=true:size=12, \
             xft:DejaVu Sans Mono:style=Semibold:antialias=true:size=10, \
             xft:DejaVu Sans Mono for Powerline:style=Bold:size=10, \
             xft:Noto Sans Mono:style=Bold:size=10, \

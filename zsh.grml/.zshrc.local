@@ -6,6 +6,11 @@ if [ -f ~/.config/using-rbenv ]; then
 	eval "$(rbenv init -)"
 fi
 
+if [ -f ~/.config/using-nodenv ]; then
+	export PATH="$HOME/.nodenv/bin:$PATH"
+	eval "$(nodenv init -)"
+fi
+
 if [ -f ~/.config/using-rvm ]; then
 	# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 	export PATH="$PATH:$HOME/.rvm/bin"
@@ -20,7 +25,7 @@ alias startx="startx ~/.xinitrc $2"
 
 eval $(keychain --eval id_rsa)
 
-export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
+# export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2; exit;}'):0.0
 
 # export DISPLAY=192.168.1.2:0.0
 
@@ -37,7 +42,7 @@ alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a 
 
 export PATH="$PATH:$HOME/.local/bin"
 
-eval "$(direnv hook zsh)"
+# eval "$(direnv hook zsh)"
 
-alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\""
+# alias drop_cache="sudo sh -c \"echo 3 >'/proc/sys/vm/drop_caches' && swapoff -a && swapon -a && printf '\n%s\n' 'Ram-cache and Swap Cleared'\""
 
