@@ -153,6 +153,8 @@ assign [class="GitKraken"]     $workspace4
 assign [class="Insomnia"]      $workspace4
 assign [class="Slack"]         $workspace5
 assign [class="Thunderbird"]   $workspace5
+assign [class="Rambox"]        $workspace5
+assign [class="Skype"]         $workspace5
 assign [class="Steam"]         $workspace10
 for_window [class="Spotify"] move container to workspace $workspace10
 
@@ -227,9 +229,6 @@ bar {
 # exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # xrandr configs
-# exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 5760x0 --rotate normal --output DP-2 --off --output DP-3 --off --output DP-4 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-5 --off
-# right vertical
-# exec --no-startup-id xrandr --output DP-0 --primary --mode 3840x2160 --pos 1920x0 --rotate normal --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 5760x0 --rotate left --output DP-2 --off --output DP-3 --off --output DP-4 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-5 --off
 exec --no-startup-id xrandr --output DP-0 --mode 1920x1080 --pos 5760x0 --rotate normal --output DP-1 --off --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DP-2 --off --output DP-3 --off --output DP-4 --primary --mode 3840x2160 --pos 1920x0 --rotate normal --output DP-5 --off
 
 # alttab confs
