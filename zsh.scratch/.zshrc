@@ -172,6 +172,7 @@ alias l="ls -lah"
 # alias startx="xinit $HOME/.xinitrc $2"
 alias rds_dump="pg_dump -h antonov.mobbiz.com.br -U gigaservices -F c -v"
 alias easy_restore="pg_restore -h 127.0.0.1 -U postgres -x -c -v -O -d "
+alias pg_docker_restore="pg_restore -h localhost -p 5433 -U postgres -x -c -v -O -d "
 
 ################################################################################
 #                            PATH                                              #
@@ -198,14 +199,21 @@ case $TERM in
 eval $(keychain --eval id_rsa id_rsa_calisto)
 
 
-if [ -f ~/using-rbenv ]; then
+if [ -f ~/.config/using-rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
   eval "$(rbenv init -)"
+fi
+
+if [ -f ~/.config/using-nvm ]; then
+  export NVM_DIR="$HOME/.nvm"
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
 if [ -f ~/.local/opt/code-stats-zsh/codestats.plugin.zsh ]; then
   CODESTATS_API_KEY="SFMyNTY.Y20xaiMjTXpNd01nPT0.Drcb1sRjTOvfTI_7ygtXps_R-rheSTKFAASn3pJPXEc"
   source ~/.local/opt/code-stats-zsh/codestats.plugin.zsh
 fi
+
 
 

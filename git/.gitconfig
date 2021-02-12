@@ -9,3 +9,4 @@
 	user = rafamoreira
 [core]
 	excludesFile = ~/.gitignore
+	editor = vim
