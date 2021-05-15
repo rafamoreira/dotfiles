@@ -215,5 +215,3 @@ if [ -f ~/.local/opt/code-stats-zsh/codestats.plugin.zsh ]; then
   source ~/.local/opt/code-stats-zsh/codestats.plugin.zsh
 fi
 
-
-

@@ -30,8 +30,9 @@ font pango:Source Code Pro 9
 floating_modifier $mod
 
 # start a terminal
+bindsym $mod+Return exec alacritty 
 # bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec urxvt -cd "`xcwd`"
+# bindsym $mod+Return exec urxvt -cd "`xcwd`"
 
 
 
@@ -314,8 +315,8 @@ exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
 
 #Keyboard settings
 # exec setxkbmap -layout "us" -variant "intl" -option "ctrl:nocaps"
-# exec setxkbmap -layout "br" -option "ctrl:nocaps"
-exec setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
+exec setxkbmap -layout "br" -option "ctrl:nocaps"
+# exec setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
 
 
 bindsym $mod+Control+Shift+i mode $keyboardMode

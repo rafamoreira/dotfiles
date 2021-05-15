@@ -2,7 +2,7 @@
 [user]
 # Please adapt and uncomment the following lines:
 	name = Rafael Moreira
-	email = rafael@rafaelmoreira.org 
+	email = me@rafaelmoreira.net 
 [alias]
 	po = push origin master
 [github]
@@ -10,3 +10,5 @@
 [core]
 	excludesFile = ~/.gitignore
 	editor = vim
+[init]
+	templatedir = /home/rmc/.git-templates
