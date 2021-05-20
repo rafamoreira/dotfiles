@@ -91,6 +91,10 @@ export SSH_AUTH_SOCK
 # Here Xfce is kept as default
 session=${1:-i3}
 
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+
+udiskie --tray &
+
 
 case $session in
     i3|i3wm           ) exec pasystray & i3;;

@@ -24,7 +24,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-dispatch'
 Plug 'junegunn/vim-easy-align'
 Plug 'wakatime/vim-wakatime'
-Plug 'https://gitlab.com/code-stats/code-stats-vim.git'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'kchmck/vim-coffee-script'
@@ -49,8 +48,6 @@ set encoding=utf-8
 let g:OmniSharp_server_stdio = 1
 let g:OmniSharp_server_use_mono = 1
 
-" source ~/codestats.vim
-
 let g:airline_powerline_fonts = 1
 let g:airline_theme='jellybeans'
 
@@ -59,8 +56,6 @@ if !exists('g:airline_symbols')
 endif
 let g:airline_symbols.linenr = '¶'
 
-let g:codestats_api_key = 'SFMyNTY.Y20xaiMjTXpNd01nPT0.Drcb1sRjTOvfTI_7ygtXps_R-rheSTKFAASn3pJPXEc'
-let g:airline_section_x = airline#section#create_right(['tagbar', 'filetype', '%{CodeStatsXp()}'])
 
 """"""""""""""""""""""""""""""""""""""""""
 " first the configs which i don't know what do

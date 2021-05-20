@@ -28,7 +28,7 @@ secondary = #e60053
 alert = #bd2c40
 
 [bar/example]
-monitor = ${env:MONITOR:DisplayPort-1}
+monitor = ${env:MONITOR:DP-4}
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -55,7 +55,7 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = bspwm
+modules-left =
 modules-center = 
 modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
 
@@ -78,7 +78,9 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/center]
-monitor = ${env:MONITOR:DisplayPort-1}
+type=internal/i3
+;pin-workspaces=true
+monitor = ${env:MONITOR:DP-4}
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -105,18 +107,18 @@ font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = siji:pixelsize=10;1
 
-modules-left = bspwm
+modules-left =
 modules-center = 
-modules-right = filesystem xbacklight alsa pulseaudio xkeyboard memory cpu wlan eth battery temperature date powermenu
+modules-right = filesystem alsa pulseaudio xkeyboard memory cpu eth date powermenu
 
 tray-position = right
 tray-padding = 2
 ;tray-background = #0063ff
 
 ;wm-restack = bspwm
-;wm-restack = i3
+; override-redirect = true
+; wm-restack = i3
 
-;override-redirect = true
 
 ;scroll-up = bspwm-desknext
 ;scroll-down = bspwm-deskprev
@@ -128,7 +130,9 @@ cursor-click = pointer
 cursor-scroll = ns-resize
 
 [bar/left]
-monitor = ${env:MONITOR:HDMI-A-1}
+type=internal/i3
+pin-workspaces=true
+monitor = ${env:MONITOR:HDMI-0}
 width = 100%
 height = 27
 ;offset-x = 1%
@@ -179,7 +183,9 @@ cursor-scroll = ns-resize
 
 
 [bar/right]
-monitor = ${env:MONITOR:HDMI-A-0}
+type=internal/i3
+pin-workspaces=true
+monitor = ${env:MONITOR:DP-0}
 width = 100%
 height = 27
 ;offset-x = 1%
