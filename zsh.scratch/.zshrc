@@ -171,8 +171,8 @@ alias ls="command ls --color=auto -h" # ls colors
 alias l="ls -lah"
 # alias startx="xinit $HOME/.xinitrc $2"
 alias rds_dump="pg_dump -h antonov.mobbiz.com.br -U gigaservices -F c -v"
-alias easy_restore="pg_restore -h 127.0.0.1 -U postgres -x -c -v -O -d "
-alias pg_docker_restore="pg_restore -h localhost -p 5433 -U postgres -x -c -v -O -d "
+alias easy_restore="pg_restore -h localhost -U postgres -x -c -v -O -d "
+alias pg_docker_restore="pg_restore -h localhost -p 5432 -U postgres -x -c -v -O -d "
 
 ################################################################################
 #                            PATH                                              #
@@ -197,6 +197,7 @@ case $TERM in
 # . $HOME/.asdf/completions/asdf.bash
 
 eval $(keychain --eval id_rsa id_rsa_calisto)
+eval $(keychain --eval --agents gpg CB5C3FBDE2FED194)
 
 
 if [ -f ~/.config/using-rbenv ]; then

@@ -13,4 +13,4 @@ git clone https://github.com/rbenv/rbenv-vars.git $RBENV_ROOT/plugins/rbenv-vars
 
 cd $RBENV_ROOT && src/configure && make -C src
 
-touch $HOME/using-rbenv
+touch $HOME/.config/using-rbenv

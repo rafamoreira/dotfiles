@@ -1,1 +1,1 @@
-source /usr/share/chruby/chruby.sh
+export GPG_TTY=$(tty)
