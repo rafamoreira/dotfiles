@@ -3,7 +3,6 @@
 # Please adapt and uncomment the following lines:
 	name = Rafael Moreira
 	email = me@rafaelmoreira.net 
-	signingkey = CB5C3FBDE2FED194
 [alias]
 	po = push origin master
 [github]
@@ -14,5 +13,3 @@
 [init]
 	templatedir = /home/rmc/.git-templates
 	defaultBranch = master
-[commit]
-	gpgsign = true
