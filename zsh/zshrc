@@ -196,8 +196,7 @@ case $TERM in
 # 
 # . $HOME/.asdf/completions/asdf.bash
 
-eval $(keychain --eval id_rsa id_rsa_calisto)
-eval $(keychain --eval --agents gpg CB5C3FBDE2FED194)
+eval $(keychain --eval id_rsa)
 
 
 if [ -f ~/.config/using-rbenv ]; then
