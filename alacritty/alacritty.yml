@@ -387,7 +387,7 @@ enable_experimental_conpty_backend: false
 alt_send_esc: true
 
 import:
-  - ~/.config/alacritty/dracula.yml
+  - ~/.config/alacritty/dracula-pro.yml
 
 hints:
   color: hints
