@@ -173,6 +173,7 @@ alias l="ls -lah"
 alias rds_dump="pg_dump -h antonov.mobbiz.com.br -U gigaservices -F c -v"
 alias easy_restore="pg_restore -h localhost -U postgres -x -c -v -O -d "
 alias pg_docker_restore="pg_restore -h localhost -p 5432 -U postgres -x -c -v -O -d "
+alias ssh="TERM=xterm-256color ssh" # this shit fixes alacritty non standard TERMINFO
 
 ################################################################################
 #                            PATH                                              #
@@ -196,7 +197,7 @@ case $TERM in
 # 
 # . $HOME/.asdf/completions/asdf.bash
 
-eval $(keychain --eval id_rsa)
+eval $(keychain --eval id_rsa intempus_id_rsa)
 
 
 if [ -f ~/.config/using-rbenv ]; then

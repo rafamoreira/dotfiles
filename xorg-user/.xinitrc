@@ -95,6 +95,8 @@ session=${1:-i3}
 
 udiskie --tray &
 
+dex -a &
+
 
 case $session in
     i3|i3wm           ) exec pasystray & i3;;

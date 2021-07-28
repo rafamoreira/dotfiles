@@ -1,6 +1,8 @@
 set clipboard+=unnamedplus
 set visualbell
 set surround
+set which-key
 
 let mapleader = ","
 nnoremap <leader>vv :action org.jetbrains.plugins.ruby.rails.actions.navigation.SwitchToView<CR>
+

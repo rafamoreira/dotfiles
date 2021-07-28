@@ -157,8 +157,19 @@ interval=persist
 
 # Date Time
 [time]
-command=date '+%Y-%m-%d %H:%M:%S'
+command=date '+%Y-%m-%d' 
+interval=60
+
+[time]
+label=BRT 
+command=date '+%H:%M:%S'
 interval=5
+
+[time]
+label=CEST 
+command=env TZ=Europe/Copenhagen date '+%H:%M:%S'
+interval=5
+
 
 # Generic media player support
 #
