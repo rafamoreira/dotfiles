@@ -30,6 +30,7 @@ Plug 'kchmck/vim-coffee-script'
 Plug 'dracula/vim'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-syntastic/syntastic'
+Plug 'ledger/vim-ledger'
 
 " Initialize plugin system
 call plug#end()
