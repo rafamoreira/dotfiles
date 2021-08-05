@@ -35,11 +35,14 @@ Plug 'ledger/vim-ledger'
 " Initialize plugin system
 call plug#end()
 
+packadd! dracula_pro
+
 """"""""""""""""""""""""""""""""""""""""""
 " Basic Configs
 """"""""""""""""""""""""""""""""""""""""""
 set nocompatible
 syntax on
+syntax enable
 filetype indent plugin on
 let mapleader=","
 let os = substitute(system('uname'), "\n", "", "")
@@ -357,7 +360,8 @@ endif
 """"""""""""""""""""""""""""""""""""""
 set t_Co=256
 set background=dark
-color dracula
+let g:dracula_colorterm = 0
+colorscheme dracula_pro
 set guifont=DejaVu\ Sans\ Mono\ 14
 
 """"""""""""""""""""""
