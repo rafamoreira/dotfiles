@@ -12,4 +12,6 @@
 	editor = vim
 [init]
 	templatedir = /home/rmc/.git-templates
-	defaultBranch = master
+  defaultBranch = master
+[diff]
+	tool = vimdiff

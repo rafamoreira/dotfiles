@@ -5,6 +5,7 @@
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select # interactive completion
+zstyle ':completion::complete:*' gain-privileges 1
 setopt COMPLETE_ALIASES # auto complete command line aliases
 setopt complete_in_word # not just at the end
 
@@ -182,13 +183,7 @@ case $TERM in
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-
-# . $HOME/.asdf/asdf.sh
-# 
-# . $HOME/.asdf/completions/asdf.bash
-
 eval $(keychain --eval id_rsa intempus_id_rsa)
-
 
 if [ -f ~/.config/using-rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
@@ -201,8 +196,6 @@ if [ -f ~/.config/using-nvm ]; then
   [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 fi
 
-if [ -f ~/.local/opt/code-stats-zsh/codestats.plugin.zsh ]; then
-  CODESTATS_API_KEY="SFMyNTY.Y20xaiMjTXpNd01nPT0.Drcb1sRjTOvfTI_7ygtXps_R-rheSTKFAASn3pJPXEc"
-  source ~/.local/opt/code-stats-zsh/codestats.plugin.zsh
-fi
+source "$HOME/.zsh/wakatime/wakatime.plugin.zsh"
 
+export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
