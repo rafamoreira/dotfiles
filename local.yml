@@ -1,0 +1,167 @@
+---
+- hosts: localhost
+  connection: local
+
+  roles:
+  - kewlfft.aur
+
+  tasks:
+    - name: install base packages
+      become: true
+      package:
+        name:
+          - htop
+          - tmux
+          - vim
+          - keychain
+          - openssh
+          - wget
+          - python
+          - xorg-server
+          - xorg-xinit
+          - rxvt-unicode
+          - alacritty
+          - nvidia
+          - nvidia-settings
+          - python-pip
+          - base-devel
+          - i3-gaps
+          - i3status
+          - i3lock
+          - rofi
+          - dmenu
+          - i3blocks
+          - pulseaudio
+          - pavucontrol
+          - pulseaudio-alsa
+          - pasystray
+          - alsa-utils
+
+    - name: install pip packages
+      pip:
+        name:
+          - wakatime
+
+    - name: clone dotfiles repository
+      ansible.builtin.git:
+        repo: git@github.com:rafamoreira/dotfiles.git 
+        dest: /home/rmc/dotfiles
+
+    - name: link zshrc
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/zsh/zshrc
+        dest: /home/rmc/.zshrc
+        owner: rmc
+        group: rmc
+        state: link
+
+    - name: link zprofile
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/zsh/zprofile
+        dest: /home/rmc/.zprofile
+        owner: rmc
+        group: rmc
+        state: link
+    
+    - name: link gitconfig
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/git/.gitconfig
+        dest: /home/rmc/.gitconfig
+        owner: rmc
+        group: rmc
+        state: link
+    
+    - name: link vim configs
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/vim/vimrc
+        dest: /home/rmc/.vimrc
+        owner: rmc
+        group: rmc
+        state: link
+    
+    - name: link vim configs
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/vim/vim
+        dest: /home/rmc/.vim
+        owner: rmc
+        group: rmc
+        state: link
+    
+    - name: link vim configs
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/vim/gvimrc
+        dest: /home/rmc/.gvimrc
+        owner: rmc
+        group: rmc
+        state: link
+    
+    - name: link vim configs
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/vim/ideavimrc
+        dest: /home/rmc/.ideavimrc
+        owner: rmc
+        group: rmc
+        state: link
+
+    - aur: name=paru
+
+    - name: clone i3blocks-contrib repository
+      ansible.builtin.git:
+        repo: 'https://github.com/vivien/i3blocks-contrib.git'
+        dest: /home/rmc/.local/opt/i3blocks-contrib
+
+    - name: link alacritty configs
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/alacritty
+        dest: /home/rmc/.config/alacritty
+        owner: rmc
+        group: rmc
+        state: link
+    
+    - name: create i3 config dir 
+      ansible.builtin.file:
+        path: /home/rmc/.config/i3
+        owner: rmc
+        group: rmc
+        state: directory
+        mode: '0755'
+    
+    - name: link i3 configs file
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/i3/i3wm/config-jupiter
+        dest: /home/rmc/.config/i3/config
+        owner: rmc
+        group: rmc
+        state: link
+
+    - name: link i3blocks 
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/i3/i3blocks
+        dest: /home/rmc/.config/i3blocks
+        owner: rmc
+        group: rmc
+        state: link
+
+    - name: link i3 status
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/i3/i3status
+        dest: /home/rmc/.config/i3status
+        owner: rmc
+        group: rmc
+        state: link
+    
+    - name: link rofi directory
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/i3/rofi
+        dest: /home/rmc/.config/rofi
+        owner: rmc
+        group: rmc
+        state: link
+
+    - name: link emacs directory
+      ansible.builtin.file:
+        src: /home/rmc/ansible_configs/dirs/emacs.d 
+        dest: /home/rmc/.emacs.d
+        owner: rmc
+        group: rmc
+        state: link
