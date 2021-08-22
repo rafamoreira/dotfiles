@@ -42,11 +42,6 @@
         name:
           - wakatime
 
-    - name: clone dotfiles repository
-      ansible.builtin.git:
-        repo: git@github.com:rafamoreira/dotfiles.git 
-        dest: /home/rmc/dotfiles
-
     - name: link zshrc
       ansible.builtin.file:
         src: /home/rmc/dotfiles/zsh/zshrc
@@ -79,7 +74,7 @@
         group: rmc
         state: link
     
-    - name: link vim configs
+    - name: link vim directory
       ansible.builtin.file:
         src: /home/rmc/dotfiles/vim/vim
         dest: /home/rmc/.vim
@@ -160,7 +155,7 @@
 
     - name: link emacs directory
       ansible.builtin.file:
-        src: /home/rmc/ansible_configs/dirs/emacs.d 
+        src: /home/rmc/dotfiles/emacs
         dest: /home/rmc/.emacs.d
         owner: rmc
         group: rmc
