@@ -1,4 +1,3 @@
-
 ################################################################################
 #                            COMPLETION                                        #
 ################################################################################
@@ -199,3 +198,8 @@ fi
 source "$HOME/.zsh/wakatime/wakatime.plugin.zsh"
 
 export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+
+# PROJECT ALIASES
+
+alias py3_make_migration="docker exec -it dev-django python3 ./manage.py makemigrations"
+alias py2_make_migration="docker exec -it dev-django python ./manage.py makemigrations"
