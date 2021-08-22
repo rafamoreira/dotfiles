@@ -160,3 +160,11 @@
         owner: rmc
         group: rmc
         state: link
+
+    - name: link xmonad directory
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/xmonad
+        dest: /home/rmc/.xmonad
+        owner: rmc
+        group: rmc
+        state: link
