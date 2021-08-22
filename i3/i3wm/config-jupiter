@@ -318,12 +318,6 @@ exec --no-startup-id flatpak run com.spotify.Client
 # wallpaper
 exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
 
-#Keyboard settings
-# exec setxkbmap -layout "us" -variant "intl" -option "ctrl:nocaps"
-exec setxkbmap -layout "br" -option "ctrl:nocaps"
-# exec setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
-
-
 bindsym $mod+Control+Shift+i mode $keyboardMode
 set $keyboardMode "keyboard i=us intl, u=us, b=br m=modelM"
 mode $keyboardMode {
