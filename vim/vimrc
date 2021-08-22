@@ -88,7 +88,7 @@ set showcmd " display incomplete commands
 set wildmode=longest,list " use emacs-style tab completion when selecting files, etc
 
 "set laststatus=2 " Always display the statusline in all windows
-set clipboard=unnamedplus " vim uses OS clipboard
+set clipboard+=unnamedplus " vim uses OS clipboard
 set number "show line number
 set list "show invisibles
 set listchars=tab:▸\ ,eol:¬
@@ -581,3 +581,9 @@ set exrc
 
 let g:user_emmet_leader_key=','
 
+
+" LEDGER
+"
+let g:ledger_extra_options = '--pedantic --explicit --check-payees'
+au FileType ledger noremap { ?^\d<CR>
+au FileType ledger noremap } /^\d<CR>
