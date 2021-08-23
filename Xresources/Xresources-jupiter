@@ -1,8 +1,16 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                             X.org                                           !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Xcursor.size: 16
 
-! xterm configs
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                             Xterm                                           !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 Xterm.termName: xterm-256color
 
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                             urxvt general                                   !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! do not scroll with output
 URxvt*scrollTtyOutput: false
 
@@ -16,43 +24,37 @@ URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,matcher
 URxvt.url-select.underline: true
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
-URxvt.keysym.M-u:           perl:url-select:select_next
-URxvt.keysym.M-Escape:      perl:keyboard-select:activate
-URxvt.keysym.M-s:           perl:keyboard-select:search
 
 ! scrollback buffer in secondary screen to prevent smtng like less to not scroll
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
-! general configs
-URxvt.font: xft:Cascadia Code:style=Semibold:antialias=true:size=18, \
-            xft:DejaVu Sans Mono:style=Semibold:antialias=true:size=10, \
-            xft:DejaVu Sans Mono for Powerline:style=Bold:size=10, \
-            xft:Noto Sans Mono:style=Bold:size=10, \
-            xft:Hack:style=Bold:size=10
-!           xft:Droid Sans Mono:style=Regular:size=12
-!
-!            xft:PowerlineSymbols:style=Medium:antialias=true:size=16
-
-! URxvt.font:xft:dejavu sans mono:medium:pixelsize=16, \
-!              xft:WenQuanYi Bitmap Song:size=8, \
-!              xft:FreeSerif:style=Regular, \
-!              xft:unifont:style=Medium:antialias=false, \
-!              xft:Serif:style=Regular, \
 URxvt.saveLines: 200000
-URxvt.keysym.Shift-Control-V: eval:paste_clipboard
-URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
-! Clear scrollback
-URxvt.keysym.Control-l: command:\033c
-! this 2 configs are for the ctrl+shift shurtcuts be available
-URxvt.iso14755: false
-URxvt.iso14755_52: false
+URxvt.loginShell:            true
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                             urxvt KEY MAPPINGS                              !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! shortcuts to make ctrl+arrow works
 URxvt.keysym.Control-Up:     \033[1;5A
 URxvt.keysym.Control-Down:   \033[1;5B
 URxvt.keysym.Control-Left:   \033[1;5D
 URxvt.keysym.Control-Right:  \033[1;5C
-URxvt.loginShell:            true
+! this 2 configs are for the ctrl+shift shurtcuts be available
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+! copy paste behavior
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+! Clear scrollback
+URxvt.keysym.Control-l: command:\033c
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                            urxvt  VISUAL                                    !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 ! Dracula Xresources palette
 URxvt.foreground: #F8F8F2
 URxvt.background: #282A36
@@ -109,3 +111,10 @@ URxvt.color15:    #E6E6E6
 ! white
 *.color7:       #c5c8c6
 *.color15:      #ffffff
+
+! font configs
+URxvt.font: xft:DejaVu Sans Mono:style=Book:antialias=true:size=10, \
+            xft:Cascadia Code:style=Semibold:antialias=true:size=18, \
+            xft:DejaVu Sans Mono for Powerline:style=Bold:size=10, \
+            xft:Noto Sans Mono:style=Bold:size=10, \
+            xft:Hack:style=Bold:size=10
