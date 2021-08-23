@@ -22,6 +22,7 @@
 (straight-use-package '(org :type built-in))
 (straight-use-package 'org-contrib)
 (straight-use-package 'haskell-mode)
+(straight-use-package 'magit)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                  packages                                      ;;
@@ -54,7 +55,7 @@
   :config
   (load-theme 'dracula t))
 
-(set-face-attribute 'default nil :font "Source Code Pro:Semibold 16")
+(set-face-attribute 'default nil :font "DejaVu Sans Mono 10")
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                  file backups / autosave                       ;;

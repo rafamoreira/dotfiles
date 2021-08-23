@@ -4,3 +4,6 @@
 [submodule "zsh.custom/themes/pure"]
 	path = zsh.custom/themes/pure
 	url = git@github.com:sindresorhus/pure.git
+[submodule "alacritty/themes/base16"]
+	path = alacritty/themes/base16
+	url = https://github.com/aarowill/base16-alacritty
