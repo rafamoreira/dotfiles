@@ -30,7 +30,7 @@ font pango:Cascadia Code 9
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty 
+bindsym $mod+Return exec alacritty
 # bindsym $mod+Return exec i3-sensible-terminal
 # bindsym $mod+Return exec urxvt -cd "`xcwd`"
 
@@ -208,9 +208,9 @@ bar {
   output DP-0
   tray_output DP-0
   # status_command i3status
-  status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config 
+  status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config
   # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:Cascadia Code 14
+  font pango:Cascadia Code 10
 }
 
 bar {
@@ -218,7 +218,7 @@ bar {
   tray_output DP-0
 
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:Cascadia Code 12
+  font pango:Cascadia Code 6
 
   status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
 }
@@ -229,7 +229,7 @@ bar {
   tray_output DP-0
 
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:Cascadia Code 12
+  font pango:Cascadia Code 6
 
   status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
 }
@@ -277,11 +277,6 @@ mode "$mode_picom" {
   bindsym k exec --no-startup-id pkill picom, mode "default"
 }
 bindsym $mod+Control+p mode "$mode_picom"
-
-# start compton
-# bindsym $mod+Control+p 
-# # # kill compton
-# bindsym $mod+Control+o exec --no-startup-id pkill picom 
 
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
