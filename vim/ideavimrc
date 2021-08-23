@@ -3,7 +3,6 @@ set visualbell
 set NERDTree
 set surround
 
-
 " WHICH KEY
 set which-key
 " disable the timeout option

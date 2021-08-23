@@ -1,7 +1,6 @@
 "Specify a directory for plugins (for Neovim: ~/.local/share/nvim/plugged)
 call plug#begin('~/.vim/plugged')
 " Make sure you use single quotes
-Plug 'flazz/vim-colorschemes'
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-rails'
 Plug 'mattn/emmet-vim'
@@ -31,7 +30,10 @@ Plug 'dracula/vim'
 "Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-syntastic/syntastic'
 Plug 'ledger/vim-ledger'
-
+" themes
+Plug 'chriskempson/base16-vim'
+Plug 'NLKNguyen/papercolor-theme'
+Plug 'flazz/vim-colorschemes'
 " Initialize plugin system
 call plug#end()
 
@@ -362,6 +364,9 @@ set t_Co=256
 set background=dark
 let g:dracula_colorterm = 0
 colorscheme dracula_pro
+" colorscheme base16-synth-midnight-dark
+" colorscheme PaperColor
+
 set guifont=DejaVu\ Sans\ Mono\ 14
 
 """"""""""""""""""""""
