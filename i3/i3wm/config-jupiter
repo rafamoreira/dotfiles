@@ -4,15 +4,15 @@
 
 set $mod Mod4
 
-font pango:MxPlus IBM VGA 9x16 8
+font pango:MxPlus IBM VGA 9x16 12
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec alacritty
+# bindsym $mod+Return exec alacritty
 # bindsym $mod+Return exec i3-sensible-terminal
-# bindsym $mod+Return exec urxvt -cd "`xcwd`"
+bindsym $mod+Return exec urxvt -cd "`xcwd`"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -182,14 +182,14 @@ bar {
   tray_output DP-0
   status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:MxPlus IBM VGA 9x16 10
+  font pango:MxPlus IBM VGA 9x16 16
 }
 
 bar {
   output HDMI-0
   tray_output DP-0
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:MxPlus IBM VGA 9x16 7
+  font pango:MxPlus IBM VGA 9x16 12
   status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
 }
 
@@ -197,7 +197,7 @@ bar {
   output DP-4
   tray_output DP-0
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:MxPlus IBM VGA 9x16 7
+  font pango:MxPlus IBM VGA 9x16 12
   status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
 }
 
