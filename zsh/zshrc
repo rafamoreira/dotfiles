@@ -154,16 +154,6 @@ bindkey "^N" down-line-or-beginning-search
 ################################################################################
 setopt nohup # Don't send SIGHUP to background processes when the shell exits.
 
-################################################################################
-#                            COMMON ALIASES                                    #
-################################################################################
-alias ls="command ls --color=auto -h" # ls colors
-alias l="ls -lah"
-# alias startx="xinit $HOME/.xinitrc $2"
-alias rds_dump="pg_dump -h antonov.mobbiz.com.br -U gigaservices -F c -v"
-alias easy_restore="pg_restore -h localhost -U postgres -x -c -v -O -d "
-alias pg_docker_restore="pg_restore -h localhost -p 5432 -U postgres -x -c -v -O -d "
-alias ssh="TERM=xterm-256color ssh" # this shit fixes alacritty non standard TERMINFO
 
 ################################################################################
 #                            PATH                                              #
@@ -199,7 +189,21 @@ source "$HOME/.zsh/wakatime/wakatime.plugin.zsh"
 
 export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
-# PROJECT ALIASES
+################################################################################
+#                            ALIASES                                           #
+################################################################################
+alias ls="command ls --color=auto -h" # ls colors
+alias l="ls -lah"
+# alias startx="xinit $HOME/.xinitrc $2"
+alias rds_dump="pg_dump -h antonov.mobbiz.com.br -U gigaservices -F c -v"
+alias easy_restore="pg_restore -h localhost -U postgres -x -c -v -O -d "
+alias pg_docker_restore="pg_restore -h localhost -p 5432 -U postgres -x -c -v -O -d "
+alias ssh="TERM=xterm-256color ssh" # this shit fixes alacritty non standard TERMINFO
 
+# intempus aliases
 alias py3_make_migration="docker exec -it dev-django python3 ./manage.py makemigrations"
 alias py2_make_migration="docker exec -it dev-django python ./manage.py makemigrations"
+
+# ledger aliases
+alias itau_txt_convert="reckon --csv-separator=';' --date-format '%d/%m/%Y' --date-column 1 --money-column 3 -c 'R$' --account 'Assets:Bank:Itau' -o ~/finances/main.dat -t tokens.yaml --comma-separates-cents -l ~/finances/main.dat -f itau.txt"
+alias bradesco_ofx_convert="ledger-autosync -l ~/finances/main.dat --fid 000 --account Assets:Bank:Bradesco bradesco.ofx >> bradesco.dat"

@@ -113,8 +113,8 @@ URxvt.color15:    #E6E6E6
 *.color15:      #ffffff
 
 ! font configs
-URxvt.font: xft:DejaVu Sans Mono:style=Book:antialias=true:size=10, \
-            xft:Cascadia Code:style=Semibold:antialias=true:size=18, \
-            xft:DejaVu Sans Mono for Powerline:style=Bold:size=10, \
-            xft:Noto Sans Mono:style=Bold:size=10, \
-            xft:Hack:style=Bold:size=10
+URxvt.font: xft:DejaVu Sans Mono:style=Book:antialias=true:size=16
+!             xft:Cascadia Code:style=Semibold:antialias=true:size=18, \
+!             xft:DejaVu Sans Mono for Powerline:style=Bold:size=10, \
+!             xft:Noto Sans Mono:style=Bold:size=10, \
+!             xft:Hack:style=Bold:size=10
