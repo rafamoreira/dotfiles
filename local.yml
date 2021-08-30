@@ -176,3 +176,12 @@
         owner: rmc
         group: rmc
         state: link
+
+
+    - name: link tmux config 
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/tmux/tmux.conf
+        dest: /home/rmc/.tmux.conf
+        owner: rmc
+        group: rmc
+        state: link
