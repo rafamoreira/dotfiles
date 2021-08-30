@@ -168,3 +168,11 @@
         owner: rmc
         group: rmc
         state: link
+
+    - name: link nvim directory
+      ansible.builtin.file:
+        src: /home/rmc/dotfiles/nvim
+        dest: /home/rmc/.config/nvim
+        owner: rmc
+        group: rmc
+        state: link
