@@ -1,15 +1,9 @@
 My dotfiles compilation
 
-There is some really old "legacy" stuff that I don't use anymore, but is kept here as history.
+There are some really old "legacy" stuff both on bootstrap/ and jurassic_stuff/ that I don't use anymore, but is kept here as history.
 
-This repository has been reset on 31/12/2018. The old repository lives on https://github.com/rafamoreira/dotfiles-old
 
 # Especifics
 
 ## Ansible
-There's a still incomplete playbook on the root of the directory that should bootstrap some configs on a fresh install more on that to come
-
-## Tilix
-Tilix uses dconf, so to import back the configs you have to do a `dconf load /com/gexperts/Tilix/ < tilix.conf` and `dconf dump /com/gexperts/Tilix > tilix.conf` to export.
-
-
+WIP playbooks for setting up workstation and servers
