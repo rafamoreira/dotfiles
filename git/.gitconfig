@@ -15,3 +15,5 @@
   defaultBranch = master
 [diff]
 	tool = vimdiff
+[credential]
+	helper = cache --timeout=604800
