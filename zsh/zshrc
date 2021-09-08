@@ -170,7 +170,8 @@ case $TERM in
 #                            PLUGINS                                           #
 ################################################################################
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
 
 if [ -f ~/.config/using-keychain ]; then
   eval $(keychain --eval id_rsa intempus_id_rsa)
