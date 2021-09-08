@@ -1,0 +1,83 @@
+---
+- hosts: arch_remote
+  become: true
+
+  roles:
+  - kewlfft.aur
+
+  tasks:
+    
+    - name: Run the equivalent of "pacman -Syu" as a separate step
+      community.general.pacman:
+        update_cache: yes
+        upgrade: yes
+        
+    - name: install base packages
+      package:
+        name:
+          - htop
+          - tmux
+          - vim
+          - zsh
+          - fzf
+          - ufw
+
+    - name: Make sure a ufw is running and enabled
+      ansible.builtin.systemd:
+        state: started
+        enabled: yes
+        name: ufw
+          
+    - name: Ensure group deploy_group exists
+      ansible.builtin.group:
+        name: "{{ deploy_group }}"
+        state: present
+        gid: 1000
+
+    - name: Ensure group wheel exists
+      ansible.builtin.group:
+        name: wheel
+        state: present
+
+    - name: create deploy user
+      ansible.builtin.user:
+        name: "{{ deploy_user }}"
+        shell: /bin/zsh
+        create_home: yes
+        uid: 1000
+        group: "{{ deploy_group }}"
+        groups: "wheel"
+        append: yes
+        generate_ssh_key: yes
+        ssh_key_bits: 4096
+        ssh_key_file: .ssh/id_rsa
+
+    - name: Set authorized key without validating the TLS/SSL certificates
+      ansible.posix.authorized_key:
+        user: "{{ deploy_user }}"
+        state: present
+        key: https://github.com/rafamoreira.keys
+        validate_certs: False
+
+    - name: link zshrc
+      ansible.builtin.copy:
+        src: "{{ playbook_dir }}/zsh/zshrc"
+        dest: "{{ home_dir }}/.zshrc"
+        owner: "{{ deploy_user }}"
+        group: "{{ deploy_user }}"
+
+    - name: link zprofile
+      ansible.builtin.copy:
+        src: "{{ playbook_dir }}/zsh/zprofile"
+        dest: "{{ home_dir }}/.zprofile"
+        owner: "{{ deploy_user }}"
+        group: "{{ deploy_user }}"
+
+    - name: link tmux config
+      ansible.builtin.copy:
+        src: "{{ playbook_dir }}/tmux/tmux.conf"
+        dest: "{{ home_dir }}/.tmux.conf"
+        owner: "{{ deploy_user }}"
+        group: "{{ deploy_user }}"
+
+

@@ -1,2 +1,9 @@
 ---
-- name: kewlfft.aur
+roles:
+  - name: kewlfft.aur
+
+collections:
+  - community.general
+  - ansible.posix
+  
+
