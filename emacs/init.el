@@ -63,6 +63,13 @@
   (global-set-key (kbd "M-p") 'helm-projectile)
   (global-set-key (kbd "M-,") 'helm-projectile-ag)
   )
+
+(use-package yaml-mode
+  :straight t
+  :config
+  (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
+  )
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                               visual                                       ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;

@@ -1,1 +1,1 @@
-("~/finances/" "~/code/intempus/django/" "~/dotfiles/")
+("~/code/intempus/django/" "~/dotfiles/" "~/code/" "~/finances/")
