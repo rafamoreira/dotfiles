@@ -192,6 +192,10 @@ if [ -f ~/.config/using-wakatime ]; then
   source "$HOME/.zsh/wakatime/wakatime.plugin.zsh"
 fi
 
+if [ -f ~/.config/using-chruby ]; then
+  source /usr/local/share/chruby/chruby.sh
+fi
+
 export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 ################################################################################
