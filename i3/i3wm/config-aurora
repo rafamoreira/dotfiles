@@ -30,8 +30,8 @@ font pango:Source Code Pro 10
 floating_modifier $mod
 
 # start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec alacritty
+bindsym $mod+Return exec urxvt
+# bindsym $mod+Return exec 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -198,7 +198,7 @@ bar {
   tray_output eDP-1
   status_command i3status
   output HDMI-1
-  font pango:Source Code Pro 8
+  font pango:Source Code Pro 10
 }
 
 # xrandr configs
@@ -211,9 +211,9 @@ bar {
 # bindsym $mod+F12 exec "xrandr --output eDP1 --off"
 
 # all horizontal displays
-exec_always --no-startup-id xrandr --output eDP1 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --output HDMI1 --mode 1366x768 --pos 0x312 --rotate normal --output VIRTUAL1 --off
+# exec_always --no-startup-id xrandr --output eDP1 --primary --mode 1920x1080 --pos 1366x0 --rotate normal --output HDMI1 --mode 1366x768 --pos 0x312 --rotate normal --output VIRTUAL1 --off
 # alttab confs
-exec_always alttab -d 1 -vp total
+# exec_always alttab -d 1 -vp total
 
 
 # -option "grp:ctrl_alt_toggle" 

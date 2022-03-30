@@ -39,6 +39,8 @@ udiskie --tray &
 # autostart utility
 dex -a &
 
+pasystray &
+
 xmodmap $HOME/.xmodmap
 
 # config from arch wiki

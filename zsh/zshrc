@@ -14,7 +14,7 @@ setopt complete_in_word # not just at the end
 autoload -Uz promptinit
 promptinit
 
-source "$HOME/.zsh/zsh-git-prompt/zshrc.sh"
+source "/usr/lib/zsh-git-prompt/zshrc.sh"
 PROMPT='%F{green}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f %# '
 RPROMPT='$(git_super_status)'
 
@@ -173,9 +173,7 @@ case $TERM in
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
-if [ -f ~/.config/using-keychain ]; then
-  eval $(keychain --eval id_rsa intempus_id_rsa)
-fi
+eval $(keychain --eval id_rsa intempus_id_rsa)
 
 if [ -f ~/.config/using-rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
