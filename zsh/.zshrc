@@ -14,7 +14,7 @@ setopt complete_in_word # not just at the end
 autoload -Uz promptinit
 promptinit
 
-source "/usr/lib/zsh-git-prompt/zshrc.sh"
+source "/Users/rmc/.local/opt/zsh-git-prompt/zshrc.sh"
 PROMPT='%F{green}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f %# '
 RPROMPT='$(git_super_status)'
 
@@ -170,8 +170,8 @@ case $TERM in
 #                            PLUGINS                                           #
 ################################################################################
 
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
+# source /usr/share/fzf/completion.zsh
+# source /usr/share/fzf/key-bindings.zsh
 
 eval $(keychain --eval id_rsa intempus_id_rsa)
 
@@ -216,5 +216,18 @@ alias git_clean_unused_branches='git branch --merged | egrep -v "(^\*|master|dev
 # ledger aliases
 alias itau_txt_convert="reckon --csv-separator=';' --date-format '%d/%m/%Y' --date-column 1 --money-column 3 -c 'R$' --account 'Assets:Bank:Itau' -o ~/finances/main.dat -t tokens.yaml --comma-separates-cents -l ~/finances/main.dat -f itau.txt"
 alias bradesco_ofx_convert="ledger-autosync -l ~/finances/main.dat --fid 000 --account Assets:Bank:Bradesco bradesco.ofx >> bradesco.dat"
+
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+    source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
+  ;;
+  Linux)
+    # commands for Linux go here
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
