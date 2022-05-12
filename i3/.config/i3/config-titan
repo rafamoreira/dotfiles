@@ -17,7 +17,7 @@ set $mod Mod4
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-font pango:Source Code Pro 10
+font pango:Noto Sans 10
 
 # Before i3 v4.8, we used to recommend this one as the default:
 # font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
@@ -30,8 +30,7 @@ font pango:Source Code Pro 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
-# bindsym $mod+Return exec 
+bindsym $mod+Return exec alacritty --working-directory="`xcwd`"
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -187,19 +186,20 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  tray_output eDP-1
-  status_command i3status
-  output eDP-1
+  tray_output eDP
+  status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config
+  output eDP
   # status_command SCRIPT_DIR=~/opt/i3blocks-contrib i3blocks
   font pango:Source Code Pro 10
 }
 
 bar {
-  tray_output eDP-1
+  tray_output eDP 
   status_command i3status
-  output HDMI-1
+  output DisplayPort-0
   font pango:Source Code Pro 10
 }
+
 
 # xrandr configs
 # exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --right-of DisplayPort-1 --output DVI-D-0 --auto --left-of DisplayPort-1

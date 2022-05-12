@@ -180,11 +180,9 @@ if [ -f ~/.config/using-rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
-if [ -f ~/.config/using-nvm ]; then
-  export NVM_DIR="$HOME/.nvm"
-  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-fi
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 if [ -f ~/.config/using-wakatime ]; then
   source "$HOME/.zsh/wakatime/wakatime.plugin.zsh"
@@ -216,3 +214,5 @@ alias clean_unused_branches='git branch --merged | egrep -v "(^\*|master|dev)" |
 # ledger aliases
 alias itau_txt_convert="reckon --csv-separator=';' --date-format '%d/%m/%Y' --date-column 1 --money-column 3 -c 'R$' --account 'Assets:Bank:Itau' -o ~/finances/main.dat -t tokens.yaml --comma-separates-cents -l ~/finances/main.dat -f itau.txt"
 alias bradesco_ofx_convert="ledger-autosync -l ~/finances/main.dat --fid 000 --account Assets:Bank:Bradesco bradesco.ofx >> bradesco.dat"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
