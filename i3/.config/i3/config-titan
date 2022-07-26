@@ -200,10 +200,20 @@ bar {
   font pango:Source Code Pro 10
 }
 
+bar {
+  tray_output eDP 
+  status_command i3status
+  output DisplayPort-1
+  font pango:Source Code Pro 10
+}
+
 
 # xrandr configs
 # exec --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --right-of DisplayPort-1 --output DVI-D-0 --auto --left-of DisplayPort-1
 # exec_always --no-startup-id xrandr --output DisplayPort-1 --auto --primary --output HDMI-A-1 --auto --left-of DisplayPort-1
+
+exec_always --no-startup-id xrandr --output eDP --primary --mode 1920x1080 --pos 2560x0 --rotate normal --output DisplayPort-0 --mode 2560x1440 --pos 4480x0 --rotate normal --output DisplayPort-1 --mode 2560x1440 --pos 0x0 --rotate normal
+
 
 # exec_always --no-startup-id xrandr --output DisplayPort-1 --primary --mode 3840x2160 --pos 1920x0 --rotate normal --output DisplayPort-0 --off --output DVI-D-0 --off --output HDMI-A-1 --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-A-0 --mode 1920x1080 --pos 5760x240 --rotate left
 
@@ -216,7 +226,6 @@ bar {
 # exec_always alttab -d 1 -vp total
 
 
-# -option "grp:ctrl_alt_toggle" 
 
 # bindsym Mod1+Tab exec quickswitch
 
@@ -286,7 +295,7 @@ exec --no-startup-id flatpak run com.spotify.Client
 exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
 
 #Keyboard settings
-exec setxkbmap -layout "us" -option "ctrl:nocaps" 
+exec setxkbmap -layout "us" -option "ctrl:nocaps"
 
 bindsym $mod+Control+Shift+i mode $keyboardMode
 set $keyboardMode "keyboard b=us intl, u=us"
