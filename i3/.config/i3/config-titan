@@ -129,9 +129,13 @@ bindsym $mod+Shift+0 move container to workspace $workspace10
 
 bindsym $mod+Mod1+h move workspace to output left
 bindsym $mod+Mod1+l move workspace to output right
+bindsym $mod+Mod1+j move workspace to output up
+bindsym $mod+Mod1+k move workspace to output down
 
 bindsym $mod+Mod1+Left move workspace to output left
 bindsym $mod+Mod1+Right move workspace to output right
+bindsym $mod+Mod1+Up move workspace to output up
+bindsym $mod+Mod1+Down move workspace to output down
 
 assign [class="Terminator"]    $workspace1
 assign [class="Alacritty"]    $workspace1
