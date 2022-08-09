@@ -198,7 +198,7 @@ bar {
 }
 
 bar {
-  tray_output eDP 
+  tray_output primary
   status_command i3status
   output DisplayPort-0
   font pango:Source Code Pro 10

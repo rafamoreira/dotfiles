@@ -17,3 +17,5 @@
 	tool = vimdiff
 [credential]
 	helper = cache --timeout=604800
+[push]
+	autoSetupRemote = true
