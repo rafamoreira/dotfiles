@@ -231,4 +231,6 @@ case `uname` in
   ;;
 esac
 
+alias githash="git rev-parse HEAD"
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
