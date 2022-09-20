@@ -11,10 +11,24 @@ setopt complete_in_word # not just at the end
 ################################################################################
 #                            PROMPT                                            #
 ################################################################################
+
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+    source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
+  ;;
+  Linux)
+    # commands for Linux go here
+    source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
+
+alias githash="git rev-parse HEAD"
 autoload -Uz promptinit
 promptinit
-
-source "/Users/rmc/.local/opt/zsh-git-prompt/zshrc.sh"
 PROMPT='%F{green}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f %# '
 RPROMPT='$(git_super_status)'
 
@@ -218,19 +232,5 @@ alias itau_txt_convert="reckon --csv-separator=';' --date-format '%d/%m/%Y' --da
 alias bradesco_ofx_convert="ledger-autosync -l ~/finances/main.dat --fid 000 --account Assets:Bank:Bradesco bradesco.ofx >> bradesco.dat"
 alias vim=nvim
 
-case `uname` in
-  Darwin)
-    # commands for OS X go here
-    source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
-  ;;
-  Linux)
-    # commands for Linux go here
-  ;;
-  FreeBSD)
-    # commands for FreeBSD go here
-  ;;
-esac
-
-alias githash="git rev-parse HEAD"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
