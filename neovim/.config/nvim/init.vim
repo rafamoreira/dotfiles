@@ -3,13 +3,14 @@ scriptencoding utf-8
 
 call plug#begin()
   " Make sure you use single quotes
+  Plug 'dense-analysis/ale'
+  Plug 'github/copilot.vim'
+  Plug 'junegunn/fzf.vim'
   Plug 'mattn/emmet-vim'
   Plug 'scrooloose/nerdcommenter'
-  Plug 'dense-analysis/ale'
-  Plug 'junegunn/fzf.vim'
-  Plug 'wakatime/vim-wakatime'
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'wakatime/vim-wakatime'
   " themes
   " Initialize plugin system
 call plug#end()
