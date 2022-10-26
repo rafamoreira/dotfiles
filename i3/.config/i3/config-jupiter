@@ -6,6 +6,8 @@ set $mod Mod4
 
 font pango:MxPlus IBM VGA 9x16 12
 
+exec --no-startup-id /home/rmc/.screenlayout/default.sh
+
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
@@ -180,26 +182,10 @@ bindsym $mod+r mode "resize"
 
 bar {
   output DP-0
-  tray_output DP-0
+  tray_output primary
   status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config
   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
   font pango:MxPlus IBM VGA 9x16 16
-}
-
-bar {
-  output HDMI-0
-  tray_output DP-0
-  font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:MxPlus IBM VGA 9x16 12
-  status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
-}
-
-bar {
-  output DP-4
-  tray_output DP-0
-  font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-  font pango:MxPlus IBM VGA 9x16 12
-  status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config-clean
 }
 
 # alttab confs
@@ -270,10 +256,11 @@ smart_borders on
 exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
 
 bindsym $mod+Control+Shift+i mode $keyboardMode
-set $keyboardMode "keyboard i=us intl, u=us, b=br m=modelM"
+set $keyboardMode "keyboard i=us intl, u=us, b=br m=modelM, d=DK"
 mode $keyboardMode {
     bindsym i exec "setxkbmap us intl", mode "default"
     bindsym u exec "setxkbmap us", mode "default"
+    bindsym d exec "setxkbmap dk -option 'ctrl:nocaps'", mode "default"
     bindsym b exec "setxkbmap -option; setxkbmap br -option 'ctrl:nocaps'", mode "default"
     bindsym m exec "setxkbmap -option; setxkbmap br -variant 'thinkpad' -option 'caps:super'", mode "default"
     # bindsym e exec "setxkbmap gb", mode "default"

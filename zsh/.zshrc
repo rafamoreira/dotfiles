@@ -111,7 +111,7 @@ bindkey "^[m" copy-prev-shell-word
 #                            HISTORY SETTINGS                                  #
 ################################################################################
 HISTSIZE=500000                 # How many lines of history to keep in memory
-SAVEHIST=100000                 # Number of history entries to save to disk
+SAVEHIST=500000                 # Number of history entries to save to disk
 HISTFILE="$HOME/.zsh_history"  # Where to save history to disk
 
 setopt extended_history
@@ -187,7 +187,7 @@ case $TERM in
 # source /usr/share/fzf/completion.zsh
 # source /usr/share/fzf/key-bindings.zsh
 
-eval $(keychain --eval id_rsa intempus_id_rsa)
+eval $(keychain --eval id_rsa intempus_id_rsa id_rsa_intempus)
 
 if [ -f ~/.config/using-rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"

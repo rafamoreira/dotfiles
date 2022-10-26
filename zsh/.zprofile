@@ -3,4 +3,15 @@ if [ -f ~/.config/using-alacritty ]; then
   export TERMINAL=alacritty
 fi
 
-eval "$(/opt/homebrew/bin/brew shellenv)"
+case `uname` in
+  Darwin)
+    # commands for OS X go here
+	eval "$(/opt/homebrew/bin/brew shellenv)"
+  ;;
+  Linux)
+    # commands for Linux go here
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
