@@ -174,6 +174,7 @@ setopt nohup # Don't send SIGHUP to background processes when the shell exits.
 ################################################################################
 # export PATH=$HOME/.local/bin:$HOME/.pyenv/bin:$PATH
 
+# I don't know why this is here, but it's here.
 case $TERM in
     xterm*)
         precmd () {print -Pn "\e]0;%n@%m: %~\a"}
@@ -194,9 +195,9 @@ if [ -f ~/.config/using-rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 if [ -f ~/.config/using-wakatime ]; then
   source "$HOME/.zsh/wakatime/wakatime.plugin.zsh"
@@ -210,7 +211,7 @@ fi
 
 # eval "$(pyenv virtualenv-init -)"
 
-export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
+# export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
 ################################################################################
 #                            ALIASES                                           #
@@ -218,14 +219,11 @@ export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_P
 alias ls="command ls --color=auto -h" # ls colors
 alias l="ls -lah"
 # alias startx="xinit $HOME/.xinitrc $2"
-alias rds_dump="pg_dump -h antonov.mobbiz.com.br -U gigaservices -F c -v"
-alias easy_restore="pg_restore -h localhost -U postgres -x -c -v -O -d "
-alias pg_docker_restore="pg_restore -h localhost -p 5432 -U postgres -x -c -v -O -d "
-alias ssh="TERM=xterm-256color ssh" # this shit fixes alacritty non standard TERMINFO
+# alias ssh="TERM=xterm-256color ssh" # this shit fixes alacritty non standard TERMINFO
 
 # intempus aliases
-alias py3_make_migration="docker exec -it dev-django python3 ./manage.py makemigrations"
-alias py2_make_migration="docker exec -it dev-django python ./manage.py makemigrations"
+# alias py3_make_migration="docker exec -it dev-django python3 ./manage.py makemigrations"
+# alias py2_make_migration="docker exec -it dev-django python ./manage.py makemigrations"
 
 alias git_clean_unused_branches='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 
