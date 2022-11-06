@@ -172,7 +172,7 @@ setopt nohup # Don't send SIGHUP to background processes when the shell exits.
 ################################################################################
 #                            PATH                                              #
 ################################################################################
-export PATH=$HOME/.local/bin:$HOME/.pyenv/bin:$PATH
+# export PATH=$HOME/.local/bin:$HOME/.pyenv/bin:$PATH
 
 case $TERM in
     xterm*)
@@ -206,7 +206,9 @@ if [ -f ~/.config/using-chruby ]; then
   source /usr/local/share/chruby/chruby.sh
 fi
 
-eval "$(pyenv init -)"
+# eval "$(pyenv init -)"
+
+# eval "$(pyenv virtualenv-init -)"
 
 export N_PREFIX="$HOME/.n"; [[ :$PATH: == *":$N_PREFIX/bin:"* ]] || PATH+=":$N_PREFIX/bin"  # Added by n-install (see http://git.io/n-install-repo).
 
