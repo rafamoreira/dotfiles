@@ -234,3 +234,7 @@ alias vim=nvim
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+#asdf
+. /opt/asdf-vm/asdf.sh
