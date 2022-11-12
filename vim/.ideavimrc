@@ -1,0 +1,17 @@
+set clipboard+=unnamedplus
+set visualbell
+set NERDTree
+set surround
+
+" WHICH KEY
+set which-key
+" disable the timeout option
+set notimeout
+"" " increase the timeoutlen (default: 1000)
+set timeoutlen = 5000
+let g:WhichKey_ShowVimActions = "true"
+
+let mapleader = ","
+nnoremap <leader>vv :action org.jetbrains.plugins.ruby.rails.actions.navigation.SwitchToView<CR>
+map <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>r :action Replace<CR>
