@@ -29,7 +29,7 @@ export SSH_AUTH_SOCK
 
 #setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
 #setxkbmap -layout "br" -option "ctrl:nocaps"
-setxkbmap -layout "us-acentos" -option "ctrl:nocaps"
+setxkbmap -layout "us" -option "ctrl:nocaps"
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 

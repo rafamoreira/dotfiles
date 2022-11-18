@@ -188,7 +188,7 @@ case $TERM in
 # source /usr/share/fzf/completion.zsh
 # source /usr/share/fzf/key-bindings.zsh
 
-eval $(keychain --eval id_rsa intempus_id_rsa id_rsa_intempus)
+eval $(keychain --timeout 540 --eval id_rsa intempus_id_rsa id_rsa_intempus)
 
 if [ -f ~/.config/using-rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
