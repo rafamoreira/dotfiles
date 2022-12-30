@@ -327,6 +327,7 @@ globalkeys = gears.table.join(
     -- Menubar
     awful.key({ modkey }, "p", function() menubar.show() end,
               {description = "show the menubar", group = "launcher"})
+
 )
 
 clientkeys = gears.table.join(
@@ -370,7 +371,12 @@ clientkeys = gears.table.join(
             c.maximized_horizontal = not c.maximized_horizontal
             c:raise()
         end ,
-        {description = "(un)maximize horizontally", group = "client"})
+        {description = "(un)maximize horizontally", group = "client"}),
+
+    awful.key({ modkey,           }, "o",      function (c) c.sticky = not c.sticky            end,
+              {description = "toggle sticky", group = "client"})
+
+
 )
 
 -- Bind all key numbers to tags.
@@ -562,3 +568,4 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
