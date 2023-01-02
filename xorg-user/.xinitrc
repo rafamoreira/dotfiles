@@ -39,7 +39,7 @@ udiskie --tray &
 # autostart utility
 dex -a &
 
-pasystray &
+# pasystray &
 
 xmodmap $HOME/.xmodmap
 
