@@ -1,5 +1,4 @@
 tags
-vimfiles/plugged
 *~
 *.sw*
 .VimballRecord
@@ -23,3 +22,8 @@ sublime-text/.config/sublime-text-3/Cache/
 i3/.config/i3/config
 terminator/.config/terminator/plugins/terminator-themes.pyc
 inventories.yaml
+
+# ./vim/
+
+vim/.vim/vimundo
+vim/.vim/plugged
