@@ -70,6 +70,7 @@
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
   )
 
+
 (use-package evil
   :straight t
   :config
@@ -81,6 +82,13 @@
   :config
   (global-wakatime-mode)
   )
+
+(use-package beancount
+  :straight (el-patch :type git :host github :repo "beancount/beancount-mode")
+  :config
+  (add-to-list 'auto-mode-alist '("\\.beancount\\'" . beancount-mode))
+  )
+
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                               visual                                       ;;
@@ -134,6 +142,7 @@
 (use-package ledger-mode
   :straight t
   :config
+  (add-to-list 'auto-mode-alist '("\\.journal\\'" . ledger-mode))
   (add-hook 'ledger-mode-hook
           (lambda ()
             (setq-local tab-always-indent 'complete)
