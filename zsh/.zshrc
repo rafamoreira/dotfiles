@@ -29,7 +29,7 @@ esac
 alias githash="git rev-parse HEAD"
 autoload -Uz promptinit
 promptinit
-PROMPT='%F{green}%n%f@%F{magenta}%m%f %F{blue}%B%~%b%f %# '
+PROMPT='%F{green}%n%f@%F{magenta}%M%f %F{blue}%B%~%b%f %# '
 RPROMPT='$(git_super_status)'
 
 ################################################################################
