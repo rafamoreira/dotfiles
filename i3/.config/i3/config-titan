@@ -231,7 +231,7 @@ exec_always --no-startup-id xrandr --output eDP --primary --mode 1920x1080 --pos
 
 
 
-# bindsym Mod1+Tab exec quickswitch
+bindsym Mod1+Tab exec quickswitch
 
 set $Locker i3lock && sleep 1
 
