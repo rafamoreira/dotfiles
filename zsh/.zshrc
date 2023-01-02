@@ -172,7 +172,7 @@ setopt nohup # Don't send SIGHUP to background processes when the shell exits.
 ################################################################################
 #                            PATH                                              #
 ################################################################################
-# export PATH=$HOME/.local/bin:$HOME/.pyenv/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
 
 # I don't know why this is here, but it's here.
 case $TERM in
