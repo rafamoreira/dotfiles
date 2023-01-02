@@ -70,6 +70,18 @@
   (add-to-list 'auto-mode-alist '("\\.yml\\'" . yaml-mode))
   )
 
+(use-package evil
+  :straight t
+  :config
+  (evil-mode t)
+  )
+
+(use-package wakatime-mode
+  :straight t
+  :config
+  (global-wakatime-mode)
+  )
+
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                               visual                                       ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
