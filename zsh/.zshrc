@@ -26,6 +26,16 @@ case `uname` in
   ;;
 esac
 
+#machine specific stuff
+case $HOST in
+
+	"jupiter")
+		source "${ZDOTDIR:-${HOME}}/.zshrc-${HOST}"
+	;;
+	*)
+		source "${ZDOTDIR:-${HOME}}/.zshrc-general"
+esac
+
 alias githash="git rev-parse HEAD"
 autoload -Uz promptinit
 promptinit
@@ -188,7 +198,6 @@ case $TERM in
 # source /usr/share/fzf/completion.zsh
 # source /usr/share/fzf/key-bindings.zsh
 
-eval $(keychain --timeout 540 --eval id_rsa intempus_id_rsa id_rsa_intempus)
 
 if [ -f ~/.config/using-rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
