@@ -191,8 +191,10 @@ bar {
   font pango:MxPlus IBM VGA 9x16 16
 }
 
-# alttab confs
+# alt-tab confs
 exec_always alttab -d 1 -vp total
+
+# bindsym Mod1+Tab exec ~/.config/i3/tab_windows.sh
 
 # -option "grp:ctrl_alt_toggle"
 
