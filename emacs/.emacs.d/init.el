@@ -205,13 +205,10 @@
 ;; (use-package dap-LANGUAGE) to load the dap adapter for your language
 (straight-use-package 'lsp-haskell)
 
-(use-package lsp-python-ms
+(use-package lsp-pyright
   :straight t
-  :init (setq lsp-python-ms-auto-install-server t)
   :hook (python-mode . (lambda ()
-                          (require 'lsp-python-ms)
+                          (require 'lsp-pyright)
                           (lsp))))  ; or lsp-deferred
-
-
 
 
