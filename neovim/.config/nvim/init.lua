@@ -1,63 +1,146 @@
-vim.cmd([[
-]])
-require('plugins')
+-- This file can be loaded by calling `lua require('plugins')` from your init.vim
+-- Only required if you have packer configured as `opt`
+vim.cmd.packadd('packer.nvim')
 
+require('packer').startup(function(use)
+  -- Packer can manage itself
+  use 'wbthomason/packer.nvim'
+
+  use {
+      'nvim-telescope/telescope.nvim', tag = '0.1.0',
+      requires = { {'nvim-lua/plenary.nvim'} }
+  }
+
+  use 'Mofiqul/dracula.nvim'
+
+  use {
+      'nvim-treesitter/nvim-treesitter',
+      run = ':TSUpdate'
+  }
+
+  -- LSP
+  use {
+      'VonHeikemen/lsp-zero.nvim',
+      requires = {
+          -- LSP Support
+          {'neovim/nvim-lspconfig'},
+          {'williamboman/mason.nvim'},
+          {'williamboman/mason-lspconfig.nvim'},
+
+          -- Autocompletion
+          {'hrsh7th/nvim-cmp'},
+          {'hrsh7th/cmp-buffer'},
+          {'hrsh7th/cmp-path'},
+          {'saadparwaiz1/cmp_luasnip'},
+          {'hrsh7th/cmp-nvim-lsp'},
+          {'hrsh7th/cmp-nvim-lua'},
+
+          -- Snippets
+          {'L3MON4D3/LuaSnip'},
+          {'rafamadriz/friendly-snippets'},
+      }
+  }
+end)
+
+vim.g.mapleader = ','
+
+-- LSP
+
+local lsp = require('lsp-zero')
+lsp.preset('recommended')
+
+lsp.setup()
+
+-- telescope
+
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>pf', builtin.find_files, {})
+vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+vim.keymap.set('n', '<leader>ps', function()
+	builtin.grep_string({ search = vim.fn.input("Grep > ") })
+end)
+
+
+-- treesitter
+
+require'nvim-treesitter.configs'.setup {
+  -- A list of parser names, or "all" (the four listed parsers should always be installed)
+  ensure_installed = { "help", "c", "lua", "vim", "javascript", "python", "ruby" },
+
+  -- Install parsers synchronously (only applied to `ensure_installed`)
+  sync_install = false,
+
+  -- Automatically install missing parsers when entering buffer
+  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+  auto_install = true,
+
+  -- List of parsers to ignore installing (for "all")
+  -- ignore_install = { "javascript" },
+
+  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+
+  highlight = {
+    -- `false` will disable the whole extension
+    enable = true,
+
+    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+    -- the name of the parser)
+    -- list of language that will be disabled
+    -- disable = { "c", "rust" },
+    -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
+    -- disable = function(lang, buf)
+    --     local max_filesize = 100 * 1024 -- 100 KB
+    --     local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+    --     if ok and stats and stats.size > max_filesize then
+    --         return true
+    --     end
+    -- end,
+
+    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+    -- Using this option may slow down your editor, and you may see some duplicate highlights.
+    -- Instead of true it can also be a list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+
+-- visual  
+
+function ColorNvim(color)
+	color = color or "dracula"
+	vim.cmd.colorscheme(color)
+end
+ColorNvim()
 vim.opt.guicursor = "i:blinkon300-blinkoff10"
 
-local elixir = require("elixir")
 
-vim.g.colorscheme = dracula
+-- general configs
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.softtabstop = 4
+vim.opt.expandtab = true
+vim.opt.nu = true -- line numbers
+vim.opt.relativenumber = true
+vim.opt.smartindent = true
+vim.opt.hlsearch = false
+vim.opt.incsearch = true
+vim.opt.termguicolors = true
+vim.opt.scrolloff = 8
+vim.opt.signcolumn = "yes"
+vim.opt.isfname:append("@-@")
+vim.opt.updatetime = 50
+vim.opt.colorcolumn = "80"
 
-elixir.setup({
-  -- specify a repository and branch
-  -- repo = "ele/elixir-ls", -- defaults to elixir-lsp/elixir-ls
-  -- branch = "mh/all-workspace-symbols", -- defaults to nil, just checkouts out the default branch, mutually exclusive with the `tag` option
-  -- tag = "v0.12.0", -- defaults to nil, mutually exclusive with the `branch` option
-
-  -- alternatively, point to an existing elixir-ls installation (optional)
-  -- not currently supported by elixirls, but can be a table if you wish to pass other args `{"path/to/elixirls", "--foo"}`
-  -- cmd = "/usr/local/bin/elixir-ls.sh",
-
-  -- default settings, use the `settings` function to override settings
-  settings = elixir.settings({
-    dialyzerEnabled = true,
-    fetchDeps = false,
-    enableTestLenses = false,
-    suggestSpecs = false,
-  }),
-
-  on_attach = function(client, bufnr)
-    local map_opts = { buffer = true, noremap = true}
-
-    -- run the codelens under the cursor
-    vim.keymap.set("n", "<space>r",  vim.lsp.codelens.run, map_opts)
-    -- remove the pipe operator
-    vim.keymap.set("n", "<space>fp", ":ElixirFromPipe<cr>", map_opts)
-    -- add the pipe operator
-    vim.keymap.set("n", "<space>tp", ":ElixirToPipe<cr>", map_opts)
-    vim.keymap.set("v", "<space>em", ":ElixirExpandMacro<cr>", map_opts)
-
-    -- standard lsp keybinds
-    vim.keymap.set("n", "df", "<cmd>lua vim.lsp.buf.formatting_seq_sync()<cr>", map_opts)
-    vim.keymap.set("n", "gd", "<cmd>lua vim.diagnostic.open_float()<cr>", map_opts)
-    vim.keymap.set("n", "dt", "<cmd>lua vim.lsp.buf.definition()<cr>", map_opts)
-    vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>", map_opts)
-    vim.keymap.set("n", "gD","<cmd>lua vim.lsp.buf.implementation()<cr>", map_opts)
-    vim.keymap.set("n", "1gD","<cmd>lua vim.lsp.buf.type_definition()<cr>", map_opts)
-    -- keybinds for fzf-lsp.nvim: https://github.com/gfanto/fzf-lsp.nvim
-    -- you could also use telescope.nvim: https://github.com/nvim-telescope/telescope.nvim
-    -- there are also core vim.lsp functions that put the same data in the loclist
-    vim.keymap.set("n", "gr", ":References<cr>", map_opts)
-    vim.keymap.set("n", "g0", ":DocumentSymbols<cr>", map_opts)
-    vim.keymap.set("n", "gW", ":WorkspaceSymbols<cr>", map_opts)
-    vim.keymap.set("n", "<leader>d", ":Diagnostics<cr>", map_opts)
+-- vim.opt.swapfile = false
+vim.opt.backup = true
+vim.opt.backupdir = os.getenv("HOME") .. "/.vim/vimswp"
+vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undolevels=1000
+vim.opt.undoreload=10000
+vim.opt.undofile = true
 
 
-    -- keybinds for vim-vsnip: https://github.com/hrsh7th/vim-vsnip
-    vim.cmd([[imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']])
-    vim.cmd([[smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : '<C-l>']])
-
-    -- update capabilities for nvim-cmp: https://github.com/hrsh7th/nvim-cmp
-    require("cmp_nvim_lsp").update_capabilities(capabilities)
-  end
-})
+-- remaps
+vim.keymap.set('n', '<leader>pv', vim.cmd.Ex)
