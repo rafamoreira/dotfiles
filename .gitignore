@@ -27,3 +27,4 @@ inventories.yaml
 
 vim/.vim/vimundo
 vim/.vim/plugged
+vim/.vim/undodir
