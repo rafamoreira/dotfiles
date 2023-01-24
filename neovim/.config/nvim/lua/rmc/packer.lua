@@ -23,8 +23,13 @@ require('packer').startup(function(use)
     use "williamboman/mason-lspconfig.nvim"
     use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
 
-    use 'jose-elias-alvarez/null-ls.nvim'
-
+    use({
+        "jose-elias-alvarez/null-ls.nvim",
+        config = function()
+            require("null-ls").setup()
+        end,
+        requires = { "nvim-lua/plenary.nvim" },
+    })
     -- use 'mfussenegger/nvim-dap'
 
     --   use { 'neoclide/coc.nvim', branch = 'release', }
@@ -45,5 +50,32 @@ require('packer').startup(function(use)
       end
     }
 
+    -- Lua
+    use {
+        "folke/trouble.nvim",
+        requires = "nvim-tree/nvim-web-devicons",
+        config = function()
+            require("trouble").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
+    }
 
+        -- Autocompletion
+    use 'hrsh7th/nvim-cmp'         -- Required
+    use 'hrsh7th/cmp-nvim-lsp'     -- Required
+    use 'hrsh7th/cmp-buffer'       -- Optional
+    use 'hrsh7th/cmp-path'         -- Optional
+    use 'saadparwaiz1/cmp_luasnip' -- Optional
+    use 'hrsh7th/cmp-nvim-lua'     -- Optional
+
+    -- Snippets
+    use 'L3MON4D3/LuaSnip'             -- Required
+    use 'rafamadriz/friendly-snippets' -- Optional
+
+    use 'wakatime/vim-wakatime'
+
+    use 'github/copilot.vim'
 end)
