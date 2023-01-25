@@ -16,6 +16,7 @@ case `uname` in
   Darwin)
     # commands for OS X go here
     source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
+	test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
   ;;
   Linux)
     # commands for Linux go here
@@ -247,3 +248,5 @@ alias bradesco_ofx_convert="ledger-autosync -l ~/finances/main.dat --fid 000 --a
 
 #asdf
 . /opt/asdf-vm/asdf.sh
+
+
