@@ -78,4 +78,13 @@ require('packer').startup(function(use)
     use 'wakatime/vim-wakatime'
 
     use 'github/copilot.vim'
+
+    use 'cappyzawa/trim.nvim'
+    use {
+        'numToStr/Comment.nvim',
+        config = function()
+            require('Comment').setup()
+        end
+    }
+   use 'Vimjas/vim-python-pep8-indent'
 end)
