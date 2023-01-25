@@ -24,7 +24,8 @@ terminator/.config/terminator/plugins/terminator-themes.pyc
 inventories.yaml
 
 # ./vim/
-
 vim/.vim/vimundo
 vim/.vim/plugged
 vim/.vim/undodir
+
+neovim/.config/nvim/plugin/packer_compiled.lua
