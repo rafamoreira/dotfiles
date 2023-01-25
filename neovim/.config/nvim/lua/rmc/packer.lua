@@ -38,16 +38,16 @@ require('packer').startup(function(use)
     use 'tpope/vim-fugitive'
 
     use {
-      "folke/which-key.nvim",
-      config = function()
-        vim.o.timeout = true
-        vim.o.timeoutlen = 300
-        require("which-key").setup {
-          -- your configuration comes here
-          -- or leave it empty to use the default settings
-          -- refer to the configuration section below
-        }
-      end
+        "folke/which-key.nvim",
+        config = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+            require("which-key").setup {
+                -- your configuration comes here
+                -- or leave it empty to use the default settings
+                -- refer to the configuration section below
+            }
+        end
     }
 
     -- Lua
@@ -63,7 +63,7 @@ require('packer').startup(function(use)
         end
     }
 
-        -- Autocompletion
+    -- Autocompletion
     use 'hrsh7th/nvim-cmp'         -- Required
     use 'hrsh7th/cmp-nvim-lsp'     -- Required
     use 'hrsh7th/cmp-buffer'       -- Optional
@@ -86,5 +86,7 @@ require('packer').startup(function(use)
             require('Comment').setup()
         end
     }
-   use 'Vimjas/vim-python-pep8-indent'
+    use 'Vimjas/vim-python-pep8-indent'
+
+    use 'ActivityWatch/aw-watcher-vim'
 end)
