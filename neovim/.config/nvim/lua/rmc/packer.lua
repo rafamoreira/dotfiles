@@ -89,4 +89,16 @@ require('packer').startup(function(use)
     use 'Vimjas/vim-python-pep8-indent'
 
     use 'ActivityWatch/aw-watcher-vim'
+
+    use 'camspiers/animate.vim'
+    use 'camspiers/lens.vim'
+
+    -- use "beauwilliams/focus.nvim"
+    -- Or lazy load with `module` option. See further down for info on how to lazy load when using FocusSplit commands
+    -- Or lazy load this plugin by creating an arbitrary command using the cmd option in packer.nvim
+    -- use { 'beauwilliams/focus.nvim', cmd = { "FocusSplitNicely", "FocusSplitCycle" }, module = "focus",
+    --     config = function()
+    --         require("focus").setup({hybridnumber = true})
+    --     end
+    -- }
 end)
