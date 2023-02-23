@@ -1,6 +1,13 @@
 ################################################################################
 #                            COMPLETION                                        #
 ################################################################################
+case `uname` in
+	Darwin)
+		if type brew &>/dev/null; then
+    			FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH
+  		fi
+	;;
+esac
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select # interactive completion
@@ -247,6 +254,6 @@ alias vim=nvim
 
 
 #asdf
-. /opt/asdf-vm/asdf.sh
+[ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 
 
