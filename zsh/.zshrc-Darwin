@@ -2,4 +2,4 @@
 
 # source /usr/share/fzf/completion.zsh
 # source /usr/share/fzf/key-bindings.zsh
-source "/Users/rmc/.local/opt/zsh-git-prompt/zshrc.sh"
+source "$HOME/.local/shell/zsh-git-prompt/zshrc.sh"
