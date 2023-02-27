@@ -190,7 +190,7 @@ setopt nohup # Don't send SIGHUP to background processes when the shell exits.
 ################################################################################
 #                            PATH                                              #
 ################################################################################
-export PATH=$HOME/.local/bin:$PATH
+export PATH=$HOME/.local/bin:/home/rmc/.cargo/bin:$PATH
 
 # I don't know why this is here, but it's here.
 case $TERM in
@@ -248,6 +248,7 @@ alias git_clean_merged_branches='git branch --merged | grep -E -v "(^\*|master|d
 alias itau_txt_convert="reckon --csv-separator=';' --date-format '%d/%m/%Y' --date-column 1 --money-column 3 -c 'R$' --account 'Assets:Bank:Itau' -o ~/finances/main.dat -t tokens.yaml --comma-separates-cents -l ~/finances/main.dat -f itau.txt"
 alias bradesco_ofx_convert="ledger-autosync -l ~/finances/main.dat --fid 000 --account Assets:Bank:Bradesco bradesco.ofx >> bradesco.dat"
 alias vim=nvim
+alias timestamped_commit="git commit -am \"$(date)\" && git push"
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -255,5 +256,3 @@ alias vim=nvim
 
 #asdf
 [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
-
-
