@@ -1,1 +1,2 @@
-require('rmc.packer')
+require("rmc.remap")
+require("rmc.set")

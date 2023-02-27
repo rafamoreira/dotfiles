@@ -10,6 +10,7 @@ require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim', tag = '0.1.0',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+    use 'nvim-telescope/telescope-project.nvim'
 
     use 'Mofiqul/dracula.nvim'
 
@@ -32,9 +33,6 @@ require('packer').startup(function(use)
     })
     -- use 'mfussenegger/nvim-dap'
 
-    --   use { 'neoclide/coc.nvim', branch = 'release', }
-    --
-    --
     use 'tpope/vim-fugitive'
 
     use {
@@ -93,6 +91,15 @@ require('packer').startup(function(use)
     use 'camspiers/animate.vim'
     use 'camspiers/lens.vim'
 
+    use 'ledger/vim-ledger'
+
+
+    use {
+        'ethanholz/nvim-lastplace',
+        config = function()
+            require('nvim-lastplace').setup()
+        end
+    }
     -- use "beauwilliams/focus.nvim"
     -- Or lazy load with `module` option. See further down for info on how to lazy load when using FocusSplit commands
     -- Or lazy load this plugin by creating an arbitrary command using the cmd option in packer.nvim
@@ -101,4 +108,5 @@ require('packer').startup(function(use)
     --         require("focus").setup({hybridnumber = true})
     --     end
     -- }
+    use 'f-person/git-blame.nvim'
 end)
