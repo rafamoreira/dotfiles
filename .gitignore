@@ -29,3 +29,4 @@ vim/.vim/plugged
 vim/.vim/undodir
 
 neovim/.config/nvim/plugin/packer_compiled.lua
+emacs/.emacs.d/places
