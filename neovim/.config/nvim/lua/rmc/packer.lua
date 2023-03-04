@@ -86,8 +86,6 @@ require('packer').startup(function(use)
     }
     use 'Vimjas/vim-python-pep8-indent'
 
-    use 'ActivityWatch/aw-watcher-vim'
-
     use 'camspiers/animate.vim'
     use 'camspiers/lens.vim'
 
