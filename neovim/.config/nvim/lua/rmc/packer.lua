@@ -19,18 +19,39 @@ require('packer').startup(function(use)
         run = ':TSUpdate'
     }
 
-    -- LSP
-    use "williamboman/mason.nvim"
-    use "williamboman/mason-lspconfig.nvim"
-    use 'neovim/nvim-lspconfig' -- Configurations for Nvim LSP
 
-    use({
-        "jose-elias-alvarez/null-ls.nvim",
-        config = function()
-            require("null-ls").setup()
-        end,
-        requires = { "nvim-lua/plenary.nvim" },
-    })
+
+    -- LSP
+    use {
+        'VonHeikemen/lsp-zero.nvim',
+        branch = 'v1.x',
+        requires = {
+            -- LSP Support
+            {'neovim/nvim-lspconfig'},
+            {'williamboman/mason.nvim'},
+            {'williamboman/mason-lspconfig.nvim'},
+
+            -- Autocompletion
+            {'hrsh7th/nvim-cmp'},
+            {'hrsh7th/cmp-buffer'},
+            {'hrsh7th/cmp-path'},
+            {'saadparwaiz1/cmp_luasnip'},
+            {'hrsh7th/cmp-nvim-lsp'},
+            {'hrsh7th/cmp-nvim-lua'},
+
+            -- Snippets
+            {'L3MON4D3/LuaSnip'},
+            {'rafamadriz/friendly-snippets'},
+        }
+    }
+
+    -- use({
+    --     "jose-elias-alvarez/null-ls.nvim",
+    --     config = function()
+    --         require("null-ls").setup()
+    --     end,
+    --     requires = { "nvim-lua/plenary.nvim" },
+    -- })
     -- use 'mfussenegger/nvim-dap'
 
     use 'tpope/vim-fugitive'
@@ -62,16 +83,16 @@ require('packer').startup(function(use)
     }
 
     -- Autocompletion
-    use 'hrsh7th/nvim-cmp'         -- Required
-    use 'hrsh7th/cmp-nvim-lsp'     -- Required
-    use 'hrsh7th/cmp-buffer'       -- Optional
-    use 'hrsh7th/cmp-path'         -- Optional
-    use 'saadparwaiz1/cmp_luasnip' -- Optional
-    use 'hrsh7th/cmp-nvim-lua'     -- Optional
+    -- use 'hrsh7th/nvim-cmp'         -- Required
+    -- use 'hrsh7th/cmp-nvim-lsp'     -- Required
+    -- use 'hrsh7th/cmp-buffer'       -- Optional
+    -- use 'hrsh7th/cmp-path'         -- Optional
+    -- use 'saadparwaiz1/cmp_luasnip' -- Optional
+    -- use 'hrsh7th/cmp-nvim-lua'     -- Optional
 
     -- Snippets
-    use 'L3MON4D3/LuaSnip'             -- Required
-    use 'rafamadriz/friendly-snippets' -- Optional
+    -- use 'L3MON4D3/LuaSnip'             -- Required
+    -- use 'rafamadriz/friendly-snippets' -- Optional
 
     use 'wakatime/vim-wakatime'
 
