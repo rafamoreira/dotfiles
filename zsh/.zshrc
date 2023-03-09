@@ -36,10 +36,11 @@ esac
 
 #machine specific stuff
 case $HOST in
-
-	"jupiter")
-		source "${ZDOTDIR:-${HOME}}/.zshrc-${HOST}"
+	"jupiter" ) source "${ZDOTDIR:-${HOME}}/.zshrc-${HOST}"
 	;;
+    "mercury.local" )
+		source "${ZDOTDIR:-${HOME}}/.zshrc-mercury"
+    ;;
 	*)
 		source "${ZDOTDIR:-${HOME}}/.zshrc-general"
 esac
