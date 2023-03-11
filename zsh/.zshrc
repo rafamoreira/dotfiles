@@ -217,9 +217,7 @@ fi
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if [ -f ~/.config/using-wakatime ]; then
-  source "$HOME/.zsh/wakatime/wakatime.plugin.zsh"
-fi
+source "$HOME/.local/opt/wakatime-zsh-plugin/wakatime.plugin.zsh"
 
 if [ -f ~/.config/using-chruby ]; then
   source /usr/local/share/chruby/chruby.sh
@@ -250,6 +248,7 @@ alias itau_txt_convert="reckon --csv-separator=';' --date-format '%d/%m/%Y' --da
 alias bradesco_ofx_convert="ledger-autosync -l ~/finances/main.dat --fid 000 --account Assets:Bank:Bradesco bradesco.ofx >> bradesco.dat"
 alias vim=nvim
 alias timestamped_commit="git commit -am \"$(date)\" && git push"
+alias edit_vim="cd ~/.config/nvim && nvim ."
 
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -257,3 +256,5 @@ alias timestamped_commit="git commit -am \"$(date)\" && git push"
 
 #asdf
 [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
+
+
