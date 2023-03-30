@@ -3,3 +3,6 @@
 # source /usr/share/fzf/completion.zsh
 # source /usr/share/fzf/key-bindings.zsh
 source "$HOME/.local/shell/zsh-git-prompt/zshrc.sh"
+
+export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
+

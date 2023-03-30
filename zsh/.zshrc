@@ -257,4 +257,4 @@ alias edit_vim="cd ~/.config/nvim && nvim ."
 #asdf
 [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 
-
+export EDITOR='vim'
