@@ -12,6 +12,16 @@ case `uname` in
 	# Added by Toolbox App
 	export PATH="$PATH:/Users/rmc/Library/Application Support/JetBrains/Toolbox/scripts"%
 
+
+    # MacPorts Installer addition on 2023-04-08_at_00:56:26: adding an appropriate PATH variable for use with MacPorts.
+    export PATH="/opt/local/bin:/opt/local/sbin:$PATH"
+    # Finished adapting your PATH environment variable for use with MacPorts.
+
+
+    # MacPorts Installer addition on 2023-04-08_at_00:56:26: adding an appropriate MANPATH variable for use with MacPorts.
+    export MANPATH="/opt/local/share/man:$MANPATH"
+    # Finished adapting your MANPATH environment variable for use with MacPorts.
+
   ;;
   Linux)
     # commands for Linux go here
@@ -20,3 +30,5 @@ case `uname` in
     # commands for FreeBSD go here
   ;;
 esac
+
+
