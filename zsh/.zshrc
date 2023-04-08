@@ -45,7 +45,7 @@ case $HOST in
 	"jupiter" ) source "${ZDOTDIR:-${HOME}}/.zshrc-${HOST}"
 	;;
     "mercury.local" )
-		source "${ZDOTDIR:-${HOME}}/.zshrc-mercury"
+        # eval $(keychain --eval id_rsa intempus_id_rsa id_rsa_intempus)
     ;;
 	*)
 		source "${ZDOTDIR:-${HOME}}/.zshrc-general"
