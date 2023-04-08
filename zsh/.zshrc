@@ -1,3 +1,10 @@
+# ~/.zshrc 
+# This is the main config.
+# It sources other files based on the machine name and OS. Depending on the 
+# necessities.
+# But things are a bit messy right now, so I'm moving back to a central config
+# and removing the machine speicific files, in favour of inline approach.
+#
 ################################################################################
 #                            COMPLETION                                        #
 ################################################################################
@@ -23,6 +30,9 @@ case `uname` in
   Darwin)
     # commands for OS X go here
     source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
+
+
+    test -e "${HOME}/.local/shell/zsh-git-prompt/zshrc.sh" && source "$HOME/.local/shell/zsh-git-prompt/zshrc.sh"
 	test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
   ;;
   Linux)
