@@ -14,8 +14,7 @@
 	editor = vim
 [push]
 	autoSetupRemote = true
-[include]
-    path = ~/.gitignore.local
 [credential]
     helper = cache --timeout=604800
-
+[include]
+    path = ~/.gitconfig.local
