@@ -252,7 +252,6 @@ alias git_clean_merged_branches='git branch --merged | grep -E -v "(^\*|master|d
 # ledger aliases
 alias itau_txt_convert="reckon --csv-separator=';' --date-format '%d/%m/%Y' --date-column 1 --money-column 3 -c 'R$' --account 'Assets:Bank:Itau' -o ~/finances/main.dat -t tokens.yaml --comma-separates-cents -l ~/finances/main.dat -f itau.txt"
 alias bradesco_ofx_convert="ledger-autosync -l ~/finances/main.dat --fid 000 --account Assets:Bank:Bradesco bradesco.ofx >> bradesco.dat"
-alias vim=nvim
 alias timestamped_commit="git commit -am \"$(date)\" && git push"
 alias edit_vim="cd ~/.config/nvim && nvim ."
 
@@ -262,5 +261,4 @@ alias edit_vim="cd ~/.config/nvim && nvim ."
 
 #asdf
 [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
-
 export EDITOR='vim'

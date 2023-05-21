@@ -35,12 +35,34 @@ markup=none
 # The second parameter overrides the mixer selection
 # See the script for details.
 
-[volume]
-#label=♪
-label=VOL
-interval=once
-signal=10
-STEP=5%
+# [volume]
+# #label=♪
+# label=VOL
+# interval=once
+# signal=10
+# STEP=5%
+
+[volume-pipewire]
+# command=$SCRIPT_DIR/volume-pipewire
+interval=persist
+signal=1
+# MIXER=[determined automatically]
+#SCONTROL=[determined automatically]
+##exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}
+#LONG_FORMAT="${SYMB} ${VOL}% [${INDEX}:${NAME}]"
+#SHORT_FORMAT="${SYMB} ${VOL}% [${INDEX}]"
+#AUDIO_HIGH_SYMBOL='  '
+#AUDIO_MED_THRESH=50
+#AUDIO_MED_SYMBOL='  '
+#AUDIO_LOW_THRESH=0
+#AUDIO_LOW_SYMBOL='  '
+#AUDIO_DELTA=5
+#DEFAULT_COLOR="#ffffff"
+#MUTED_COLOR="#a0a0a0"
+#USE_ALSA_NAME=0
+#USE_DESCRIPTION=0
+## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
+SUBSCRIBE=1
 
 # [volume-pulseaudio]
 # #command=$SCRIPT_DIR/volume-pulseaudio
