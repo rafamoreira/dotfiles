@@ -29,7 +29,7 @@ URxvt.matcher.button:       1
 URxvt.secondaryScreen: 1
 URxvt.secondaryScroll: 0
 
-URxvt.saveLines: 200000
+URxvt.saveLines: 100000
 URxvt.loginShell:            true
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !                             urxvt KEY MAPPINGS                              !
