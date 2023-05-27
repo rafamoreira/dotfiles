@@ -151,6 +151,7 @@ assign [class="Slack"]          $workspace5
 assign [class="Thunderbird"]    $workspace5
 assign [class="Rambox"]         $workspace5
 assign [class="Skype"]          $workspace5
+assign [class="Signal"]		$workspace5
 assign [class="Steam"]          $workspace10
 for_window [class="Spotify"] move container to workspace $workspace10
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
