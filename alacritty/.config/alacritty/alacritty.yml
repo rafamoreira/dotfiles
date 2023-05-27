@@ -41,7 +41,7 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background, but no title bar buttons
-  decorations: full
+  decorations: none
 
   # When true, alacritty starts maximized.
   window.startup_mode: Maximized
@@ -87,6 +87,8 @@ font:
     #   - (Linux) monospace
     #   - (Windows) Consolas
     family: Dejavu Sans Mono
+    # family: Source code pro
+    # family: Unifont
 
 
     # The `style` can be specified to pick a specific face.
@@ -115,7 +117,7 @@ font:
     #style: Italic
 
   # Point size
-  size: 10
+  size: 12
 
   # Offset is the extra space around each character. `offset.y` can be thought of
   # as modifying the line spacing, and `offset.x` as modifying the letter spacing.
@@ -178,7 +180,7 @@ draw_bold_text_with_bright_colors: true
 # Specifying a `duration` of `0` will disable the visual bell.
 bell:
   animation: EaseOutExpo
-  duration: 0
+  duration: 1
   color: '0xffffff'
 
 # Background opacity
