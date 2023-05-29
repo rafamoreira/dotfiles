@@ -210,8 +210,8 @@ case $TERM in
 #                            PLUGINS                                           #
 ################################################################################
 
-# source /usr/share/fzf/completion.zsh
-# source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+source /usr/share/fzf/key-bindings.zsh
 
 
 if [ -f ~/.config/using-rbenv ]; then
