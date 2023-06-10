@@ -23,10 +23,14 @@
 (straight-use-package 'org-contrib)
 (straight-use-package 'haskell-mode)
 (straight-use-package 'magit)
-
+;;(straight-use-package 'sly)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                  packages                                      ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(use-package evil
+  :straight t
+  :config (evil-mode t)
+  )
 (use-package undo-fu
   :straight t
   :config
@@ -231,3 +235,8 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  )
+
+
+(load (expand-file-name "~/quicklisp/slime-helper.el"))
+;; Replace "sbcl" with the path to your implementation
+(setq inferior-lisp-program "sbcl")
