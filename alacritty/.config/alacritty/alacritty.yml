@@ -86,8 +86,12 @@ font:
     #   - (macOS) Menlo
     #   - (Linux) monospace
     #   - (Windows) Consolas
-    family: Dejavu Sans Mono
-    # family: Source code pro
+    # family: Dejavu Sans Mono
+    # family: SauceCodePro Nerd Font Mono
+    # family: BigBlueTerm437 Nerd Font
+    # family:  BigBlueTermPlus Nerd Font
+    # family: BigBlueTermPlus Nerd Font Propo
+    family: Source code pro Semibold
     # family: Unifont
 
 

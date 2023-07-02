@@ -262,3 +262,19 @@ alias edit_vim="cd ~/.config/nvim && nvim ."
 #asdf
 [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 export EDITOR='vim'
+
+eval "$(direnv hook zsh)"
+
+setopt PROMPT_SUBST
+
+show_virtual_env() {
+  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+    echo "($(basename $VIRTUAL_ENV))"
+  fi
+}
+PS1='$(show_virtual_env)'$PS1
+
+export FLYCTL_INSTALL="/home/rmc/.fly"
+export PATH="$FLYCTL_INSTALL/bin:$PATH"
+
+alias vim="nvim"

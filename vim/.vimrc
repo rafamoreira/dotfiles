@@ -17,6 +17,14 @@ Plug 'wakatime/vim-wakatime'
 
 Plug 'github/copilot.vim'
 
+Plug 'dense-analysis/ale'
+
+Plug 'ctrlpvim/ctrlp.vim'
+
 " Initialize plugin system
 " - Automatically executes `filetype plugin indent on` and `syntax enable`.
 call plug#end()
+
+let leader = ","
+
+let g:ctrlp_map = '<c-p>'
