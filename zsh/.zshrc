@@ -34,6 +34,8 @@ case `uname` in
   Linux)
     # commands for Linux go here
     source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
+    source /usr/share/fzf/completion.zsh
+    source /usr/share/fzf/key-bindings.zsh
   ;;
   FreeBSD)
     # commands for FreeBSD go here
@@ -210,8 +212,6 @@ case $TERM in
 #                            PLUGINS                                           #
 ################################################################################
 
-source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
 
 
 if [ -f ~/.config/using-rbenv ]; then
@@ -254,9 +254,6 @@ alias itau_txt_convert="reckon --csv-separator=';' --date-format '%d/%m/%Y' --da
 alias bradesco_ofx_convert="ledger-autosync -l ~/finances/main.dat --fid 000 --account Assets:Bank:Bradesco bradesco.ofx >> bradesco.dat"
 alias timestamped_commit="git commit -am \"$(date)\" && git push"
 alias edit_vim="cd ~/.config/nvim && nvim ."
-
-
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 
 #asdf
