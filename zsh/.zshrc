@@ -275,3 +275,5 @@ export FLYCTL_INSTALL="/home/rmc/.fly"
 export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 alias vim="nvim"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
