@@ -15,7 +15,7 @@ case `uname` in
     # commands for OS X go here
 	eval "$(/opt/homebrew/bin/brew shellenv)"
 
-	. /opt/homebrew/opt/asdf/libexec/asdf.sh
+	# . /opt/homebrew/opt/asdf/libexec/asdf.sh
 	# Added by Toolbox App
 	export PATH="$PATH:/Users/rmc/Library/Application Support/JetBrains/Toolbox/scripts"%
 
@@ -30,6 +30,11 @@ case `uname` in
     
     export PATH="/opt/homebrew/opt/postgresql@13/bin:$PATH"
 
+    export PATH="/opt/homebrew/opt/python@3.11/libexec/bin:$PATH"
+
+    # Added by OrbStack: command-line tools and integration
+    source ~/.orbstack/shell/init.zsh 2>/dev/null || :
+
   ;;
   Linux)
     # commands for Linux go here
@@ -38,5 +43,3 @@ case `uname` in
     # commands for FreeBSD go here
   ;;
 esac
-
-
