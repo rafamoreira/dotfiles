@@ -26,9 +26,10 @@ setopt complete_in_word # not just at the end
 #                            PROMPT                                            #
 ################################################################################
 
+source "$HOME/.zsh/git-prompt.zsh/git-prompt.zsh"
+
 case `uname` in
   Darwin)
-    test -e "${HOME}/.local/shell/zsh-git-prompt/zshrc.sh" && source "$HOME/.local/shell/zsh-git-prompt/zshrc.sh"
 	test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
   ;;
   Linux)
