@@ -128,4 +128,8 @@ require('packer').startup(function(use)
     --     end
     -- }
     use 'f-person/git-blame.nvim'
+    use {
+	    "windwp/nvim-autopairs",
+        config = function() require("nvim-autopairs").setup {} end
+    }
 end)
