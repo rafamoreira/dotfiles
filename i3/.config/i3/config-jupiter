@@ -280,7 +280,7 @@ bindsym $mod+Control+Shift+i mode $keyboardMode
 set $keyboardMode "keyboard i=us intl, u=us, b=br m=modelM, d=DK"
 mode $keyboardMode {
     bindsym i exec "setxkbmap us intl", mode "default"
-    bindsym u exec "setxkbmap us", mode "default"
+    bindsym u exec "setxkbmap us -option 'ctrl:nocaps compose:Super_R", mode "default"
     bindsym d exec "setxkbmap dk -option 'ctrl:nocaps'", mode "default"
     bindsym b exec "setxkbmap -option; setxkbmap br -option 'ctrl:nocaps'", mode "default"
     bindsym m exec "setxkbmap -option; setxkbmap br -variant 'thinkpad' -option 'caps:super'", mode "default"
