@@ -253,6 +253,8 @@ bindsym $mod+Control+p mode "$mode_picom"
 
 exec --no-startup-id nm-applet
 
+exec --no-startup-id xautolock -time 15 -locker "systemctl suspend"
+
 bindsym Print exec "flameshot gui"
 
 # media controls
