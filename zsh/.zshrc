@@ -223,7 +223,7 @@ fi
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-source "$HOME/.local/opt/wakatime-zsh-plugin/wakatime.plugin.zsh"
+# source "$HOME/.local/opt/wakatime-zsh-plugin/wakatime.plugin.zsh"
 
 if [ -f ~/.config/using-chruby ]; then
   source /usr/local/share/chruby/chruby.sh
