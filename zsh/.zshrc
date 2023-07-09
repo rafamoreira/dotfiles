@@ -45,7 +45,10 @@ esac
 
 #machine specific stuff
 case $HOST in
-	"jupiter" ) source "${ZDOTDIR:-${HOME}}/.zshrc-${HOST}"
+	"jupiter" )
+        source "${ZDOTDIR:-${HOME}}/.zshrc-${HOST}"
+        #asdf
+        [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 	;;
     "mercury.local" )
         # eval $(keychain --eval id_rsa intempus_id_rsa id_rsa_intempus)
@@ -257,8 +260,6 @@ alias timestamped_commit="git commit -am \"$(date)\" && git push"
 alias edit_vim="cd ~/.config/nvim && nvim ."
 
 
-#asdf
-[ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 export EDITOR='vim'
 
 eval "$(direnv hook zsh)"
