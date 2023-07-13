@@ -13,3 +13,6 @@
 [submodule "iterm/dracula"]
 	path = iterm/dracula
 	url = https://github.com/dracula/iterm.git
+[submodule "neovim/.config/nvim"]
+	path = neovim/.config/nvim
+	url = git@github.com:rafamoreira/nvim.git
