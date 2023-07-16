@@ -278,4 +278,6 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 alias vim="nvim"
 
+alias edit_nvim="cd ~/.config/nvim && nvim ."
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
