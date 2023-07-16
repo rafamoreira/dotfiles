@@ -1,0 +1,50 @@
+---
+- name: Jupiter playbook designed for debian
+  hosts: localhost
+  become: true
+
+  pre_tasks:
+    - name: Update apt cache if needed
+      ansible.builtin.apt:
+        update_cache: true
+        cache_valid_time: 3600
+
+    - name: Upgrade packages, clean the cache, and remove unused deps
+      ansible.builtin.apt:
+        name: "*"
+        state: latest
+        autoclean: true
+        autoremove: true
+
+  tasks:
+    - name: Install packages
+      ansible.builtin.apt:
+        state: present
+        name:
+          - cmake
+          - cryptsetup
+          - curl
+          - gcc
+          - gettext
+          - git
+          - make
+          - psmisc
+          - stow
+          - unzip
+          - vim
+          - zsh
+
+    - name: Install X11 packages
+      ansible.builtin.apt:
+        state: present
+        name:
+          - alacritty
+          - firefox-esr
+          - i3
+          - rofi
+          - xorg
+
+    - name: set up zsh for user
+      user:
+        name: rmc
+        shell: /bin/zsh
