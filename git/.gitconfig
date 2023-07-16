@@ -18,3 +18,5 @@
     helper = cache --timeout=604800
 [include]
     path = ~/.gitconfig.local
+[submodule]
+	recurse = true
