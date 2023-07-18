@@ -45,16 +45,14 @@ esac
 
 #machine specific stuff
 case $HOST in
-	"jupiter" )
-        source "${ZDOTDIR:-${HOME}}/.zshrc-${HOST}"
-        #asdf
-        [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
-	;;
-    "mercury.local" )
-        # eval $(keychain --eval id_rsa intempus_id_rsa id_rsa_intempus)
-    ;;
-	*)
-		source "${ZDOTDIR:-${HOME}}/.zshrc-general"
+  "jupiter" )
+    source "${ZDOTDIR:-${HOME}}/.zshrc-${HOST}"
+  ;;
+  "mercury.local" )
+    # eval $(keychain --eval id_rsa intempus_id_rsa id_rsa_intempus)
+  ;;
+  *)
+  source "${ZDOTDIR:-${HOME}}/.zshrc-general"
 esac
 
 alias githash="git rev-parse HEAD"
@@ -280,4 +278,6 @@ alias vim="nvim"
 
 alias edit_nvim="cd ~/.config/nvim && nvim ."
 
+#asdf
+[ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
