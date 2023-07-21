@@ -76,7 +76,7 @@ scrolling:
 # change the `it` value in terminfo when altering this setting.
 tabspaces: 4
 
-# Font configuration (changes require restart)
+# Font configuration
 font:
   # Normal (roman) font face
   normal:
@@ -91,7 +91,7 @@ font:
     # family: BigBlueTerm437 Nerd Font
     # family:  BigBlueTermPlus Nerd Font
     # family: BigBlueTermPlus Nerd Font Propo
-    family: Fira Code
+    family: FiraCode Nerd Font 
     # family: Unifont
 
 
