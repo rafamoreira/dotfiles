@@ -38,6 +38,7 @@ case `uname` in
   ;;
   Linux)
     # commands for Linux go here
+    export PATH="/home/rmc/.local/share/JetBrains/Toolbox/scripts:$PATH"
   ;;
   FreeBSD)
     # commands for FreeBSD go here
