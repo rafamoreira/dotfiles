@@ -35,24 +35,10 @@ case `uname` in
   Linux)
     # commands for Linux go here
     source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
-    source /usr/share/fzf/completion.zsh
-    source /usr/share/fzf/key-bindings.zsh
   ;;
   FreeBSD)
     # commands for FreeBSD go here
   ;;
-esac
-
-#machine specific stuff
-case $HOST in
-  "jupiter" )
-    source "${ZDOTDIR:-${HOME}}/.zshrc-${HOST}"
-  ;;
-  "mercury.local" )
-    # eval $(keychain --eval id_rsa intempus_id_rsa id_rsa_intempus)
-  ;;
-  *)
-  source "${ZDOTDIR:-${HOME}}/.zshrc-general"
 esac
 
 alias githash="git rev-parse HEAD"
@@ -210,11 +196,29 @@ case $TERM in
         ;;
     esac
 
+if [[ $HOST -eq "jupiter" ]]; then
+  if [[ -f /etc/debian_version ]]; then
+    # debian desktop
+    eval $(keychain --eval id_rsa intempus_id_rsa google_compute_engine)
+
+    source /usr/share/doc/fzf/examples/completion.zsh
+    source /usr/share/doc/fzf/examples/key-bindings.zsh
+  else
+    # arch desktop
+    eval $(keychain --eval id_rsa intempus_id_rsa google_compute_engine)
+
+    source /usr/share/fzf/completion.zsh
+    source /usr/share/fzf/key-bindings.zsh
+
+  fi
+elif [[ $HOST -eq "titan" ]]; then
+  # titan laptop
+  eval $(keychain --timeout 540 --eval id_rsa intempus_id_rsa id_rsa_intempus)
+fi
+
 ################################################################################
 #                            PLUGINS                                           #
 ################################################################################
-
-
 
 if [ -f ~/.config/using-rbenv ]; then
   export PATH="$HOME/.rbenv/bin:$PATH"
