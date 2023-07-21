@@ -34,7 +34,6 @@ case `uname` in
   ;;
   Linux)
     # commands for Linux go here
-    source "${ZDOTDIR:-${HOME}}/.zshrc-`uname`"
   ;;
   FreeBSD)
     # commands for FreeBSD go here
