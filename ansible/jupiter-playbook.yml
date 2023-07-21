@@ -24,14 +24,17 @@
           - cmake
           - cryptsetup
           - curl
+          - debian-goodies
           - gcc
           - gettext
           - git
           - make
           - psmisc
+          - python3
           - stow
           - unzip
           - vim
+          - tmux
           - zsh
 
     - name: Install X11 packages
@@ -42,6 +45,7 @@
           - firefox-esr
           - i3
           - rofi
+          - thunar
           - xorg
 
     - name: set up zsh for user
