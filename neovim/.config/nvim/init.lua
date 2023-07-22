@@ -25,7 +25,14 @@ require('lazy').setup({
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   'wakatime/vim-wakatime',
-  'github/copilot.vim',
+  {
+    'github/copilot.vim',
+    config = function()
+      -- vim.g.copilot_no_tab_map = true
+      -- vim.g.copilot_assumed_mapped = true
+      vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+    end,
+  },
 
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
@@ -484,6 +491,5 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
-
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
