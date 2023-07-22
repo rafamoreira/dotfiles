@@ -263,7 +263,6 @@ alias git_clean_merged_branches='git branch --merged | grep -E -v "(^\*|master|d
 alias itau_txt_convert="reckon --csv-separator=';' --date-format '%d/%m/%Y' --date-column 1 --money-column 3 -c 'R$' --account 'Assets:Bank:Itau' -o ~/finances/main.dat -t tokens.yaml --comma-separates-cents -l ~/finances/main.dat -f itau.txt"
 alias bradesco_ofx_convert="ledger-autosync -l ~/finances/main.dat --fid 000 --account Assets:Bank:Bradesco bradesco.ofx >> bradesco.dat"
 alias timestamped_commit="git commit -am \"$(date)\" && git push"
-alias edit_vim="cd ~/.config/nvim && nvim ."
 
 
 export EDITOR='vim'
@@ -284,7 +283,7 @@ export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 alias vim="nvim"
 
-alias edit_nvim="cd ~/.config/nvim && nvim ."
+alias edit_nvim="cd ~/.config/nvim && nvim init.lua"
 
 #asdf
 [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
