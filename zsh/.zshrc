@@ -30,7 +30,6 @@ source "$HOME/.zsh/git-prompt.zsh/git-prompt.zsh"
 
 case `uname` in
   Darwin)
-	test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
   ;;
   Linux)
     # commands for Linux go here
@@ -193,9 +192,10 @@ case $TERM in
     xterm*)
         precmd () {print -Pn "\e]0;%n@%m: %~\a"}
         ;;
-    esac
+esac
 
-if [[ $HOST -eq "jupiter" ]]; then
+case $HOST in
+jupiter)
   if [[ -f /etc/debian_version ]]; then
     # debian desktop
     eval $(keychain --eval id_rsa intempus_id_rsa google_compute_engine)
@@ -208,12 +208,17 @@ if [[ $HOST -eq "jupiter" ]]; then
 
     source /usr/share/fzf/completion.zsh
     source /usr/share/fzf/key-bindings.zsh
-
   fi
-elif [[ $HOST -eq "titan" ]]; then
+;;
+titan)
   # titan laptop
   eval $(keychain --timeout 540 --eval id_rsa intempus_id_rsa id_rsa_intempus)
-fi
+;;
+mercury.local)
+  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+esac
+
+
 
 ################################################################################
 #                            PLUGINS                                           #
