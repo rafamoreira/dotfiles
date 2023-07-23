@@ -4,6 +4,8 @@
 # macOs
 .DS_Store
 
+.ssh
+
 # X11
 .Xauthority
 
