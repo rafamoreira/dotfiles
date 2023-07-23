@@ -10,9 +10,6 @@
 [submodule "iterm/dracula"]
 	path = iterm/dracula
 	url = https://github.com/dracula/iterm.git
-[submodule "tmux.local/.tmux/plugins/tpm"]
-	path = tmux.local/.tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm.git
 [submodule ".zsh/git-prompt.zsh"]
 	path = .zsh/git-prompt.zsh
 	url = https://github.com/woefe/git-prompt.zsh
