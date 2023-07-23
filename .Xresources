@@ -1,0 +1,121 @@
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                             X.org                                           !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Xcursor.size: 16
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                             Xterm                                           !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+Xterm.termName: xterm-256color
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                             urxvt general                                   !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! do not scroll with output
+URxvt*scrollTtyOutput: false
+
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
+URxvt*scrollWithBuffer: true
+
+! scroll back to the bottom on keypress
+URxvt*scrollTtyKeypress: true
+
+URxvt.perl-ext-common:      default,clipboard,url-select,keyboard-select,matcher,resize-font
+URxvt.url-select.underline: true
+URxvt.url-launcher:         /usr/bin/xdg-open
+URxvt.matcher.button:       1
+
+! scrollback buffer in secondary screen to prevent smtng like less to not scroll
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+URxvt.saveLines: 100000
+URxvt.loginShell:            true
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                             urxvt KEY MAPPINGS                              !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! shortcuts to make ctrl+arrow works
+URxvt.keysym.Control-Up:     \033[1;5A
+URxvt.keysym.Control-Down:   \033[1;5B
+URxvt.keysym.Control-Left:   \033[1;5D
+URxvt.keysym.Control-Right:  \033[1;5C
+! this 2 configs are for the ctrl+shift shurtcuts be available
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+! copy paste behavior
+URxvt.keysym.Shift-Control-V: eval:paste_clipboard
+URxvt.keysym.Shift-Control-C: eval:selection_to_clipboard
+
+URxvt.keysym.M-u:           perl:url-select:select_next
+URxvt.keysym.M-Escape:      perl:keyboard-select:activate
+URxvt.keysym.M-s:           perl:keyboard-select:search
+URxvt.keyboard-select.clipboard: true
+! Clear scrollback
+URxvt.keysym.Control-l: command:\033c
+
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!                            urxvt  VISUAL                                    !
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+! Dracula Xresources palette
+URxvt.foreground: #F8F8F2
+URxvt.background: #282A36
+URxvt.color0:     #000000
+URxvt.color8:     #4D4D4D
+URxvt.color1:     #FF5555
+URxvt.color9:     #FF6E67
+URxvt.color2:     #50FA7B
+URxvt.color10:    #5AF78E
+URxvt.color3:     #F1FA8C
+URxvt.color11:    #F4F99D
+URxvt.color4:     #BD93F9
+URxvt.color12:    #CAA9FA
+URxvt.color5:     #FF79C6
+URxvt.color13:    #FF92D0
+URxvt.color6:     #8BE9FD
+URxvt.color14:    #9AEDFE
+URxvt.color7:     #BFBFBF
+URxvt.color15:    #E6E6E6
+
+! special
+*.foreground:   #c5c8c6
+*.background:   #1d1f21
+*.cursorColor:  #c5c8c6
+
+! black
+*.color0:       #1d1f21
+*.color8:       #969896
+
+! red
+*.color1:       #cc6666
+*.color9:       #cc6666
+
+! green
+*.color2:       #b5bd68
+*.color10:      #b5bd68
+
+! yellow
+*.color3:       #f0c674
+*.color11:      #f0c674
+
+! blue
+*.color4:       #81a2be
+*.color12:      #81a2be
+
+! magenta
+*.color5:       #b294bb
+*.color13:      #b294bb
+
+! cyan
+*.color6:       #8abeb7
+*.color14:      #8abeb7
+
+! white
+*.color7:       #c5c8c6
+*.color15:      #ffffff
+
+! font configs
+URxvt.font: xft:DejaVu Sans Mono:style=Book:antialias=true:size=16
+!             xft:Cascadia Code:style=Semibold:antialias=true:size=18, \
+!             xft:DejaVu Sans Mono for Powerline:style=Bold:size=10, \
+!             xft:Noto Sans Mono:style=Bold:size=10, \
+!             xft:Hack:style=Bold:size=10
