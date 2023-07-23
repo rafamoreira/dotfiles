@@ -1,9 +1,11 @@
-My dotfiles compilation
+# [Dotfiles as a bare repository](https://www.atlassian.com/git/tutorials/dotfiles)
 
-There are some really old "legacy" stuff both on bootstrap/ and jurassic_stuff/ that I don't use anymore, but is kept here as history.
+## Installation
+
+```bash
+git clone --bare git@github.com:rafamoreira/dotfiles.git $HOME/.cfg
+alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+config checkout
+```
 
 
-# Especifics
-
-## Ansible
-WIP playbooks for setting up workstation and servers
