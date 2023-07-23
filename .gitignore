@@ -26,8 +26,13 @@
 /.ssh
 /.swiftpm
 /.th-client
+/.Trash
 /.thunderbird
 /.viminfo
+/.vscode
+/.wakatime.bdb
+/.wakatime.cfg
+/.wakatime
 /.Xauthority
 /.zcompdump
 /.zsh_history
@@ -40,4 +45,13 @@
 /Documents
 /Downloads
 /Dropbox
+/go
 /jellyfin
+/Library
+/Movies
+/Music
+/OrbStack
+/Pictures
+/Public
+/Sync
+
