@@ -7,3 +7,8 @@
 # X11
 .Xauthority
 
+# zsh
+.zcompdump
+.zsh_history
+.zsh_sessions
+.zcompcache
