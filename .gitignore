@@ -9,8 +9,15 @@
 # X11
 .Xauthority
 
+.viminfo
 # zsh
 .zcompdump
 .zsh_history
 .zsh_sessions
 .zcompcache
+
+/code
+/Desktop
+/Documents
+/Downloads
+/Dropbox
