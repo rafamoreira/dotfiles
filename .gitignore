@@ -1,3 +1,6 @@
+# the bare git repo
+.cfg
+
 # macOs
 .DS_Store
 
