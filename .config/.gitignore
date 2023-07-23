@@ -1,5 +1,6 @@
 *
 !*/
 !.gitignore
-!nvim/*
 !alacritty/*
+!i3/*
+!nvim/*

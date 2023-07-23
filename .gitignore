@@ -16,6 +16,10 @@
 .zsh_sessions
 .zcompcache
 
+/.mozilla
+/.thunderbird
+/Applications
+/Calibre*
 /code
 /Desktop
 /Documents
