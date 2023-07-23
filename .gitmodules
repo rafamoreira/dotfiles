@@ -13,11 +13,3 @@
 [submodule "tmux.local/.tmux/plugins/tpm"]
 	path = tmux.local/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm.git
-
-# zsh submodules
-[submodule ".zsh/wakatime-zsh-plugin"]
-	path = .zsh/wakatime-zsh-plugin
-	url = https://github.com/sobolevn/wakatime-zsh-plugin.git
-[submodule ".zsh/git-prompt.zsh"]
-	path = .zsh/git-prompt.zsh
-	url = https://github.com/woefe/git-prompt.zsh
