@@ -1,23 +1,18 @@
-# the bare git repo
-.cfg
-
-# macOs
 .DS_Store
-
-.ssh
-
-# X11
-.Xauthority
-
-.viminfo
-# zsh
-.zcompdump
-.zsh_history
-.zsh_sessions
-.zcompcache
-
+/.asdf
+/.ansible
+/.cfg
+/.gnupg
+/.keychain
 /.mozilla
+/.ssh
 /.thunderbird
+/.viminfo
+/.Xauthority
+/.zcompdump
+/.zsh_history
+/.zsh_sessions
+/.zcompcache
 /Applications
 /Calibre*
 /code
@@ -25,3 +20,4 @@
 /Documents
 /Downloads
 /Dropbox
+/jellyfin
