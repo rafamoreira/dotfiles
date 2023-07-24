@@ -1,8 +1,10 @@
 .DS_Store
+nohup.out
 /.android
 /.ansible
 /.asdf
 /.cache
+/.calc_history
 /.cfg
 /.CFUserTextEncoding
 /.dart
