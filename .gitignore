@@ -14,10 +14,12 @@ nohup.out
 /.docker
 /.flutter
 /.gnupg
+/.hex
 /.keychain
 /.lesshst
 /.local/share
 /.local/state
+/.mix
 /.mozilla
 /.npm
 /.orbstack
