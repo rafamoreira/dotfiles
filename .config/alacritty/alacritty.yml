@@ -91,8 +91,9 @@ font:
     # family: BigBlueTerm437 Nerd Font
     # family:  BigBlueTermPlus Nerd Font
     # family: BigBlueTermPlus Nerd Font Propo
-    family: FiraCode Nerd Font 
+    # family: Fira Mono Nerd Font 
     # family: Unifont
+    family: Hack Nerd Font Mono
 
 
     # The `style` can be specified to pick a specific face.
