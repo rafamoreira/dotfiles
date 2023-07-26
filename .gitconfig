@@ -11,6 +11,7 @@
 	user = rafamoreira
 [core]
 	editor = vim
+	excludesfile = /Users/rmc/.gitignore_global
 [push]
 	autoSetupRemote = true
 [credential]
