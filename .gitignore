@@ -5,6 +5,7 @@ nohup.out
 /.asdf
 /.cache
 /.calc_history
+/.cargo
 /.cfg
 /.CFUserTextEncoding
 /.dart
