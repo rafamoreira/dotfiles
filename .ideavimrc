@@ -1,4 +1,4 @@
-let mapleader = ","
+let mapleader = '\'
 set clipboard+=unnamedplus
 set visualbell
 set NERDTree
@@ -21,7 +21,7 @@ set showmatch
 
 
 set undolevels=10000
-map <leader>f <Action>(GotoFile)
-map <leader>a <Action>(SearchEverywhere)
+map <leader>sf <Action>(GotoFile)
+map <leader>sa <Action>(SearchEverywhere)
 "ruby
 nnoremap <leader>vv :action org.jetbrains.plugins.ruby.rails.actions.navigation.SwitchToView<CR>
