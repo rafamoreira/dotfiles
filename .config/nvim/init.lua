@@ -280,6 +280,8 @@ require('nvim-treesitter.configs').setup {
     'c',
     'cpp',
     'go',
+    'html',
+    'htmldjango',
     'lua',
     'python',
     'rust',
