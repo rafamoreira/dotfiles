@@ -34,6 +34,9 @@ require('lazy').setup({
     end,
   },
 
+  -- whitespace
+  'ntpeters/vim-better-whitespace',
+
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
