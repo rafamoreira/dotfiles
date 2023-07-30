@@ -16,6 +16,7 @@ nohup.out
 /.flutter
 /.gnupg
 /.hex
+/.ipython
 /.keychain
 /.lesshst
 /.local/share
