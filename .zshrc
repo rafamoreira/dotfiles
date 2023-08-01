@@ -216,6 +216,7 @@ titan)
 ;;
 mercury.local)
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+  . /opt/homebrew/opt/asdf/libexec/asdf.sh
   source "/opt/homebrew/opt/fzf/shell/completion.zsh"
   source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 esac
