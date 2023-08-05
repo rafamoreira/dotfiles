@@ -16,3 +16,6 @@
 [submodule ".zsh/wakatime-zsh-plugin"]
 	path = .zsh/wakatime-zsh-plugin
 	url = https://github.com/sobolevn/wakatime-zsh-plugin.git
+[submodule ".config/nvim"]
+	path = .config/nvim
+	url = git@git.sr.ht:~rafaelmc/neovim
