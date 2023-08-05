@@ -24,6 +24,7 @@ nohup.out
 /.mix
 /.mozilla
 /.npm
+/.ollama
 /.orbstack
 /.pnpm-state
 /.pub-cache
@@ -38,6 +39,7 @@ nohup.out
 /.vscode
 /.wakatime.bdb
 /.wakatime.cfg
+/.wakatime-internal.cfg
 /.wakatime
 /.Xauthority
 /.zcompdump
