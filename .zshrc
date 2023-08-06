@@ -185,7 +185,6 @@ setopt nohup # Don't send SIGHUP to background processes when the shell exits.
 ################################################################################
 #                            PATH                                              #
 ################################################################################
-export PATH=$HOME/.local/bin:/home/rmc/.cargo/bin:$PATH
 
 # I don't know why this is here, but it's here.
 case $TERM in
@@ -221,6 +220,8 @@ mercury.local)
   source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 esac
 
+export PATH=$HOME/.local/bin:/home/rmc/.cargo/bin:$PATH
+export PATH=$HOME/.local/bin/scripts:$PATH
 
 
 ################################################################################
@@ -281,8 +282,8 @@ show_virtual_env() {
 }
 PS1='$(show_virtual_env)'$PS1
 
-export FLYCTL_INSTALL="/home/rmc/.fly"
-export PATH="$FLYCTL_INSTALL/bin:$PATH"
+# export FLYCTL_INSTALL="/home/rmc/.fly"
+# export PATH="$FLYCTL_INSTALL/bin:$PATH"
 
 alias vim="nvim"
 
