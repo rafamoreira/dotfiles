@@ -8,4 +8,9 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config checkout
 ```
 
+LICENSE
+=======
+MIT0, except for files that contains a respective license header.
+
+
 
