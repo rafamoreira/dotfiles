@@ -16,3 +16,6 @@
 [submodule ".config/nvim"]
 	path = .config/nvim
 	url = git@git.sr.ht:~rafaelmc/neovim
+[submodule ".iterm2/themes/dracula"]
+	path = .iterm2/themes/dracula
+	url = https://github.com/dracula/iterm.git
