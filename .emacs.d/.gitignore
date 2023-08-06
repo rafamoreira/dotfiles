@@ -1,8 +1,8 @@
+/.cache
+/.lsp-session-v1
 /auto-save-list
 /auto-saves/*
 /backup
-/.cache
-/.lsp-session-v1
+/projectile-bookmarks.eld
 /straight
 /transient
-/projectile-bookmarks.eld
