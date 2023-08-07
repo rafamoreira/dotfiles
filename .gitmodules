@@ -1,9 +1,3 @@
-[submodule ".zsh/git-prompt.zsh"]
-	path = .zsh/git-prompt.zsh
-	url = https://github.com/woefe/git-prompt.zsh
-[submodule ".zsh/wakatime-zsh-plugin"]
-	path = .zsh/wakatime-zsh-plugin
-	url = https://github.com/sobolevn/wakatime-zsh-plugin.git
 [submodule ".iterm2/themes/dracula"]
 	path = .iterm2/themes/dracula
 	url = https://github.com/dracula/iterm.git
