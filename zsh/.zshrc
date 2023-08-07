@@ -26,7 +26,7 @@ setopt complete_in_word # not just at the end
 #                            PROMPT                                            #
 ################################################################################
 
-source "$HOME/.zsh/git-prompt.zsh/git-prompt.zsh"
+source "$HOME/.zsh/git-prompt-zsh/git-prompt.zsh"
 
 case `uname` in
   Darwin)
