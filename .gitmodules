@@ -1,6 +1,3 @@
-[submodule ".iterm2/themes/dracula"]
-	path = .iterm2/themes/dracula
-	url = https://github.com/dracula/iterm.git
 [submodule "tmux/.tmux/plugins/tpm"]
 	path = tmux/.tmux/plugins/tpm
 	url = https://github.com/tmux-plugins/tpm
