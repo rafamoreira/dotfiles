@@ -1,18 +1,4 @@
-# [Dotfiles as a bare repository](https://www.atlassian.com/git/tutorials/dotfiles)
-
-## Installation
-
-```bash
-git clone --bare git@github.com:rafamoreira/dotfiles.git $HOME/.cfg
-alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
-config checkout
-```
-
-It's a PITA to have to manage the .gitignore files if you want to show the untracked files. So you can hide them with:
-```bash
-config config --local status.showUntrackedFiles no
-```
-
+Collection of resources over the years
 
 LICENSE
 =======
