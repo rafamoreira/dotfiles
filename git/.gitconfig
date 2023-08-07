@@ -1,0 +1,29 @@
+[user]
+	name = Rafael M Cunha
+	email = me@rafaelmc.net
+[alias]
+	p = push
+	c = commit
+	s = status
+	a = add
+	d = diff
+	co = checkout
+	b = branch
+	l = log
+[diff]
+	tool = vimdiff
+[github]
+	user = rafamoreira
+[core]
+	editor = vim
+	excludesfile = ~/.gitignore_global
+[push]
+	autoSetupRemote = true
+[credential]
+    	helper = cache --timeout=604800
+[include]
+    	path = ~/.gitconfig.machine
+[submodule]
+	recurse = true
+[pager]
+	status = true
