@@ -8,6 +8,12 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 config checkout
 ```
 
+It's a PITA to have to manage the .gitignore files if you want to show the untracked files. So you can hide them with:
+```bash
+config config --local status.showUntrackedFiles no
+```
+
+
 LICENSE
 =======
 MIT0, except for files that contains a respective license header.
