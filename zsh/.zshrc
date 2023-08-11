@@ -212,6 +212,8 @@ jupiter)
 titan)
   # titan laptop
   eval $(keychain --timeout 540 --eval id_rsa intempus_id_rsa id_rsa_intempus)
+	source /usr/share/fzf/completion.zsh
+	source /usr/share/fzf/key-bindings.zsh
 ;;
 mercury.local)
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
