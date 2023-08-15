@@ -23,6 +23,7 @@ set showmatch
 set undolevels=10000
 map <leader>ff <Action>(GotoFile)
 map <leader>sa <Action>(SearchEverywhere)
+map <leader>wu <Action>(UnsplitAll)
 "ruby
 nnoremap <leader>vv :action org.jetbrains.plugins.ruby.rails.actions.navigation.SwitchToView<CR>
 set ideajoin
