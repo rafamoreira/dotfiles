@@ -272,7 +272,7 @@ alias bradesco_ofx_convert="ledger-autosync -l ~/finances/main.dat --fid 000 --a
 alias timestamped_commit="git commit -am \"$(date)\" && git push"
 
 
-export EDITOR='vim'
+export EDITOR='nvim'
 
 eval "$(direnv hook zsh)"
 
