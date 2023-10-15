@@ -274,6 +274,8 @@ alias timestamped_commit="git commit -am \"$(date)\" && git push"
 
 
 export EDITOR='nvim'
+alias pushall='for i in `git remote`; do git push $i; done;'
+alias pullall='for i in `git remote`; do git pull $i; done;'
 
 eval "$(direnv hook zsh)"
 
