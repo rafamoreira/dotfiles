@@ -225,6 +225,7 @@ esac
 
 export PATH=$HOME/.local/bin:/home/rmc/.cargo/bin:$PATH
 export PATH=$HOME/.local/bin/scripts:$PATH
+export PATH=$HOME/.luarocks/bin:$PATH
 export PATH=/home/rmc/.local/share/gem/ruby/3.0.0/bin:$PATH
 
 
