@@ -83,21 +83,8 @@ font:
     # Font family
     #
     Default:
-    #   - (macOS) Menlo
-    #   - (Linux) monospace
-    #   - (Windows) Consolas
-    # family: Dejavu Sans Mono
-    # family: SauceCodePro Nerd Font Mono
-    # family: BigBlueTerm437 Nerd Font
-    # family:  BigBlueTermPlus Nerd Font
-    # family: BigBlueTermPlus Nerd Font Propo
-    # family: Fira Mono Nerd Font 
-    # family: Unifont
-    family: Hack Nerd Font Mono
-
-
-    # The `style` can be specified to pick a specific face.
-    style: Regular
+      family: Hack Nerd Font Mono
+      style: Regular
 
   # Bold font face
   #bold:
