@@ -15,6 +15,7 @@ case `uname` in
     fi
   ;;
 esac
+FPATH=$HOME/.zsh/zfunc:$FPATH
 autoload -Uz compinit
 compinit
 zstyle ':completion:*' menu select # interactive completion
