@@ -29,17 +29,6 @@ setopt complete_in_word # not just at the end
 
 source "$HOME/.zsh/git-prompt-zsh/git-prompt.zsh"
 
-case `uname` in
-  Darwin)
-  ;;
-  Linux)
-    # commands for Linux go here
-  ;;
-  FreeBSD)
-    # commands for FreeBSD go here
-  ;;
-esac
-
 alias githash="git rev-parse HEAD"
 autoload -Uz promptinit
 promptinit
@@ -301,3 +290,16 @@ alias edit_nvim="cd ~/.config/nvim && nvim init.lua"
 [ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+
+case `uname` in
+  Darwin)
+    alias dj="docker exec -it dev-django"
+    alias djpd="docker exec -it dev-django-prod-dump"
+  ;;
+  Linux)
+    # commands for Linux go here
+  ;;
+  FreeBSD)
+    # commands for FreeBSD go here
+  ;;
+esac
