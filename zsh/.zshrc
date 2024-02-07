@@ -258,9 +258,6 @@ alias l="ls -lah"
 
 alias git_clean_merged_branches='git branch --merged | grep -E -v "(^\*|master|dev)" | xargs git branch -d'
 
-alias dj="docker exec -itu local dev-django"
-alias djpd="docker exec -itu local dev-django-prod-dump"
-
 # ledger aliases
 alias itau_txt_convert="reckon --csv-separator=';' --date-format '%d/%m/%Y' --date-column 1 --money-column 3 -c 'R$' --account 'Assets:Bank:Itau' -o ~/finances/main.dat -t tokens.yaml --comma-separates-cents -l ~/finances/main.dat -f itau.txt"
 alias bradesco_ofx_convert="ledger-autosync -l ~/finances/main.dat --fid 000 --account Assets:Bank:Bradesco bradesco.ofx >> bradesco.dat"
@@ -296,11 +293,13 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 case `uname` in
   Darwin)
-    alias dj="docker exec -it dev-django"
-    alias djpd="docker exec -it dev-django-prod-dump"
+	alias dj="docker exec -it dev-django"
+	alias djpd="docker exec -it dev-django-prod-dump"
   ;;
   Linux)
-    # commands for Linux go here
+	alias dj="docker exec -itu local dev-django"
+	alias djpd="docker exec -itu local dev-django-prod-dump"
+
   ;;
   FreeBSD)
     # commands for FreeBSD go here
