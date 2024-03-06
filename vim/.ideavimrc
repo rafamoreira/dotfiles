@@ -21,6 +21,7 @@ set showmatch
 
 
 set undolevels=10000
+map <leader>fa <Action>(FindAction)
 map <leader>ff <Action>(GotoFile)
 map <leader>sa <Action>(SearchEverywhere)
 map <leader>wu <Action>(UnsplitAll)
