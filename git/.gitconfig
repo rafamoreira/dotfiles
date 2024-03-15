@@ -27,3 +27,5 @@
 	recurse = true
 [pager]
 	status = true
+[rerere]
+	enabled = true
