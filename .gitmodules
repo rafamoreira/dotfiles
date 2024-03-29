@@ -1,6 +1,3 @@
-[submodule "tmux/.tmux/plugins/tpm"]
-	path = tmux/.tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
 [submodule "zsh/.zsh/git-prompt-zsh"]
 	path = zsh/.zsh/git-prompt-zsh
 	url = https://github.com/woefe/git-prompt.zsh
