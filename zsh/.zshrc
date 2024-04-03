@@ -306,3 +306,9 @@ case `uname` in
     # commands for FreeBSD go here
   ;;
 esac
+
+# python related
+alias pr="poetry run"
+
+# zsh related
+alias reload_zsh="source ~/.zshrc"
