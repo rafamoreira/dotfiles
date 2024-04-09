@@ -249,6 +249,7 @@ fi
 ################################################################################
 alias ls="command ls --color=auto -h" # ls colors
 alias l="ls -lah"
+alias pacman_cleanup_orphans="sudo pacman -Qdtq | sudo pacman -Rns -"
 # alias startx="xinit $HOME/.xinitrc $2"
 # alias ssh="TERM=xterm-256color ssh" # this shit fixes alacritty non standard TERMINFO
 
