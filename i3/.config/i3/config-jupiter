@@ -7,7 +7,7 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:MxPlus IBM VGA 9x16 12
 
-exec --no-startup-id /home/rmc/.screenlayout/default-jupiter.sh
+exec --no-startup-id /home/rmc/.screenlayout/default-jupiter-office.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
