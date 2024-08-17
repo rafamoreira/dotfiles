@@ -208,7 +208,6 @@ titan)
 ;;
 mercury.local)
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-  . /opt/homebrew/opt/asdf/libexec/asdf.sh
   source "/opt/homebrew/opt/fzf/shell/completion.zsh"
   source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 esac
@@ -294,8 +293,9 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 case `uname` in
   Darwin)
-	alias dj="docker exec -it dev-django"
-	alias djpd="docker exec -it dev-django-prod-dump"
+    alias dj="docker exec -it dev-django"
+    alias djpd="docker exec -it dev-django-prod-dump"
+    test -e "/opt/homebrew/opt/asdf/libexec/asdf.sh" && . /opt/homebrew/opt/asdf/libexec/asdf.sh
   ;;
   Linux)
 	alias dj="docker exec -itu local dev-django"
