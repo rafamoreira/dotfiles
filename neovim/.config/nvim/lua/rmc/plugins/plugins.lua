@@ -1,5 +1,6 @@
 -- One liners
 return {
+  'ledger/vim-ledger',
   -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
@@ -7,5 +8,5 @@ return {
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  "wakatime/vim-wakatime"
+  'wakatime/vim-wakatime',
 }
