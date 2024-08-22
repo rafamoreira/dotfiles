@@ -9,22 +9,16 @@ return {
     opts = {},
     config = function ()
       local wk = require("which-key")
-      wk.register({
-        ["<leader>"] = {
-          f = {
-            name = "+files",
-            f = { "<cmd>Telescope find_files<cr>", "Find File" },
-            e = { "<cmd>Ex<cr>", "netrw"},
-            h = { "<cmd>Telescope find_files hidden=true<cr>", "Find Files including hidden" },
-            g = { "<cmd>Telescope live_grep<cr>", "Grep Files" },
-            b = { "<cmd>Telescope buffers<cr>", "Buffers" },
-          },
-          h = {
-            name = "+help",
-            h = { "<cmd>Telescope help_tags<cr>", "Help Tags" },
-          },
-          p = { "<cmd>Telescope project<cr>", "Projects" },
-        },
+      wk.add({
+        {"<leader>f", group = "files" }, -- group
+        {"<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File", mode = "n"},
+        {"<leader>fe", "<cmd>Ex<cr>", desc = "netrw"},
+        {"<leader>fh", "<cmd>Telescope find_files hidden=true<cr>", desc = "Find Files including hidden" },
+        {"<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Grep Files" },
+        {"<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
+        { "<leader>h", group = "help" },
+        { "<leader>hh", "<cmd>Telescope help_tags<cr>", desc = "Help Tags" },
+        { "<leader>p", "<cmd>Telescope project<cr>", desc = "Projects" },
       })
     end
   }
