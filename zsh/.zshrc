@@ -212,7 +212,6 @@ mercury.local)
   source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 esac
 
-# export PATH=$HOME/.local/bin:/home/rmc/.cargo/bin:$PATH
 # export PATH=$HOME/.local/bin/scripts:$PATH
 # export PATH=$HOME/.luarocks/bin:$PATH
 # export PATH=/home/rmc/.local/share/gem/ruby/3.0.0/bin:$PATH
@@ -296,7 +295,7 @@ case `uname` in
     alias dj="docker exec -it dev-django"
     alias djpd="docker exec -it dev-django-prod-dump"
     test -e "/opt/homebrew/opt/asdf/libexec/asdf.sh" && . /opt/homebrew/opt/asdf/libexec/asdf.sh
-    PATH=$PATH:$(brew --prefix python)/libexec/bin
+    export PATH=$PATH:$(brew --prefix python)/libexec/bin
   ;;
   Linux)
 	alias dj="docker exec -itu local dev-django"
