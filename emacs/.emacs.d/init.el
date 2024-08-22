@@ -20,6 +20,8 @@
 (straight-use-package 'use-package)
 (straight-use-package 'org)
 (straight-use-package 'org-contrib)
+(straight-use-package 'evil)
+(straight-use-package 'ledger-mode)
 
 (use-package wakatime-mode
   :straight t
@@ -40,6 +42,11 @@
 (global-display-line-numbers-mode) ;; show line numbers on lateral
 (setq column-number-mode t) ;; show column number on status bar
 
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;                               evil                                         ;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(evil-mode 1)
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;                  file backups / autosave                       ;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
