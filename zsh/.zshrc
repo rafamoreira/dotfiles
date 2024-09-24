@@ -313,6 +313,8 @@ alias pr="poetry run"
 # zsh related
 alias reload_zsh="source ~/.zshrc"
 
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+
 
 # BEGIN opam configuration
 # This is useful if you're using opam as it adds:

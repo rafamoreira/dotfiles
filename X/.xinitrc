@@ -23,9 +23,13 @@ if [ -d /etc/X11/xinit/xinitrc.d ] ; then
   unset f
 fi
 
-eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
+# eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh)
 
-export SSH_AUTH_SOCK
+dbus-update-activation-environment --all
+
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+
+gnome-keyring-daemon --start --components=secrets
 
 #setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
 #setxkbmap -layout "br" -option "ctrl:nocaps"
