@@ -2,7 +2,7 @@
 let mapleader = ' '
 
 """ General settings ----------------------------------------------------------
-set clipboard+=ideaput,unnamedplus
+set clipboard+=unnamedplus
 "set clipboard+=ideaput
 set hlsearch
 set incsearch

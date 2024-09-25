@@ -114,8 +114,8 @@ bindkey "^[m" copy-prev-shell-word
 ################################################################################
 #                            HISTORY SETTINGS                                  #
 ################################################################################
-HISTSIZE=500000                 # How many lines of history to keep in memory
-SAVEHIST=500000                 # Number of history entries to save to disk
+HISTSIZE=1000000                 # How many lines of history to keep in memory
+SAVEHIST=1000000                 # Number of history entries to save to disk
 HISTFILE="$HOME/.zsh_history"  # Where to save history to disk
 
 setopt extended_history
