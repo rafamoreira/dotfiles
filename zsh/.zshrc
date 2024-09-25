@@ -185,26 +185,15 @@ case $TERM in
 esac
 
 case $HOST in
-jupiter)
-  if [[ -f /etc/debian_version ]]; then
-    # debian desktop
-    eval $(keychain --eval id_rsa intempus_id_rsa google_compute_engine)
-
-    source /usr/share/doc/fzf/examples/completion.zsh
-    source /usr/share/doc/fzf/examples/key-bindings.zsh
-  else
-    # arch desktop
-    eval $(keychain --eval id_rsa intempus_id_rsa google_compute_engine)
-
-    source /usr/share/fzf/completion.zsh
-    source /usr/share/fzf/key-bindings.zsh
-  fi
+neptune) # arch linux computers with fzf
+  source /usr/share/fzf/completion.zsh
+  source /usr/share/fzf/key-bindings.zsh
 ;;
-titan)
+jupiter|titan)
   # titan laptop
   eval $(keychain --timeout 540 --eval id_rsa intempus_id_rsa id_rsa_intempus)
-	source /usr/share/fzf/completion.zsh
-	source /usr/share/fzf/key-bindings.zsh
+  source /usr/share/fzf/completion.zsh
+  source /usr/share/fzf/key-bindings.zsh
 ;;
 mercury.local)
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"

@@ -159,6 +159,8 @@ assign [class="steam"]          $workspace10
 for_window [class="Spotify"] move container to workspace $workspace10
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
 for_window [class="Pavucontrol"] floating enable
+for_window [class="thunderbird" window_role="alert"] floating enable
+# no_focus [window_role="alert"]
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
