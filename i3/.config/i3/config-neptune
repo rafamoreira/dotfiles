@@ -249,10 +249,13 @@ focus_follows_mouse no
 # PICOM
 set $mode_picom picom start (s), kill (k)
 mode "$mode_picom" {
-  bindsym s exec --no-startup-id picom -b, mode "default"
+  bindsym s exec --no-startup-id picom -b --no-fading-openclose, mode "default"
   bindsym k exec --no-startup-id pkill picom, mode "default"
 }
 bindsym $mod+Control+p mode "$mode_picom"
+
+# start picom at startup
+exec --no-startup-id picom -b
 
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
