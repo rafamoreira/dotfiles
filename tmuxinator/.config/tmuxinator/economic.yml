@@ -45,10 +45,10 @@ root: ~/code/intempus/intempus/
 # attach: false
 
 windows:
-  - editor:
-      layout: main-horizontal
-      panes:
-        - nvim
+  #   - editor:
+  #       layout: main-horizontal
+  #       panes:
+  #         - nvim
   - sync:
       layout: tiled
       # Synchronize all panes of this window, can be enabled before or after the pane commands run.
@@ -62,10 +62,10 @@ windows:
   - term:
       layout: main-horizontal
         -
-  - docker:
-      layout: main-horizontal
-      panes:
-        - docker compose up
+  # - docker:
+  #     layout: main-horizontal
+  #     panes:
+  #       - docker compose up
 
   # - server: bundle exec rails s
   # - logs: tail -f log/development.log
