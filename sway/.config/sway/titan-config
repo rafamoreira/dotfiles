@@ -1,4 +1,4 @@
-# i3 config file (v4)
+# sway config file (v4)
 # Please see https://i3wm.org/docs/userguide.html for a complete reference!
 
 set $mod Mod4
@@ -7,15 +7,14 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:JetBrainsMono Nerd Font 10
 
-exec --no-startup-id /home/rmc/.screenlayout/default-neptune.sh
+# exec --no-startup-id /home/rmc/.screenlayout/default-neptune.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 # start a terminal
 # bindsym $mod+Return exec alacritty --working-directory="`xcwd`"
-# bindsym $mod+Return exec alacritty --working-directory="`xcwd`"
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec alacritty 
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -200,25 +199,10 @@ bindsym $mod+r mode "resize"
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-  # output DP-3
-  tray_output primary
-  status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config
-  # status_command i3status
-  font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+  status_command i3status
   font pango:JetBrainsMono Nerd Font 10
 }
 
-# bar {
-#   # output HDMI-1
-#   tray_output primary
-#   status_command SCRIPT_DIR=~/.local/opt/i3blocks-contrib i3blocks -c ~/.config/i3blocks/config
-#   font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
-#   font pango:MxPlus IBM VGA 9x16 16
-# }
-
-# bindsym Mod1+Tab exec ~/.config/i3/tab_windows.sh
-
-# -option "grp:ctrl_alt_toggle"
 
 # bindsym Mod1+Tab exec quickswitch
 
@@ -247,21 +231,11 @@ focus_follows_mouse no
 
 # bindsym $mod+Control+l exec ~/opt/i3lock-fancy-multimonitor/lock -p
 
-# PICOM
-set $mode_picom picom start (s), kill (k)
-mode "$mode_picom" {
-  bindsym s exec --no-startup-id picom -b, mode "default"
-  bindsym k exec --no-startup-id pkill picom, mode "default"
-}
-bindsym $mod+Control+p mode "$mode_picom"
-
 # bindsym --release Num_Lock  exec pkill -SIGRTMIN+11 i3blocks
 
 exec --no-startup-id nm-applet
 
-exec --no-startup-id xautolock -time 10 -locker $Locker 
-
-bindsym Print exec "flameshot gui"
+# exec --no-startup-id xautolock -time 10 -locker $Locker 
 
 # media controls
 bindsym XF86AudioPlay exec playerctl play
@@ -305,4 +279,4 @@ mode $keyboardMode {
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 # alt-tab confs
-exec_always alttab -d 1 -vp total
+# exec_always alttab -d 1 -vp total
