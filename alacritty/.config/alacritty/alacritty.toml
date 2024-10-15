@@ -23,7 +23,7 @@ x = 0
 y = 0
 
 [font.normal]
-family = "Hack Nerd Font Mono"
+family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [font.offset]

@@ -7,7 +7,8 @@ set $mod Mod4
 # is used in the bar {} block below.
 font pango:JetBrainsMono Nerd Font 10
 
-# exec --no-startup-id /home/rmc/.screenlayout/default-neptune.sh
+output DP-3 resolution 2560x1440@165Hz
+output DP-2 resolution 2560x1440@165Hz
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -148,7 +149,7 @@ assign [app_id="Emacs"]          $workspace3
 assign [app_id="^jetbrains-.+"]  $workspace3
 assign [app_id="GitKraken"]      $workspace3
 assign [app_id="Insomnia"]       $workspace3
-assign [app_id="Slack"]          $workspace4
+assign [class="Slack"]          $workspace4
 assign [app_id="Thunderbird"]    $workspace4
 assign [app_id="Rambox"]         $workspace4
 assign [app_id="Skype"]          $workspace4
@@ -256,24 +257,30 @@ titlebar_padding 5
 
 smart_gaps off
 hide_edge_borders none
-smart_borders off
+smart_borders on
 
 # wallpaper
 exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
 
-bindsym $mod+Control+Shift+i mode $keyboardMode
+input * {
+  xkb_layout us
+  xkb_options ctrl:nocaps
+}
+
 set $keyboardMode "keyboard i=us intl, u=us, b=br m=modelM, d=DK"
 mode $keyboardMode {
-    bindsym i exec "setxkbmap us intl", mode "default"
-    bindsym u exec "setxkbmap us -option 'ctrl:nocaps compose:Super_R", mode "default"
-    bindsym d exec "setxkbmap dk -option 'ctrl:nocaps'", mode "default"
-    bindsym b exec "setxkbmap -option; setxkbmap br -option 'ctrl:nocaps'", mode "default"
-    bindsym m exec "setxkbmap -option; setxkbmap br -variant 'thinkpad' -option 'caps:super'", mode "default"
-    # bindsym e exec "setxkbmap gb", mode "default"
-    # back to normal: Enter or Escape
+    bindsym i input "*" xkb_layout us; input "*" xkb_variant intl; mode "default"
+    bindsym u input "*" xkb_layout us; input "*" xkb_options "ctrl:nocaps,compose:menu"; mode "default"
+    bindsym d input "*" xkb_layout dk; input "*" xkb_options "ctrl:nocaps"; mode "default"
+    bindsym b input "*" xkb_layout br; input "*" xkb_options "ctrl:nocaps"; mode "default"
+    bindsym m input "*" xkb_layout br; input "*" xkb_variant thinkpad; input "*" xkb_options "caps:super"; mode "default"
+    # bindsym e input "*" xkb_layout gb; mode "default"
+
+    # Back to normal mode with Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
+bindsym $mod+Control+Shift+i mode $keyboardMode
 
 # Dunst
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
