@@ -1,5 +1,6 @@
-# sway config file (v4)
-# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# sway config file
+
+include /etc/sway/config.d/*
 
 set $mod Mod4
 
@@ -259,9 +260,6 @@ smart_gaps off
 hide_edge_borders none
 smart_borders on
 
-# wallpaper
-exec_always feh --bg-scale /home/rmc/Images/wallpapers/current
-
 input * {
   xkb_layout us
   xkb_options ctrl:nocaps
@@ -281,6 +279,11 @@ mode $keyboardMode {
     bindsym Escape mode "default"
 }
 bindsym $mod+Control+Shift+i mode $keyboardMode
+
+# start applications
+exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Dunst
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
