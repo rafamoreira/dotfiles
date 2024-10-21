@@ -273,8 +273,8 @@ alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
 case `uname` in
   Darwin)
-    alias dj="docker exec -it dev-django"
-    alias djpd="docker exec -it dev-django-prod-dump"
+    alias dj="docker exec -it dev-django -u local"
+    alias djpd="docker exec -it dev-django-prod-dump -u local"
     test -e "/opt/homebrew/opt/asdf/libexec/asdf.sh" && . /opt/homebrew/opt/asdf/libexec/asdf.sh
     export PATH=$PATH:$(brew --prefix python)/libexec/bin
   ;;
