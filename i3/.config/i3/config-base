@@ -298,3 +298,5 @@ exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 
 # alt-tab confs
 exec_always alttab -d 1 -vp total
+
+# vim: ft=i3config ts=4 sw=4 et:
