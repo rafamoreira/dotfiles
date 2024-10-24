@@ -185,9 +185,15 @@ case $TERM in
 esac
 
 case $HOST in
-jupiter|titan|neptune) # arch linux computers with fzf
+jupiter)
+  eval $(keychain --eval id_ed25519)
   source /usr/share/fzf/completion.zsh
   source /usr/share/fzf/key-bindings.zsh
+;;
+titan|neptune) # arch linux computers with fzf
+  source /usr/share/fzf/completion.zsh
+  source /usr/share/fzf/key-bindings.zsh
+  export SSH_AUTH_SOCK=~/.1password/agent.sock
 ;;
 mercury.local)
   test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -293,8 +299,6 @@ alias pr="poetry run"
 
 # zsh related
 alias reload_zsh="source ~/.zshrc"
-
-export SSH_AUTH_SOCK=~/.1password/agent.sock
 
 
 # BEGIN opam configuration
