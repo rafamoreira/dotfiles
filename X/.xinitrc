@@ -27,11 +27,6 @@ eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets,ssh,gpg
 
 dbus-update-activation-environment --all
 
-# export SSH_AUTH_SOCK=~/.1password/agent.sock
-
-
-#setxkbmap -layout "br" -variant "thinkpad" -option "caps:super"
-#setxkbmap -layout "br" -option "ctrl:nocaps"
 setxkbmap -layout "us" -option "ctrl:nocaps"
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
