@@ -1,0 +1,6 @@
+# inventory/hosts
+localhost ansible_connection=local
+
+[workstation]
+localhost
+

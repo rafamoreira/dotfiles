@@ -1,0 +1,40 @@
+# roles/development/tasks/main.yml
+---
+- name: Install development packages
+  pacman:
+    name:
+      - neovim
+    state: present
+
+- name: Install paru (AUR helper)
+  become: yes
+  become_user: "{{ ansible_user_id }}"
+  git:
+    repo: https://aur.archlinux.org/paru.git
+    dest: /tmp/paru
+  register: paru_clone
+
+- name: Build and install paru
+  when: paru_clone.changed
+  become: yes
+  become_user: "{{ ansible_user_id }}"
+  command: makepkg -si --noconfirm
+  args:
+    chdir: /tmp/paru
+
+- name: Clone dotfiles
+  become: no
+  git:
+    repo: https://github.com/rafamoreira/dotfiles
+    dest: "~/dotfiles"
+
+- name: Stow dotfiles
+  become: no
+  command: stow {{ item }}
+  args:
+    chdir: ~/dotfiles
+  with_items:
+    - i3
+    - nvim
+  ignore_errors: yes
+

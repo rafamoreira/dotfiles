@@ -1,0 +1,14 @@
+# site.yml
+---
+- name: Configure Arch Linux Workstation
+  hosts: localhost
+  become: yes
+  vars_prompt:
+    - name: hostname
+      prompt: "Enter hostname for this machine"
+      private: no
+
+  roles:
+    - base-system
+    - desktop
+    - development

@@ -1,0 +1,7 @@
+# group_vars/all.yml
+---
+keyboard_layout: "us"
+locale: "en_US.UTF-8"
+timezone: "Europe/Copenhagen"
+vconsole_keymap: "us"
+

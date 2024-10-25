@@ -1,0 +1,42 @@
+# roles/base-system/tasks/main.yml
+---
+- name: Set hostname
+  hostname:
+    name: "{{ hostname }}"
+
+- name: Configure vconsole
+  copy:
+    dest: /etc/vconsole.conf
+    content: |
+      KEYMAP={{ vconsole_keymap }}
+      XKBOPTIONS=ctrl:nocaps
+
+- name: Set keyboard layout
+  command: localectl set-x11-keymap {{ keyboard_layout }} "" "" ctrl:nocaps
+
+- name: Set timezone
+  timezone:
+    name: "{{ timezone }}"
+
+- name: Configure locale
+  lineinfile:
+    path: /etc/locale.gen
+    regexp: "^#{{ locale }} UTF-8"
+    line: "{{ locale }} UTF-8"
+  notify: generate locale
+
+- name: Install base packages
+  pacman:
+    name:
+      - base-devel
+      - git
+      - networkmanager
+      - stow
+    state: present
+
+- name: Enable NetworkManager
+  systemd:
+    name: NetworkManager
+    enabled: yes
+    state: started
+
