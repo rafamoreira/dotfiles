@@ -25,6 +25,7 @@ map <leader>ff <Action>(GotoFile)
 map <leader>fr <Action>(RenameFile)
 map <leader>pr <Action>(Run)
 map <leader>sa <Action>(SearchEverywhere)
+map <leader>sf <Action>(GotoFile)
 map <leader>wu <Action>(UnsplitAll)
 map <leader>wc <Action>(CloseAllEditorsButActive)
 
