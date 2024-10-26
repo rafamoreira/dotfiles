@@ -8,7 +8,7 @@ BOOT_PARTITION="${DEVICE}p1"
 LVM_PARTITION="${DEVICE}p2"
 
 # Size configuration
-BOOT_SIZE="1G"
+BOOT_SIZE="2GiB"
 BOOT_START="1MiB"
 BOOT_END="${BOOT_SIZE}"
 LVM_START="${BOOT_SIZE}"
@@ -68,9 +68,13 @@ vgcreate $VOLUME_GROUP /dev/mapper/$CRYPT_LVM_NAME
 lvcreate -L $SWAP_SIZE -n swap $VOLUME_GROUP
 lvcreate -l +100%FREE -n archroot $VOLUME_GROUP
 
+# Format and mount the partitions
 mkswap /dev/mapper/$VOLUME_GROUP-swap
 swapon /dev/mapper/$VOLUME_GROUP-swap
+
+mkfs.ext4 /dev/mapper/$VOLUME_GROUP-archroot
 mount /dev/mapper/$VOLUME_GROUP-archroot /mnt
+
 mkdir -p /mnt/boot
 mount $BOOT_PARTITION /mnt/boot
 
