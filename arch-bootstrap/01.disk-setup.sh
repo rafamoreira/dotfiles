@@ -66,12 +66,12 @@ pvcreate /dev/mapper/$CRYPT_LVM_NAME
 vgcreate $VOLUME_GROUP /dev/mapper/$CRYPT_LVM_NAME
 
 lvcreate -L $SWAP_SIZE -n swap $VOLUME_GROUP
-lvcreate -l +100%FREE -n root $VOLUME_GROUP
+lvcreate -l +100%FREE -n archroot $VOLUME_GROUP
 
-mkswap /dev/mapper/$VOLUME_GROUP/swap
-swapon /dev/mapper/$VOLUME_GROUP/swap
-mount /dev/mapper/$VOLUME_GROUP/root /mnt
-mkdir /mnt/boot
+mkswap /dev/mapper/$VOLUME_GROUP-swap
+swapon /dev/mapper/$VOLUME_GROUP-swap
+mount /dev/mapper/$VOLUME_GROUP-archroot /mnt
+mkdir -p /mnt/boot
 mount $BOOT_PARTITION /mnt/boot
 
 echo "Partitioning and setup complete."
