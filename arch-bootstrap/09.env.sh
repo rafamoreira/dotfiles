@@ -10,6 +10,6 @@ if ! command -v paru &> /dev/null; then
 fi
 
 # paru stuff
-paru -S --needed 1password
+paru -S --needed 1password xcwd
 # pacman
 sudo pacman -S --needed --noconfirm polkit-gnome gnome-keyring libsecret libgnome-keyring x11-ssh-askpass 
