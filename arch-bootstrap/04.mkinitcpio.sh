@@ -21,7 +21,7 @@ echo "Created backup at ${MKINITCPIO_CONF}${BACKUP_SUFFIX}"
 # Function to modify HOOKS line
 configure_hooks() {
     # Required hooks for encrypted LVM2 with systemd
-    NEW_HOOKS="base systemd autodetect keyboard sd-vconsole modconf block sd-encrypt lvm2 filesystems fsck"
+    NEW_HOOKS="base systemd autodetect microcode modconf kms keyboard sd-vconsole block sd-encrypt lvm2 filesystems fsck"
     
     # Replace existing HOOKS line or add if not present
     if grep -q '^HOOKS=' "$MKINITCPIO_CONF"; then
@@ -56,8 +56,7 @@ sed -i 's/( /(/g' "$MKINITCPIO_CONF"   # Remove space after opening parenthesis
 echo "Configuration complete. New hooks configuration:"
 grep '^HOOKS=' "$MKINITCPIO_CONF"
 
-echo -e "\nTo regenerate the initramfs, run:"
-echo "mkinitcpio -P"
+mkinitcpio -P
 
 # Check if systemd-boot is installed
 if [ -d "/boot/EFI/systemd" ]; then

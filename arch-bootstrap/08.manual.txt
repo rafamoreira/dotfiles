@@ -1,0 +1,10 @@
+those steps are too teedius to do by script, and very easy to replicate by hand
+
+
+systemd-networkd config -> easy, single file, basically just activation of service
+
+iwd config -> enable the service, ezpz
+
+install stow
+clone dotfiles
+
