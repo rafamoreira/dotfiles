@@ -39,6 +39,9 @@ dex -a &
 
 xmodmap $HOME/.xmodmap
 
+# set Qt theme to dark
+export QT_STYLE_OVERRIDE=Adwaita-Dark
+
 # config from arch wiki
 # Here i3 is kept as default
 session=${1:-i3}
