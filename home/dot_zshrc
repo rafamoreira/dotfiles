@@ -27,7 +27,7 @@ setopt complete_in_word # not just at the end
 #                            PROMPT                                            #
 ################################################################################
 
-source "$HOME/.zsh/git-prompt-zsh/git-prompt.zsh"
+source "$HOME/.local/share/chezmoi/zsh_plugins/git-prompt-zsh/git-prompt.zsh"
 
 alias githash="git rev-parse HEAD"
 autoload -Uz promptinit
