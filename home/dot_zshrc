@@ -308,3 +308,5 @@ alias reload_zsh="source ~/.zshrc"
 # This section can be safely removed at any time if needed.
 [[ ! -r '/Users/rmc/.opam/opam-init/init.zsh' ]] || source '/Users/rmc/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
+
+# vim: set ft=zsh:
