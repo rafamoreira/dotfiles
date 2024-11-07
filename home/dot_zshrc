@@ -185,12 +185,12 @@ case $TERM in
 esac
 
 case $HOST in
-jupiter)
+jupiter|neptune)
   eval $(keychain --eval id_ed25519)
   source /usr/share/fzf/completion.zsh
   source /usr/share/fzf/key-bindings.zsh
 ;;
-titan|neptune) # arch linux computers with fzf
+titan) # arch linux computers with fzf
   source /usr/share/fzf/completion.zsh
   source /usr/share/fzf/key-bindings.zsh
   export SSH_AUTH_SOCK=~/.1password/agent.sock
