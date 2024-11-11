@@ -290,3 +290,5 @@ bindsym print exec --no-startup-id slurp | grim -g - $(xdg-user-dir PICTURES)/$(
 
 # alt-tab confs
 # exec_always alttab -d 1 -vp total
+
+# vim: ft=swayconfig ts=4 sw=4 et:

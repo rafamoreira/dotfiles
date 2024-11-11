@@ -2,7 +2,6 @@
 
 include /etc/sway/config.d/*
 
-
 set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
@@ -161,7 +160,7 @@ assign [app_id="steam"]          $workspace10
 for_window [class="Spotify"] move container to workspace $workspace10
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
 for_window [class="Pavucontrol"] floating enable
-for_window [class="thunderbird" window_role="alert"] floating enable
+for_window [app_id="thunderbird" window_role="alert"] floating enable
 for_window [shell="xwayland"] title_format "[XWayland] %title"
 # no_focus [window_role="alert"]
 
@@ -284,7 +283,10 @@ exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ss
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Dunst
-exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+# exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec mako
+
+bindsym print exec --no-startup-id slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 
 # alt-tab confs
 # exec_always alttab -d 1 -vp total
