@@ -32,3 +32,9 @@ case `uname` in
 esac
 
 export PATH="$PATH:$HOME/.local/bin"
+
+# mise
+[ -f /usr/bin/mise ] && eval "$(mise activate zsh --shims)"
+
+# chruby
+[ -f /usr/share/chruby/chruby.sh ] && source /usr/share/chruby/chruby.sh
