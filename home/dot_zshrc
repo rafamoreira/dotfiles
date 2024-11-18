@@ -277,6 +277,9 @@ alias edit_nvim="cd ~/.config/nvim && nvim init.lua"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
+# mise
+[ -f /usr/bin/mise ] && eval "$(mise activate zsh)"
+
 case `uname` in
   Darwin)
     alias dj="docker exec -it dev-django -u local"
