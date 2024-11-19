@@ -38,3 +38,6 @@ export PATH="$PATH:$HOME/.local/bin"
 
 # chruby
 [ -f /usr/share/chruby/chruby.sh ] && source /usr/share/chruby/chruby.sh
+
+# go path
+export PATH="$PATH:$(go env GOBIN)"
