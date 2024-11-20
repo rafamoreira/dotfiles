@@ -312,4 +312,7 @@ alias reload_zsh="source ~/.zshrc"
 [[ ! -r '/Users/rmc/.opam/opam-init/init.zsh' ]] || source '/Users/rmc/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
 
+# atuin
+eval "$(atuin init zsh)"
+
 # vim: set ft=zsh:
