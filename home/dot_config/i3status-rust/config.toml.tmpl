@@ -48,8 +48,12 @@ format = " $ip "
 [[block]]
 block = "keyboard_layout"
 
+{{- if eq .chezmoi.hostname "jupiter" }}
+
 [[block]]
 block = "nvidia_gpu"
+
+{{- end }}
 
 [[block]]
 block = "time"
