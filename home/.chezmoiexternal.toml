@@ -1,0 +1,4 @@
+[".config/alacritty/dracula.toml"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/dracula/alacritty/refs/heads/master/dracula.toml"
+    refreshPeriod = "168h"
