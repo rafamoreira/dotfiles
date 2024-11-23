@@ -2,3 +2,9 @@
     type = "file"
     url = "https://raw.githubusercontent.com/dracula/alacritty/refs/heads/master/dracula.toml"
     refreshPeriod = "168h"
+
+[".tmux/themes/dracula"]
+    type = "git-repo"
+    url = "https://github.com/dracula/tmux"
+    refreshPeriod = "168h"
+
