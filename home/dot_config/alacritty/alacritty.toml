@@ -590,6 +590,8 @@ y = 0
 [general]
 live_config_reload = true
 # enable_experimental_conpty_backend = false
-import = ["/home/rmc/.config/alacritty/dracula.toml"]
+# import = ["/home/rmc/.config/alacritty/dracula.toml"]
+import = ["/home/rmc/.config/alacritty/tokyonight/tokyo-night.toml"]
+
 
 [terminal]

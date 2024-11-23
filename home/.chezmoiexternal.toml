@@ -3,8 +3,12 @@
     url = "https://raw.githubusercontent.com/dracula/alacritty/refs/heads/master/dracula.toml"
     refreshPeriod = "168h"
 
+[".config/alacritty/tokyonight"]
+    type = "git-repo"
+    url = "https://github.com/zatchheems/tokyo-night-alacritty-theme"
+    refreshPeriod = "168h"
+
 [".tmux/themes/dracula"]
     type = "git-repo"
     url = "https://github.com/dracula/tmux"
     refreshPeriod = "168h"
-

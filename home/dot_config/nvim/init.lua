@@ -126,12 +126,13 @@ require("lazy").setup({
   end,
 
   },
+  -- some themes
   'dracula/vim',
   'andreasvc/vim-256noir',
   "jonathanfilip/vim-lucius",
   'lucasprag/simpleblack',
   --
-  install = { colorscheme = { "dracula" } },
+  install = { colorscheme = { "tokyonight" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })
