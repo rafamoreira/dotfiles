@@ -109,27 +109,29 @@ require("lazy").setup({
 	}, 
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
+  --
   {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     opts = {},
-  },
-  { 
-    'andreasvc/vim-256noir',
     init = function()
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme '256_noir'
+      vim.cmd.colorscheme 'tokyonight'
 
       -- You can configure highlights by doing something like:
       vim.cmd.hi 'Comment gui=none'
-    end,
-  },
-  { 'lucasprag/simpleblack' },
+  end,
 
-  install = { colorscheme = { "tokyo-night" } },
+  },
+  'dracula/vim',
+  'andreasvc/vim-256noir',
+  "jonathanfilip/vim-lucius",
+  'lucasprag/simpleblack',
+  --
+  install = { colorscheme = { "dracula" } },
   -- automatically check for plugin updates
   checker = { enabled = true },
 })

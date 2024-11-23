@@ -6,6 +6,8 @@
   "simpleblack": { "branch": "master", "commit": "e774b34b31d565ab17a892dfae9b8a17d18eacd9" },
   "telescope.nvim": { "branch": "master", "commit": "85922dde3767e01d42a08e750a773effbffaea3e" },
   "tokyonight.nvim": { "branch": "main", "commit": "c2725eb6d086c8c9624456d734bd365194660017" },
+  "vim": { "branch": "master", "commit": "65f4225e0526516a67d56c8ac09925a209138e53" },
   "vim-256noir": { "branch": "master", "commit": "e8668a18a4a90272c1cae87e655f8bddc5ac3665" },
+  "vim-lucius": { "branch": "master", "commit": "b5dea9864ae64714da4635993ad2fc2703e7c832" },
   "which-key.nvim": { "branch": "main", "commit": "68e37e12913a66b60073906f5d3f14dee0de19f2" }
 }
