@@ -107,6 +107,19 @@ require("lazy").setup({
 				}, 
 		}, 
 	}, 
+  {
+    'neovim/nvim-lspconfig',
+    config = function()
+      require('lspconfig').ruff.setup({
+        init_options = {
+          settings = {
+            -- Ruff language server settings go here
+          }
+        }
+      })
+    end,
+
+  },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
   --
