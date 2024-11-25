@@ -295,6 +295,11 @@ exec systemctl --user start xdg-desktop-portal-wlr
 # exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
 exec --no-startup-id mako
 
-bindsym print exec --no-startup-id slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+exec --no-startup-id flameshot
+
+# bindsym print exec --no-startup-id slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
+for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
+bindsym print exec "flameshot gui"
+
 
 # vim: ft=swayconfig ts=4 sw=4 et:
