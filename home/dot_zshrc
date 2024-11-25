@@ -219,9 +219,8 @@ fi
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
-if [ -f /usr/share/chruby/auto.sh ]; then
-  source /usr/share/chruby/auto.sh
-fi
+[ -f /usr/share/chruby/chruby.sh ] && source /usr/share/chruby/chruby.sh
+[ -f /usr/share/chruby/auto.sh ] && source /usr/share/chruby/auto.sh
 
 # eval "$(pyenv init -)"
 
