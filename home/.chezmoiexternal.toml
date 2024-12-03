@@ -8,6 +8,12 @@
     url = "https://github.com/zatchheems/tokyo-night-alacritty-theme"
     refreshPeriod = "168h"
 
+[".config/nvim"]
+    type = "git-repo"
+    url = "git@github.com:rafamoreira/nvim_config"
+    refreshPeriod = "168h"
+
+
 [".tmux/themes/dracula"]
     type = "git-repo"
     url = "https://github.com/dracula/tmux"
