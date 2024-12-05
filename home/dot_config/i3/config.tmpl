@@ -276,6 +276,7 @@ mode $keyboardMode {
 
 # Dunst
 exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+exec --no-startup-id $HOME/.screenlayout/default.sh
 
 exec_always --no-startup-id gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 exec_always --no-startup-id gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
