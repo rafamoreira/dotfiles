@@ -315,6 +315,6 @@ alias reload_zsh="source ~/.zshrc"
 eval "$(atuin init zsh)"
 
 # PATH
-export PATH=$HOME/.cargo/bin/:$PATH
+export PATH=$HOME/.cargo/bin:$PATH
 
 # vim: set ft=zsh:
