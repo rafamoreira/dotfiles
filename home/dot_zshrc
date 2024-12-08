@@ -17,7 +17,11 @@ case `uname` in
 esac
 FPATH=$HOME/.zsh/zfunc:$FPATH
 autoload -Uz compinit
-compinit
+if [ $(date +'%j') != $(stat -f '%Sm' -t '%j' ~/.zcompdump) ]; then
+  compinit
+else
+  compinit -C
+fi
 zstyle ':completion:*' menu select # interactive completion
 zstyle ':completion::complete:*' gain-privileges 1
 setopt COMPLETE_ALIASES # auto complete command line aliases
