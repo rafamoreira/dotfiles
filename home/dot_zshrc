@@ -322,3 +322,5 @@ eval "$(atuin init zsh)"
 export PATH=$HOME/.cargo/bin:$PATH
 
 # vim: set ft=zsh:
+
+source /usr/share/nvm/init-nvm.sh
