@@ -321,6 +321,10 @@ eval "$(atuin init zsh)"
 # PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
-# vim: set ft=zsh:
+{{- if eq .chezmoi.hostname "jupiter" }}
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+{{- end }}
 
 source /usr/share/nvm/init-nvm.sh
+
+# vim: set ft=zsh:
