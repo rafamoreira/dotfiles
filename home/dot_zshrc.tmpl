@@ -257,7 +257,9 @@ export EDITOR='nvim'
 alias pushall='for i in `git remote`; do git push $i; done;'
 alias pullall='for i in `git remote`; do git pull $i; done;'
 
+{{- if eq .chezmoi.hostname "jupiter" }}
 eval "$(direnv hook zsh)"
+{{- end }}
 
 setopt PROMPT_SUBST
 
@@ -323,8 +325,9 @@ export PATH=$HOME/.cargo/bin:$PATH
 
 {{- if eq .chezmoi.hostname "jupiter" }}
 export ELECTRON_OZONE_PLATFORM_HINT=auto
-{{- end }}
 
 source /usr/share/nvm/init-nvm.sh
+{{- end }}
+
 
 # vim: set ft=zsh:
