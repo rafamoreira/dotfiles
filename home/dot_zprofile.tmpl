@@ -36,5 +36,11 @@ export PATH="$PATH:$HOME/.local/bin"
 # mise
 [ -f /usr/bin/mise ] && eval "$(mise activate zsh --shims)"
 
+
+{{- if eq .chezmoi.hostname "jupiter" }}
 # go path
 export PATH="$PATH:$(go env GOBIN)"
+{{- end }}
+
+
+# vim: set ft=zsh:
