@@ -8,6 +8,7 @@
 ################################################################################
 #                            COMPLETION                                        #
 ################################################################################
+# zmodload zsh/zprof  # uncomment to profile zsh startup
 case `uname` in
   Darwin)
     if type brew &>/dev/null; then
@@ -219,10 +220,6 @@ if [ -f ~/.config/using-rbenv ]; then
   eval "$(rbenv init -)"
 fi
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 [ -f /usr/share/chruby/chruby.sh ] && source /usr/share/chruby/chruby.sh
 [ -f /usr/share/chruby/auto.sh ] && source /usr/share/chruby/auto.sh
 
@@ -282,9 +279,6 @@ alias edit_nvim="cd ~/.config/nvim && nvim init.lua"
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
-# mise
-[ -f /usr/bin/mise ] && eval "$(mise activate zsh)"
-
 case `uname` in
   Darwin)
     alias dj="docker exec -it dev-django -u local"
@@ -326,8 +320,7 @@ export PATH=$HOME/.cargo/bin:$PATH
 {{- if eq .chezmoi.hostname "jupiter" }}
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 
-source /usr/share/nvm/init-nvm.sh
 {{- end }}
 
-
+# zprof # uncomment to profile zsh startup
 # vim: set ft=zsh:
