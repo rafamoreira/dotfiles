@@ -324,5 +324,9 @@ export ELECTRON_OZONE_PLATFORM_HINT=auto
 
 eval "$(fnm env --use-on-cd --shell zsh)"
 
+{{- if eq .chezmoi.hostname "jupiter" }}
+alias ssh="kitten ssh" 
+{{- end }}
+
 # zprof # uncomment to profile zsh startup
 # vim: set ft=zsh:
