@@ -18,11 +18,11 @@ case `uname` in
 esac
 FPATH=$HOME/.zsh/zfunc:$FPATH
 autoload -Uz compinit
-if [[ -n $HOME/.zcompdump(#qN.mh+24) ]]; then
+for dump in ~/.zcompdump(N.mh+24); do
   compinit
-else
-  compinit -C
-fi
+done
+compinit -C
+
 zstyle ':completion:*' menu select # interactive completion
 zstyle ':completion::complete:*' gain-privileges 1
 setopt COMPLETE_ALIASES # auto complete command line aliases
@@ -201,7 +201,6 @@ titan) # arch linux computers with fzf
   export SSH_AUTH_SOCK=~/.1password/agent.sock
 ;;
 mercury.local)
-  test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
   source "/opt/homebrew/opt/fzf/shell/completion.zsh"
   source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 esac
@@ -319,10 +318,9 @@ export PATH=$HOME/.cargo/bin:$PATH
 
 {{- if eq .chezmoi.hostname "jupiter" }}
 export ELECTRON_OZONE_PLATFORM_HINT=auto
-
+eval "$(fnm env --use-on-cd --shell zsh)"
 {{- end }}
 
-eval "$(fnm env --use-on-cd --shell zsh)"
 
 {{- if eq .chezmoi.hostname "jupiter" }}
 alias ssh="kitten ssh" 
