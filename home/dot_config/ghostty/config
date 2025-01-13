@@ -1,4 +1,5 @@
 font-feature = -liga
 font-feature = -dlig
 font-feature = -calt
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
 
