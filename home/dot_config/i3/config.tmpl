@@ -116,10 +116,10 @@ bindsym $mod+Control+l move workspace to output right
 bindsym $mod+Control+j move workspace to output up
 bindsym $mod+Control+k move workspace to output down
 
-bindsym $mod+Control+Left move workspace to output left
-bindsym $mod+Control+Right move workspace to output right
-bindsym $mod+Control+Up move workspace to output up
-bindsym $mod+Control+Down move workspace to output down
+bindsym $mod+Control+Left   move workspace to output left
+bindsym $mod+Control+Right  move workspace to output right
+bindsym $mod+Control+Up     move workspace to output up
+bindsym $mod+Control+Down   move workspace to output down
 
 # assign apps to workspaces
 
@@ -127,6 +127,7 @@ assign [class="Terminator"]     $workspace1
 assign [class="Alacritty"]      $workspace1
 assign [class="Termite"]        $workspace1
 assign [class="URxvt"]          $workspace1
+assign [class="kitty"]          $workspace1
 assign [class="Firefox"]        $workspace2
 assign [class="firefox"]        $workspace2
 assign [class="Chromium"]       $workspace2
@@ -145,7 +146,7 @@ assign [class="Slack"]          $workspace4
 assign [class="Thunderbird"]    $workspace4
 assign [class="Rambox"]         $workspace4
 assign [class="Skype"]          $workspace4
-assign [class="Signal"]		$workspace4
+assign [class="Signal"]         $workspace4
 assign [class="1Password"]      $workspace9
 assign [class="Steam"]          $workspace10
 assign [class="steam"]          $workspace10
@@ -197,7 +198,7 @@ bindsym $mod+r mode "resize"
 # }
 
 bar {
-    font pango:JetBrainsMono Nerd Font 10
+    font pango:JetBrainsMono Nerd Font 8
     status_command i3status-rs 
 }
 
