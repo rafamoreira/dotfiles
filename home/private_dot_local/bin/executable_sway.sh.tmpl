@@ -5,7 +5,7 @@ export QT_QPA_PLATFORM=wayland
 export XDG_CURRENT_DESKTOP=sway
 export XDG_SESSION_DESKTOP=sway
 {{- if eq .chezmoi.hostname "jupiter" }}
-exec sway --unsupported-gpu
+exec sway
 {{- else }}
 exec sway
 {{- end }}
