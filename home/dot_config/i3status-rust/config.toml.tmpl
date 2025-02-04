@@ -47,7 +47,10 @@ block = "keyboard_layout"
 {{- if eq .chezmoi.hostname "jupiter" }}
 
 [[block]]
-block = "nvidia_gpu"
+block = "amd_gpu"
+format = " $icon $utilization "
+format_alt = " $icon MEM: $vram_used_percents ($vram_used/$vram_total) "
+interval = 1
 
 {{- end }}
 

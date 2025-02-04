@@ -12,8 +12,8 @@ font pango:JetBrainsMono Nerd Font 8
 output DP-1 resolution 2560x1440@165Hz position 0 0
 output DP-2 resolution 2560x1440@165Hz position 2560 0
 {{- else if eq .chezmoi.hostname "jupiter" }}
-output DP-1 resolution 2560x1440@75Hz position 2560 0
-output HDMI-A-1 resolution 2560x1440@75Hz position 0 0
+output DP-2 resolution 2560x1440@75Hz position 2560 0
+output HDMI-A-2 resolution 2560x1440@75Hz position 0 0
 {{- end }}
 
 # Use Mouse+$mod to drag floating windows to their wanted position
@@ -153,9 +153,8 @@ assign [class="Slack"]          $workspace4
 assign [app_id="Thunderbird"]    $workspace4
 assign [app_id="Rambox"]         $workspace4
 assign [app_id="Skype"]          $workspace4
-assign [app_id="Signal"]	 $workspace4
-assign [app_id="Steam"]          $workspace10
-assign [app_id="steam"]          $workspace10
+assign [app_id="Signal"]	    $workspace4
+assign [class="steam"]          $workspace10
 for_window [class="Spotify"] move container to workspace $workspace10
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
 for_window [class="Pavucontrol"] floating enable
