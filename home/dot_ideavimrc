@@ -2,8 +2,8 @@
 let mapleader = ' '
 
 """ General settings ----------------------------------------------------------
-set clipboard+=unnamedplus
-"set clipboard+=ideaput
+"set clipboard+=unnamedplus
+set clipboard+=ideaput
 set hlsearch
 set incsearch
 set matchpairs
@@ -18,30 +18,36 @@ set timeoutlen = 5000
 set undolevels=10000
 "set visualbell
 
+""" IdeaVim only options ------------------------------------------------------
+set ideajoin
+set ideamarks
+
+""" Plugins --------------------------------------------------------------------
+set easymotion
+set NERDTree
+set surround
+set which-key
+
 """ IDE Keymaps ----------------------------------------------------------------
 nnoremap <leader>r :action Replace<CR>
 map <leader>fa <Action>(FindAction)
-map <leader>ff <Action>(GotoFile)
-map <leader>fr <Action>(RenameFile)
+ma <leader>fr <Action>(RenameFile)
+map <leader>K <Action>(ShowHoverInfo)
 map <leader>pr <Action>(Run)
 map <leader>sa <Action>(SearchEverywhere)
 map <leader>sf <Action>(GotoFile)
 map <leader>wu <Action>(UnsplitAll)
 map <leader>wc <Action>(CloseAllEditorsButActive)
 
-""" Plugins --------------------------------------------------------------------
-set easymotion
-set ideajoin
-set NERDTree
-set surround
-set which-key
+
+""" Which Key -----------------------------------------------------------------
+let g:WhichKeyDesc_file = "<leader>f File"
+let g:WhichKeyDesc_search = "<leader>s Search"
+let g:WhichKey_ShowVimActions = "true"
 
 """ NERDTree Configuration -----------------------------------------------------
 map <leader>o :NERDTreeToggle<CR>
 map <leader>h :NERDTreeFind<CR>
-
-""" which-key Configuration ----------------------------------------------------
-let g:WhichKey_ShowVimActions = "true"
 
 """ CoPilot Configuration -----------------------------------------------------
 map <leader>pc <Action>(copilot.chat.show)
