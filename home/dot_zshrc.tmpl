@@ -253,9 +253,7 @@ export EDITOR='nvim'
 alias pushall='for i in `git remote`; do git push $i; done;'
 alias pullall='for i in `git remote`; do git pull $i; done;'
 
-{{- if eq .chezmoi.hostname "jupiter" }}
 eval "$(direnv hook zsh)"
-{{- end }}
 
 setopt PROMPT_SUBST
 
