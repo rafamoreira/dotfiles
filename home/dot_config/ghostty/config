@@ -1,5 +1,4 @@
-font-feature = -liga
-font-feature = -dlig
-font-feature = -calt
+font-feature = -liga,-dlig,-calt
 keybind = global:ctrl+grave_accent=toggle_quick_terminal
+theme = tokyonight
 
