@@ -314,13 +314,13 @@ eval "$(atuin init zsh)"
 # PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
-{{- if eq .chezmoi.hostname "jupiter" }}
+{{- if eq .chezmoi.hostname "neptune" }}
 export ELECTRON_OZONE_PLATFORM_HINT=auto
-eval "$(fnm env --use-on-cd --shell zsh)"
 {{- end }}
 
 
 {{- if eq .chezmoi.hostname "jupiter" }}
+eval "$(fnm env --use-on-cd --shell zsh)"
 alias ssh="kitten ssh" 
 {{- end }}
 

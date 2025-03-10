@@ -131,29 +131,31 @@ bindsym $mod+Control+Up move workspace to output up
 bindsym $mod+Control+Down move workspace to output down
 
 # assign apps to workspaces
-assign [app_id="Terminator"]     $workspace1
-assign [app_id="Alacritty"]      $workspace1
-assign [app_id="Termite"]        $workspace1
-assign [app_id="URxvt"]          $workspace1
-assign [app_id="firefox"]        $workspace2
-assign [app_id="firefox"]        $workspace2
-assign [app_id="Chromium"]       $workspace2
-assign [app_id="Chrome"]         $workspace2
-assign [app_id="chromium"]       $workspace2
-assign [app_id="google-chrome"]  $workspace2
-assign [app_id="Google-chrome"]  $workspace2
-assign [app_id="qutebrowser"]    $workspace2
-assign [app_id="Gvim"]           $workspace3
-assign [app_id="Code"]           $workspace3
-assign [app_id="Emacs"]          $workspace3
+assign [app_id="Terminator"]    $workspace1
+assign [app_id="Alacritty"]     $workspace1
+assign [app_id="Termite"]       $workspace1
+assign [app_id="URxvt"]         $workspace1
+assign [app_id="firefox"]       $workspace2
+assign [app_id="firefox"]       $workspace2
+assign [app_id="Chromium"]      $workspace2
+assign [app_id="Chrome"]        $workspace2
+assign [app_id="chromium"]      $workspace2
+assign [app_id="google-chrome"] $workspace2
+assign [app_id="Google-chrome"] $workspace2
+assign [app_id="qutebrowser"]   $workspace2
+assign [app_id="Gvim"]          $workspace3
+assign [app_id="Code"]          $workspace3
+assign [app_id="Emacs"]         $workspace3
 assign [class="^jetbrains-.+"]  $workspace3
-assign [app_id="GitKraken"]      $workspace3
-assign [app_id="Insomnia"]       $workspace3
-assign [class="slack"]           $workspace4
-assign [app_id="Thunderbird"]    $workspace4
-assign [app_id="Rambox"]         $workspace4
-assign [app_id="Skype"]          $workspace4
-assign [app_id="Signal"]	    $workspace4
+assign [app_id="GitKraken"]     $workspace3
+assign [app_id="Insomnia"]      $workspace3
+assign [class="slack"]          $workspace4
+assign [app_id="Thunderbird"]   $workspace4
+assign [app_id="Rambox"]        $workspace4
+assign [app_id="Skype"]         $workspace4
+assign [app_id="Signal"]        $workspace4
+assign [app_id="1password"]     $workspace9
+assign [class="1password"]      $workspace9
 assign [class="steam"]          $workspace10
 for_window [class="Spotify"] move container to workspace $workspace10
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
