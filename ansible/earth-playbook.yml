@@ -5,13 +5,24 @@
   become: yes
   
   vars:
+    user_home: "{{ lookup('env', 'HOME') }}"
+    current_user: "{{ lookup('env', 'USER') }}"
     packages:
+      # base
+      - less
+      - openssh
+      - zsh
+      - man
       # Sway window manager and related
       - sway
       - swayidle
       - swaylock
+      - ttf-jetbrains-mono-nerd
+      - i3status-rust 
+      - xorg-xwayland
+      # - rofi
       # - waybar
-      # - wofi
+      - wofi
       # - mako
       
       # AMD drivers
@@ -24,6 +35,8 @@
       # Applications
       - alacritty
       - firefox
+      - chezmoi
+      - nvim
       
       # Essential utilities
       # - wl-clipboard
@@ -31,6 +44,8 @@
       # - slurp
       # - brightnessctl
       # - playerctl
+    aur_packages:
+      - 1password
 
   tasks:
     - name: Update package cache
@@ -41,3 +56,46 @@
       pacman:
         name: "{{ packages }}"
         state: present
+
+    - name: create .config directory
+      file:
+        path: "{{ user_home }}/.config"
+        state: directory
+        owner: "{{ current_user }}"
+        mode: '0755'
+      become: no
+    
+    - name: Check if paru is installed
+      command: which paru
+      register: paru_check
+      failed_when: false
+      changed_when: false
+      become: no
+
+    - name: Clone paru repository
+      git:
+        repo: https://aur.archlinux.org/paru.git
+        dest: "{{ user_home }}/paru"
+        force: yes
+      when: paru_check.rc != 0
+      become: no
+
+    - name: Build and install paru
+      shell: |
+        cd {{ user_home }}/paru
+        makepkg -si --noconfirm
+      when: paru_check.rc != 0
+      become: no
+
+    - name: clean up paru build
+      file:
+        path: "{{ user_home }}/paru"
+        state: absent
+      when: paru_check.rc != 0
+      become: no
+
+    - name: install AUR packages with paru
+      shell: paru -S --noconfirm {{ item }}
+      loop: "{{ aur_packages }}"
+      become: no
+
