@@ -13,17 +13,18 @@
       - openssh
       - zsh
       - man
+      - keychain
       # Sway window manager and related
+      # - mako
+      - i3status-rust 
       - sway
       - swayidle
       - swaylock
+      - rofi
       - ttf-jetbrains-mono-nerd
-      - i3status-rust 
-      - xorg-xwayland
-      # - rofi
       # - waybar
       - wofi
-      # - mako
+      - xorg-xwayland
       
       # AMD drivers
       # - mesa
@@ -34,9 +35,15 @@
       
       # Applications
       - alacritty
-      - firefox
+      - atuin
       - chezmoi
+      - firefox
       - nvim
+      - thunderbird
+
+      # dev
+      - direnv
+      - fzf
       
       # Essential utilities
       # - wl-clipboard
@@ -56,6 +63,21 @@
       pacman:
         name: "{{ packages }}"
         state: present
+
+    - name: Change user default to zsh
+      user:
+        name: "{{ current_user }}"
+        shell: /usr/bin/zsh
+      become: yes
+
+    - name: Add user to sudoers with passwordless sudo
+      lineinfile:
+        path: /etc/sudoers
+        state: present
+        regexp: '^{{ current_user }}\s'
+        line: '{{ current_user }} ALL=(ALL:ALL) NOPASSWD: ALL'
+        validate: 'visudo -cf %s'
+      become: yes 
 
     - name: create .config directory
       file:
@@ -94,8 +116,10 @@
       when: paru_check.rc != 0
       become: no
 
-    - name: install AUR packages with paru
-      shell: paru -S --noconfirm {{ item }}
-      loop: "{{ aur_packages }}"
-      become: no
-
+    # commented for now, as this is running every time, and reinstalling
+    # everytime, I need to find a better solution
+    # - name: install AUR packages with paru
+    #   shell: paru -S --noconfirm {{ item }}
+    #   loop: "{{ aur_packages }}"
+    #   become: no
+    #
