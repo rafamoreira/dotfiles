@@ -9,11 +9,15 @@
     current_user: "{{ lookup('env', 'USER') }}"
     packages:
       # base
-      - less
-      - openssh
-      - zsh
-      - man
       - keychain
+      - less
+      - libayatana-appindicator
+      - libappindicator-gtk3
+      - linux-headers
+      - man
+      - openssh
+      - org.freedesktop.secrets
+      - zsh
       # Sway window manager and related
       # - mako
       - i3status-rust 
@@ -53,6 +57,9 @@
       # - playerctl
     aur_packages:
       - 1password
+      - tuxedo-control-center-bin
+      - visual-studio-code-bin
+      - icu69-bin
 
   tasks:
     - name: Update package cache
