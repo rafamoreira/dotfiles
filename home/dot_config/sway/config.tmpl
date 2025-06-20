@@ -154,8 +154,7 @@ assign [app_id="Thunderbird"]   $workspace4
 assign [app_id="Rambox"]        $workspace4
 assign [app_id="Skype"]         $workspace4
 assign [app_id="Signal"]        $workspace4
-assign [app_id="1password"]     $workspace9
-assign [class="1password"]      $workspace9
+assign [app_id="1Password"]     $workspace9
 assign [class="steam"]          $workspace10
 for_window [class="Spotify"] move container to workspace $workspace10
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
@@ -301,6 +300,8 @@ exec systemctl --user start xdg-desktop-portal-gtk
 exec --no-startup-id mako
 
 exec --no-startup-id flameshot
+
+# exec --no-startup-id wl-paste --primary --watch wl-copy
 
 # bindsym print exec --no-startup-id slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
