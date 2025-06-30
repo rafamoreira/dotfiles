@@ -570,7 +570,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 
 [terminal.shell]
 args = ["--login"]
-program = "/bin/zsh"
+program = "zsh"
 
 [window]
 decorations = "none"

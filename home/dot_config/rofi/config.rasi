@@ -145,5 +145,5 @@ terminal: "rofi-sensible-terminal";
       sorting-method:    "name";
   }
 }
-@theme "/usr/share/rofi/themes/Arc-Dark.rasi"
+@theme ".config/rofi/themes/Arc-Dark.rasi"
 //@theme "/usr/share/rofi/themes/fancy.rasi"

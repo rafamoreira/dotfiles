@@ -22,6 +22,8 @@ floating_modifier $mod
 # start a terminal
 # bindsym $mod+Return exec alacritty --working-directory="`xcwd`"
 bindsym $mod+Return exec alacritty 
+# bindsym $mod+Return exec foot
+
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -165,10 +167,8 @@ for_window [shell="xwayland"] title_format "[XWayland] %title"
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
-# exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "swaynag -t warning -m 'confirm to exit' -b 'Confirm?' 'swaymsg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -221,7 +221,7 @@ set $Locker swaylock -f
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
   bindsym l exec --no-startup-id $Locker, mode "default"
-  bindsym e exec --no-startup-id i3-msg exit, mode "default"
+  bindsym e exec --no-startup-id swaymsg exit, mode "default"
   bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
   bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
   bindsym r exec --no-startup-id systemctl reboot, mode "default"
@@ -307,5 +307,7 @@ exec --no-startup-id flameshot
 for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
 bindsym print exec "flameshot gui"
 
+bindsym XF86MonBrightnessDown exec light -U 10
+bindsym XF86MonBrightnessUp exec light -A 10
 
 # vim: ft=swayconfig ts=4 sw=4 et:
