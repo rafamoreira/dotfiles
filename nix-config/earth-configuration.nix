@@ -18,7 +18,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   boot.initrd.luks.devices."luks-4a414365-dad4-4612-9dff-6ffe927208a3".device = "/dev/disk/by-uuid/4a414365-dad4-4612-9dff-6ffe927208a3";
-  networking.hostName = "nixos"; # Define your hostname.
+  networking.hostName = "earth"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
@@ -71,10 +71,12 @@
   	alacritty
   	atuin
 	chezmoi
+	i3status-rust
     git
     grim # screenshoot
     mako # notification
-    neovim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
+    neovim     
+    polkit_gnome
     pulseaudio
     rofi-wayland
     slurp # screenshot
@@ -125,6 +127,32 @@
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
+  security.polkit.enable = true;
+  #1password
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    # Certain features, including CLI integration and system authentication support,
+    # require enabling PolKit integration on some desktop environments (e.g. Plasma).
+    polkitPolicyOwners = [ "rmc" ];
+  };
+
+  systemd = {
+  user.services.polkit-gnome-authentication-agent-1 = {
+  	enable = true;
+    description = "polkit-gnome-authentication-agent-1";
+    wantedBy = [ "graphical-session.target" ];
+    wants = [ "graphical-session.target" ];
+    after = [ "graphical-session.target" ];
+    serviceConfig = {
+        Type = "simple";
+        ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
+        Restart = "on-failure";
+        RestartSec = 1;
+        TimeoutStopSec = 10;
+      };
+  };
+	};
 
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
