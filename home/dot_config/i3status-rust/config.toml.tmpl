@@ -53,6 +53,14 @@ format = " $icon $utilization $temperature $clocks "
 
 {{- end }}
 
+{{- if eq .chezmoi.hostname "earth" }}
+[[block]]
+block = "amd_gpu"
+format = " $icon $utilization "
+format_alt = " $icon MEM: $vram_used_percents ($vram_used/$vram_total) "
+interval = 1
+{{- end }}
+
 [[block]]
 block = "time"
 interval = 5
