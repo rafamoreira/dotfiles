@@ -10,6 +10,10 @@ $line_break\
 $python\
 $character"""
 
+right_format = """
+$time\
+"""
+
 [directory]
 style = "blue"
 
@@ -44,3 +48,9 @@ style = "yellow"
 [python]
 format = "[$virtualenv]($style) "
 style = "bright-black"
+
+[time]
+disabled = false
+format = '[\[ $time \]]($style) '
+time_format = '%T'
+utc_time_offset = '+2'
