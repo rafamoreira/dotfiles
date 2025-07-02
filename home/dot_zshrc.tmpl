@@ -32,13 +32,13 @@ setopt complete_in_word # not just at the end
 #                            PROMPT                                            #
 ################################################################################
 
-source "$HOME/.zsh/git-prompt-zsh/git-prompt.zsh"
+# source "$HOME/.zsh/git-prompt-zsh/git-prompt.zsh"
 
 alias githash="git rev-parse HEAD"
 autoload -Uz promptinit
 promptinit
 PROMPT='%F{green}%n%f@%F{magenta}%M%f %F{blue}%B%~%b%f %# '
-RPROMPT='$(gitprompt)'
+# RPROMPT='$(gitprompt)'
 
 ################################################################################
 #                            KEY BINDINGS                                      #
@@ -191,7 +191,7 @@ esac
 
 case $HOST in
 jupiter|neptune)
-  eval $(keychain --eval id_ed25519)
+  # eval $(keychain --eval id_ed25519)
   source /usr/share/fzf/completion.zsh
   source /usr/share/fzf/key-bindings.zsh
 ;;
@@ -325,6 +325,8 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 {{- end }}
 
 eval "$(starship init zsh)"
+
+export INTEMPUS_DOCKER_USER="local"
 
 # zprof # uncomment to profile zsh startup
 # vim: set ft=zsh:
