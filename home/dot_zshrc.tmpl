@@ -326,7 +326,11 @@ eval "$(fnm env --use-on-cd --shell zsh)"
 
 eval "$(starship init zsh)"
 
+{{- if eq .chezmoi.os "darwin" }}
+export INTEMPUS_DOCKER_USER="root"
+{{ else }}
 export INTEMPUS_DOCKER_USER="local"
+{{ end }}
 
 # zprof # uncomment to profile zsh startup
 # vim: set ft=zsh:
