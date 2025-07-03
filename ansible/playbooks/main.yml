@@ -1,0 +1,11 @@
+---
+- name: Configure Arch Linux System
+  hosts: localhost
+  connection: local
+  become: yes
+  vars:
+    user: "{{ ansible_user_id }}"
+    
+  tasks:
+    - import_tasks: packages.yml
+    - import_tasks: dotfiles.yml

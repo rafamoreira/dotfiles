@@ -1,0 +1,15 @@
+---
+- name: Install essential packages
+  pacman:
+    name:
+      - neovim
+      - git
+      - chezmoi
+    state: present
+
+# - name: Install AUR packages
+#   shell: paru -S --noconfirm {{ item }}
+#   loop:
+#     - visual-studio-code-bin
+#   become: no
+#   become_user: "{{ user }}"
