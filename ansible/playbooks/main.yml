@@ -2,10 +2,17 @@
 - name: Configure Arch Linux System
   hosts: localhost
   connection: local
-  become: yes
   vars:
     user: "{{ ansible_user_id }}"
-    
+    wayland_hosts:
+      - "mars"
+    desktop_hosts:
+      - "mars"
+
   tasks:
     - import_tasks: packages.yml
     - import_tasks: dotfiles.yml
+    - import_tasks: sway.yml
+      when: ansible_hostname in wayland_hosts
+    - import_tasks: desktop.yml
+      when: ansible_hostname in desktop_hosts

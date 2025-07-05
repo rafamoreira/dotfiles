@@ -1,0 +1,13 @@
+---
+
+- name: Install common desktop stuff 
+  pacman:
+    name:
+      - alacritty 
+      - firefox 
+      - gnome-keyring
+      - pipewire
+      - pipewire-pulse
+      - ttf-jetbrains-mono-nerd
+    state: present
+  become: yes

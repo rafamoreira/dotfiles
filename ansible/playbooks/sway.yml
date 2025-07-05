@@ -1,0 +1,14 @@
+---
+
+- name: Install sway and etc
+  pacman:
+    name:
+      - mako
+      - rofi-wayland
+      - sway
+      - swaylock
+      - swayidle
+      - wl-clipboard
+      - xorg-xwayland
+    state: present
+  become: yes

@@ -1,10 +1,10 @@
 ---
-- name: Initialize chezmoi dotfiles
-  shell: chezmoi init --apply https://github.com/rafamoreira/dotfiles.git
-  become: no
-  become_user: "{{ user }}"
-  args:
-    creates: "/home/{{ user }}/.local/share/chezmoi"
+# - name: Initialize chezmoi dotfiles
+#   shell: chezmoi init --apply https://github.com/rafamoreira/dotfiles.git
+#   become: no
+#   become_user: "{{ user }}"
+#   args:
+#     creates: "/home/{{ user }}/.local/share/chezmoi"
 
 - name: Set zsh as default shell
   user:
