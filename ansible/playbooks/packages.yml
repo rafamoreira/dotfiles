@@ -33,8 +33,3 @@
     makepkg -si --noconfirm
   when: paru_check.rc != 0
 
-- name: Install AUR packages
-  kewlfft.aur.aur:
-    name:
-      - 1password
-    state: present

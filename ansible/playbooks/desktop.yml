@@ -71,3 +71,9 @@
     state: present
   loop:
     - com.saivert.pwvucontrol
+
+- name: Install AUR packages
+  kewlfft.aur.aur:
+    name:
+      - 1password
+    state: present

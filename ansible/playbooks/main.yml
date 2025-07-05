@@ -11,6 +11,9 @@
       - "jupiter"
     xorg_hosts:
       - "jupiter"
+    dev_hosts:
+      - "mars"
+      - "jupiter"
 
   tasks:
     - import_tasks: packages.yml
@@ -23,3 +26,5 @@
       when: ansible_hostname in desktop_hosts
     - import_tasks: services.yml
     - import_tasks: users.yml
+    - import_tasks: dev.yml
+      when: ansible_hostname in dev_hosts
