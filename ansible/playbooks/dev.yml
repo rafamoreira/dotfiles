@@ -2,6 +2,8 @@
 - name: Install common dev stuff 
   pacman:
     name:
+      - go
+      - ripgrep
       - uv 
       - wakatime
     state: present

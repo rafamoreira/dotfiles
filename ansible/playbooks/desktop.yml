@@ -23,6 +23,7 @@
       - ttf-jetbrains-mono-nerd
       - udiskie
       - udisks2
+      - wezterm
     state: present
   become: yes
 
