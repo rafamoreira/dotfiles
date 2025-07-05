@@ -15,7 +15,6 @@
       - i3status-rust
       - network-manager-applet
       - ntfs-3g
-      - pasystray
       - pipewire
       - pipewire-alsa
       - pipewire-pulse
