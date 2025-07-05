@@ -16,7 +16,6 @@
       - network-manager-applet
       - ntfs-3g
       - pasystray
-      - pavucontrol
       - pipewire
       - pipewire-alsa
       - pipewire-pulse
