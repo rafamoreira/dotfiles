@@ -1,0 +1,7 @@
+---
+- name: Enable tailscaled service
+  systemd:
+    name: tailscaled
+    enabled: yes
+    state: started
+  become: yes

@@ -1,0 +1,10 @@
+---
+- name: Create passwordless sudo for user
+  copy:
+    content: "{{ user }} ALL=(ALL:ALL) NOPASSWD: ALL"
+    dest: "/etc/sudoers.d/{{ user }}"
+    mode: '0440'
+    owner: root
+    group: root
+    validate: '/usr/bin/visudo -cf %s'
+  become: yes

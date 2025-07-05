@@ -5,10 +5,12 @@
     name:
       - alacritty 
       - firefox 
+      - flatpak
       - gnome-keyring
       - i3status-rust
       - pipewire
       - pipewire-pulse
+      - thunderbird
       - ttf-jetbrains-mono-nerd
     state: present
   become: yes
