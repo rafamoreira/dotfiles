@@ -1,13 +1,7 @@
 [user]
 	name = Rafael M Cunha
 	email = me@rafaelmc.net
-	{{- if eq .chezmoi.hostname "earth" }}
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIeUrl10smoZt2fuR9Eje5ZnU45eJQiwsSKq3tj5lsqB
-	{{- end }}
-	{{- if eq .chezmoi.hostname "jupiter" }}
 	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIE9PMWWA3sE6liwbJ8Mpypetk2c7U+nittS5FBeuc7A3
-  	{{- end }}
-
 
 [alias]
 	p = push

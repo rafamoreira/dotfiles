@@ -314,9 +314,7 @@ eval "$(atuin init zsh)"
 # PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
-{{- if (or (eq .chezmoi.hostname "neptune") (eq .chezmoi.hostname "jupiter")) }}
 export ELECTRON_OZONE_PLATFORM_HINT=auto
-{{- end }}
 
 
 {{- if eq .chezmoi.hostname "jupiter" }}
