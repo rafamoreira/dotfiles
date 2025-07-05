@@ -10,7 +10,7 @@
 
 [".config/nvim"]
     type = "git-repo"
-    url = "git@github.com:rafamoreira/nvim_config"
+    url = "https://github.com/rafamoreira/nvim_config"
     refreshPeriod = "1h"
 
 [".tmux/themes/dracula"]
