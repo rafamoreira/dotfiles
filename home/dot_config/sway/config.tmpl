@@ -157,7 +157,6 @@ assign [app_id="Rambox"]        $workspace4
 assign [app_id="Skype"]         $workspace4
 assign [app_id="Signal"]        $workspace4
 assign [app_id="1Password"]     $workspace9
-assign [class="1Password"]     $workspace9
 assign [class="steam"]          $workspace10
 for_window [class="Spotify"] move container to workspace $workspace10
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
@@ -165,6 +164,7 @@ for_window [class="Pavucontrol"] floating enable
 for_window [app_id="thunderbird" window_role="alert"] floating enable
 for_window [shell="xwayland"] title_format "[XWayland] %title"
 # no_focus [window_role="alert"]
+for_window [app_id="com.saivert.pwvucontrol"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -240,7 +240,6 @@ mouse_warping none
 
 focus_follows_mouse no
 
-exec --no-startup-id nm-applet
 
 exec swayidle -w timeout 600 'swaylock -f'
 
@@ -285,24 +284,11 @@ mode $keyboardMode {
 }
 bindsym $mod+Control+Shift+i mode $keyboardMode
 
-# start applications
-exec --no-startup-id gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
-
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-
 # exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 exec systemctl --user start xdg-desktop-portal
 exec systemctl --user start xdg-desktop-portal-wlr
 exec systemctl --user start xdg-desktop-portal-gtk
-
-# Dunst
-# exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
-exec --no-startup-id mako
-
-exec --no-startup-id flameshot
-
-# exec --no-startup-id wl-paste --primary --watch wl-copy
 
 # bindsym print exec --no-startup-id slurp | grim -g - $(xdg-user-dir PICTURES)/$(date +'screenshot_%Y-%m-%d-%H%M%S.png')
 for_window [app_id="flameshot"] border pixel 0, floating enable, fullscreen disable, move absolute position 0 0
@@ -310,5 +296,14 @@ bindsym print exec "flameshot gui"
 
 bindsym XF86MonBrightnessDown exec light -U 10
 bindsym XF86MonBrightnessUp exec light -A 10
+
+# autostart 
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec flameshot
+exec gnome-keyring-daemon --start --components=pkcs11,secrets,ssh
+exec mako
+exec nm-applet
+# exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
+# exec --no-startup-id wl-paste --primary --watch wl-copy
 
 # vim: ft=swayconfig ts=4 sw=4 et:
