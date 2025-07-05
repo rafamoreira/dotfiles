@@ -4,13 +4,62 @@
   pacman:
     name:
       - alacritty 
+      - blueman
+      - dex
+      - exfat-utils
       - firefox 
       - flatpak
+      - flameshot
+      - ghostty
       - gnome-keyring
       - i3status-rust
+      - network-manager-applet
+      - ntfs-3g
+      - pasystray
+      - pavucontrol
       - pipewire
+      - pipewire-alsa
       - pipewire-pulse
       - thunderbird
       - ttf-jetbrains-mono-nerd
+      - udiskie
+      - udisks2
     state: present
   become: yes
+
+- name: Enable system services
+  systemd:
+    name: "{{ item }}"
+    enabled: yes
+    state: started
+  become: yes
+  loop:
+    - udisks2.service
+    - bluetooth.service
+    - NetworkManager.service
+
+- name: Create udiskie systemd user service
+  copy:
+    content: |
+      [Unit]
+      Description=Removable drive automounter
+      After=graphical-session.target
+      
+      [Service]
+      Type=simple
+      ExecStart=/usr/bin/udiskie --tray
+      Restart=always
+      
+      [Install]
+      WantedBy=default.target
+    dest: "{{ ansible_env.HOME }}/.config/systemd/user/udiskie.service"
+
+- name: Enable and start user services
+  systemd:
+    name: "{{ item }}"
+    enabled: yes
+    state: started
+    scope: user
+  loop:
+    - pipewire-pulse.service
+    - udiskie.service
