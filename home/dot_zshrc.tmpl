@@ -189,22 +189,6 @@ case $TERM in
         ;;
 esac
 
-case $HOST in
-jupiter|neptune)
-  # eval $(keychain --eval id_ed25519)
-  source /usr/share/fzf/completion.zsh
-  source /usr/share/fzf/key-bindings.zsh
-;;
-titan) # arch linux computers with fzf
-  source /usr/share/fzf/completion.zsh
-  source /usr/share/fzf/key-bindings.zsh
-  export SSH_AUTH_SOCK=~/.1password/agent.sock
-;;
-mercury.local)
-  source "/opt/homebrew/opt/fzf/shell/completion.zsh"
-  source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
-esac
-
 # export PATH=$HOME/.local/bin/scripts:$PATH
 # export PATH=$HOME/.luarocks/bin:$PATH
 # export PATH=/home/rmc/.local/share/gem/ruby/3.0.0/bin:$PATH
@@ -316,18 +300,16 @@ export PATH=$HOME/.cargo/bin:$PATH
 
 export ELECTRON_OZONE_PLATFORM_HINT=auto
 
-
-{{- if eq .chezmoi.hostname "jupiter" }}
-eval "$(fnm env --use-on-cd --shell zsh)"
-# alias ssh="kitten ssh" 
-{{- end }}
-
 eval "$(starship init zsh)"
 
 {{- if eq .chezmoi.os "darwin" }}
-export INTEMPUS_DOCKER_USER="root"
+	export INTEMPUS_DOCKER_USER="root"
+	source "/opt/homebrew/opt/fzf/shell/completion.zsh"
+	source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
 {{ else }}
-export INTEMPUS_DOCKER_USER="local"
+	export INTEMPUS_DOCKER_USER="local"
+	source /usr/share/fzf/completion.zsh
+	source /usr/share/fzf/key-bindings.zsh
 {{ end }}
 
 # zprof # uncomment to profile zsh startup
