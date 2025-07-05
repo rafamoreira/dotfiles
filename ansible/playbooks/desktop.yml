@@ -6,6 +6,7 @@
       - alacritty 
       - firefox 
       - gnome-keyring
+      - i3status-rust
       - pipewire
       - pipewire-pulse
       - ttf-jetbrains-mono-nerd
