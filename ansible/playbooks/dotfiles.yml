@@ -10,3 +10,4 @@
   user:
     name: "{{ user }}"
     shell: /bin/zsh
+  become: yes

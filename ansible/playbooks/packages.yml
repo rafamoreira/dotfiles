@@ -6,6 +6,7 @@
       - chezmoi
       - direnv
       - git
+      - linux-firmware
       - less
       - neovim
       - polkit-gnome

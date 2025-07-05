@@ -1,0 +1,12 @@
+---
+- name: Install i3 and etc
+  pacman:
+    name:
+      - arandr
+      - i3-wm
+      - nvidia-open
+      - rofi
+      - xorg
+      - xorg-xinit
+    state: present
+  become: yes

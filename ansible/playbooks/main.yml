@@ -8,12 +8,17 @@
       - "mars"
     desktop_hosts:
       - "mars"
+      - "jupiter"
+    xorg_hosts:
+      - "jupiter"
 
   tasks:
     - import_tasks: packages.yml
     - import_tasks: dotfiles.yml
     - import_tasks: sway.yml
       when: ansible_hostname in wayland_hosts
+    - import_tasks: i3.yml
+      when: ansible_hostname in xorg_hosts
     - import_tasks: desktop.yml
       when: ansible_hostname in desktop_hosts
     - import_tasks: services.yml
