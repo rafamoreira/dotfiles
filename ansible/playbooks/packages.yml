@@ -5,6 +5,7 @@
       - atuin
       - chezmoi
       - direnv
+      - fzf
       - git
       - linux-firmware
       - less
