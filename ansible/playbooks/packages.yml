@@ -2,14 +2,15 @@
 - name: Install essential packages
   pacman:
     name:
+      - atuin
       - chezmoi
       - direnv
-      - atuin
       - git
       - less
       - neovim
       - polkit-gnome
       - starship
+      - tmux
       - zsh
     state: present
   become: yes
