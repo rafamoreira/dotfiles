@@ -292,9 +292,6 @@ alias reload_zsh="source ~/.zshrc"
 [[ ! -r '/Users/rmc/.opam/opam-init/init.zsh' ]] || source '/Users/rmc/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
 # END opam configuration
 
-# atuin
-eval "$(atuin init zsh)"
-
 # PATH
 export PATH=$HOME/.cargo/bin:$PATH
 
@@ -311,6 +308,9 @@ eval "$(starship init zsh)"
 	source /usr/share/fzf/completion.zsh
 	source /usr/share/fzf/key-bindings.zsh
 {{ end }}
+
+# atuin needs to be put after fzf
+eval "$(atuin init zsh)"  
 
 # zprof # uncomment to profile zsh startup
 # vim: set ft=zsh:

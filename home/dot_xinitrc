@@ -31,9 +31,6 @@ setxkbmap -layout "us" -option "ctrl:nocaps"
 
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
-# disk utility
-udiskie --tray &
-
 # autostart utility
 dex -a &
 

@@ -154,6 +154,7 @@ assign [class="steam"]          $workspace10
 for_window [class="Spotify"] move container to workspace $workspace10
 for_window [class="^jetbrains-.+"][window_type=dialog] focus
 for_window [class="Pavucontrol"] floating enable
+for_window [class="pwvucontrol"] floating enable
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -198,6 +199,7 @@ bindsym $mod+r mode "resize"
 # }
 
 bar {
+    tray_output primary
     font pango:JetBrainsMono Nerd Font 8
     status_command i3status-rs 
 }
