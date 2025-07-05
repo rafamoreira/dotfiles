@@ -61,5 +61,14 @@
     state: started
     scope: user
   loop:
+    - pipewire.service
     - pipewire-pulse.service
     - udiskie.service
+    - wireplumber.service
+
+- name: Install flatpak packages
+  flatpak:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - com.saivert.pwvucontrol
