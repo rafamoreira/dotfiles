@@ -38,6 +38,28 @@ config.keys = {
     mods = 'LEADER|CTRL',
     action = wezterm.action.SendKey { key = 'a', mods = 'CTRL' },
   },
+
+	{
+		key = 'LeftArrow',
+		mods = 'ALT',
+		action = wezterm.action.ActivatePaneDirection("Left"),
+	},
+	
+	{
+		key = 'RightArrow',
+		mods = 'ALT',
+		action = wezterm.action.ActivatePaneDirection("Right"),
+	},
+	{
+		key = 'UpArrow',
+		mods = 'ALT',
+		action = wezterm.action.ActivatePaneDirection("Up"),
+	},
+	{
+		key = 'DownArrow',
+		mods = 'ALT',
+		action = wezterm.action.ActivatePaneDirection("Down"),
+	},
 }
 
 for i = 1, 8 do
@@ -49,7 +71,8 @@ for i = 1, 8 do
   })
   -- F1 through F8 to activate that tab
   table.insert(config.keys, {
-    key = 'F' .. tostring(i),
+    key = tostring(i),
+		mods = 'ALT',
     action = wezterm.action.ActivateTab(i - 1),
   })
 end
