@@ -12,9 +12,11 @@
       - less
       - neovim
       - polkit-gnome
+      - smartmontools
       - starship
       - tailscale
       - tmux
+      - yazi
       - zsh
     state: present
   become: yes

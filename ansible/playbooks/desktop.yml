@@ -19,6 +19,7 @@
       - pipewire
       - pipewire-alsa
       - pipewire-pulse
+      - syncthing
       - thunderbird
       - ttf-jetbrains-mono-nerd
       - udiskie
@@ -37,6 +38,7 @@
     - udisks2.service
     - bluetooth.service
     - NetworkManager.service
+    - "syncthing@{{ user }}.service"
 
 - name: Create udiskie systemd user service
   copy:
