@@ -25,6 +25,7 @@ class SmartRsync:
         self.local_dir = Path(local_dir)
         self.server_path = self._get_server_path(local_dir, server_path)
         self.exclude_file = Path(exclude_file)
+        self.permissions = self._get_permissions(local_dir)
         
     def _get_server_path(self, local_dir, default_server_path):
         """Get server path from server.cfg file if it exists, otherwise use default"""
@@ -41,6 +42,24 @@ class SmartRsync:
                 print(f"Warning: Could not read server.cfg: {e}")
         
         return default_server_path
+    
+    def _get_permissions(self, local_dir):
+        """Get permissions from permissions.cfg file if it exists"""
+        permissions_cfg = Path(local_dir) / "permissions.cfg"
+        
+        if permissions_cfg.exists():
+            try:
+                with open(permissions_cfg, 'r') as f:
+                    perms = f.read().strip()
+                    if perms and perms.isdigit() and len(perms) == 3:
+                        print(f"Using permissions from permissions.cfg: {perms}")
+                        return perms
+                    else:
+                        print("Warning: permissions.cfg should contain 3 digits (e.g., 775)")
+            except Exception as e:
+                print(f"Warning: Could not read permissions.cfg: {e}")
+        
+        return None
         
     def delete_and_track(self, filename):
         """Delete a file and add it to the exclusion list"""
@@ -86,10 +105,19 @@ class SmartRsync:
         """Run rsync with exclusions"""
         cmd = [
             'rsync', 
-            '-avhz', 
+            '-vhz', 
             '--progress', 
             '--stats'
         ]
+        
+        # Handle permissions
+        if self.permissions:
+            # Don't preserve permissions, set them to specified value
+            cmd.extend(['--chmod', f'F{self.permissions},D{self.permissions}'])
+            print(f"Setting permissions to: {self.permissions}")
+        else:
+            # Use archive mode (preserves permissions)
+            cmd.append('-a')
         
         # Add exclude file if it exists and has content
         if self.exclude_file.exists() and self.exclude_file.stat().st_size > 0:
@@ -138,7 +166,7 @@ def main():
                        help='Command to execute')
     parser.add_argument('filename', nargs='?', help='Filename to delete (for delete command)')
     parser.add_argument('--local-dir', default='./',
-                       help='Local directory to sync (default: ./)')
+                       help='Local directory to sync (default: ./sync_folder)')
     parser.add_argument('--server', default='server:/path/to/folder1',
                        help='Server path (default: server:/path/to/folder1)')
     parser.add_argument('--exclude-file', default='rsync_excluded.txt',
