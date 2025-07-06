@@ -8,3 +8,14 @@
     group: root
     validate: '/usr/bin/visudo -cf %s'
   become: yes
+
+- name: Add user to additional groups
+  user:
+    name: "{{ user }}"
+    groups: 
+      - disk
+      - wheel
+      - audio
+      - video
+    append: yes
+  become: yes
