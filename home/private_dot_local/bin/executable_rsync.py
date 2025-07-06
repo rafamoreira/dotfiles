@@ -137,8 +137,8 @@ def main():
     parser.add_argument('command', choices=['delete', 'sync', 'list', 'clear'],
                        help='Command to execute')
     parser.add_argument('filename', nargs='?', help='Filename to delete (for delete command)')
-    parser.add_argument('--local-dir', default='./sync_folder',
-                       help='Local directory to sync (default: ./sync_folder)')
+    parser.add_argument('--local-dir', default='./',
+                       help='Local directory to sync (default: ./)')
     parser.add_argument('--server', default='server:/path/to/folder1',
                        help='Server path (default: server:/path/to/folder1)')
     parser.add_argument('--exclude-file', default='rsync_excluded.txt',
