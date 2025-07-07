@@ -112,8 +112,8 @@ class SmartRsync:
         
         # Handle permissions
         if self.permissions:
-            # Don't preserve permissions, set them to specified value
-            cmd.extend(['--chmod', f'F{self.permissions},D{self.permissions}'])
+            # Use archive mode components but override permissions
+            cmd.extend(['-rlptoD', '--chmod', f'F{self.permissions},D{self.permissions}'])
             print(f"Setting permissions to: {self.permissions}")
         else:
             # Use archive mode (preserves permissions)
