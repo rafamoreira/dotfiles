@@ -13,7 +13,7 @@ config.initial_rows = 28
 -- or, changing the font size and color scheme.
 config.font_size = 12
 config.color_scheme = 'tokyonight'
-config.use_fancy_tab_bar = false
+config.use_fancy_tab_bar = true
 config.tab_bar_at_bottom = true
 
 config.harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' }
@@ -22,11 +22,7 @@ config.font = wezterm.font('JetBrainsMono Nerd Font Mono')
 -- timeout_milliseconds defaults to 1000 and can be omitted
 config.leader = { key = 'a', mods = 'CTRL', timeout_milliseconds = 1000 }
 config.keys = {
-  {
-    key = '|',
-    mods = 'LEADER|SHIFT',
-    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
-  },
+  { key = '|', mods = 'LEADER|SHIFT', action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' } },
 	{
 		key = '-',
 		mods = 'LEADER',
@@ -38,13 +34,11 @@ config.keys = {
     mods = 'LEADER|CTRL',
     action = wezterm.action.SendKey { key = 'a', mods = 'CTRL' },
   },
-
 	{
 		key = 'LeftArrow',
 		mods = 'ALT',
 		action = wezterm.action.ActivatePaneDirection("Left"),
 	},
-	
 	{
 		key = 'RightArrow',
 		mods = 'ALT',
@@ -60,6 +54,8 @@ config.keys = {
 		mods = 'ALT',
 		action = wezterm.action.ActivatePaneDirection("Down"),
 	},
+	{ key = 'LeftArrow', mods = 'SHIFT', action = wezterm.action.ActivateTabRelative(-1) },
+	{ key = 'RightArrow', mods = 'SHIFT', action = wezterm.action.ActivateTabRelative(1) }, 
 }
 
 for i = 1, 8 do
