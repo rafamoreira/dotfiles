@@ -241,7 +241,7 @@ mouse_warping none
 focus_follows_mouse no
 
 
-exec swayidle -w timeout 600 'swaylock -f'
+# exec swayidle -w timeout 600 'swaylock -f'
 
 # media controls
 bindsym XF86AudioPlay exec playerctl play
@@ -283,6 +283,8 @@ mode $keyboardMode {
     bindsym Escape mode "default"
 }
 bindsym $mod+Control+Shift+i mode $keyboardMode
+
+bindsym $mod+shift+F12 exec ~/.local/bin/lock-and-sleep.sh
 
 # exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
