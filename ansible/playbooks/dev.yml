@@ -3,6 +3,7 @@
   pacman:
     name:
       - go
+      - npm
       - ripgrep
       - uv 
       - wakatime
