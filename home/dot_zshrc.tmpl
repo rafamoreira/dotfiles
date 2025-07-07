@@ -17,11 +17,7 @@ case `uname` in
   ;;
 esac
 FPATH=$HOME/.zsh/zfunc:$FPATH
-autoload -Uz compinit
-for dump in ~/.zcompdump(N.mh+24); do
-  compinit
-done
-compinit -C
+autoload -Uz compinit && compinit
 
 zstyle ':completion:*' menu select # interactive completion
 zstyle ':completion::complete:*' gain-privileges 1
@@ -241,12 +237,12 @@ eval "$(direnv hook zsh)"
 
 setopt PROMPT_SUBST
 
-show_virtual_env() {
-  if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
-    echo "($(basename $VIRTUAL_ENV))"
-  fi
-}
-PS1='$(show_virtual_env)'$PS1
+# show_virtual_env() {
+#   if [[ -n "$VIRTUAL_ENV" && -n "$DIRENV_DIR" ]]; then
+#     echo "($(basename $VIRTUAL_ENV))"
+#   fi
+# }
+# PS1='$(show_virtual_env)'$PS1
 
 # export FLYCTL_INSTALL="/home/rmc/.fly"
 # export PATH="$FLYCTL_INSTALL/bin:$PATH"
@@ -255,8 +251,6 @@ alias vim="nvim"
 
 alias edit_nvim="cd ~/.config/nvim && nvim init.lua"
 
-#asdf
-[ -f /opt/asdf-vm/asdf.sh ] && . /opt/asdf-vm/asdf.sh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
 
@@ -282,15 +276,6 @@ alias pr="poetry run"
 
 # zsh related
 alias reload_zsh="source ~/.zshrc"
-
-
-# BEGIN opam configuration
-# This is useful if you're using opam as it adds:
-#   - the correct directories to the PATH
-#   - auto-completion for the opam binary
-# This section can be safely removed at any time if needed.
-[[ ! -r '/Users/rmc/.opam/opam-init/init.zsh' ]] || source '/Users/rmc/.opam/opam-init/init.zsh' > /dev/null 2> /dev/null
-# END opam configuration
 
 # PATH
 export PATH=$HOME/.cargo/bin:$PATH

@@ -32,9 +32,7 @@ case `uname` in
 esac
 
 export PATH="$PATH:$HOME/.local/bin"
-
-# mise
-[ -f /usr/bin/mise ] && eval "$(mise activate zsh --shims)"
+export npm_config_prefix="$HOME/.local"
 
 
 {{- if eq .chezmoi.hostname "jupiter" }}
