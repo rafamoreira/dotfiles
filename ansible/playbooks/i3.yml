@@ -4,7 +4,6 @@
     name:
       - arandr
       - i3-wm
-      - nvidia-open
       - rofi
       - xorg
       - xorg-xinit

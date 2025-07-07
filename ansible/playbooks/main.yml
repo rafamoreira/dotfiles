@@ -14,6 +14,8 @@
     dev_hosts:
       - "mars"
       - "jupiter"
+    nvidia:
+      - "jupiter"
 
   tasks:
     - import_tasks: packages.yml
@@ -28,3 +30,5 @@
     - import_tasks: users.yml
     - import_tasks: dev.yml
       when: ansible_hostname in dev_hosts
+    - import_tasks: nvidia.yml
+      when: ansible_hostname in nvidia 

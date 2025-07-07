@@ -1,0 +1,26 @@
+---
+- name: Install nvidia related stuff
+  pacman:
+    name:
+      - nvidia-open
+      - nvidia-container-toolkit
+    state: present
+  become: yes
+
+- name: Create docker config directory
+  file:
+    path: /etc/docker
+    state: directory
+    owner: root
+    group: root
+    mode: '0755'
+  become: yes
+
+- name: Copy docker daemon configuration
+  copy:
+    src: ../files_to_copy/etc_docker_daemon.json
+    dest: /etc/docker/daemon.json
+    owner: root
+    group: root
+    mode: '0644'
+  become: yes
