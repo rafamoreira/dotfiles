@@ -3,6 +3,7 @@
   pacman:
     name:
       - arandr
+      - i3lock
       - i3-wm
       - rofi
       - xorg
