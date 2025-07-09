@@ -4,13 +4,11 @@
 # NOTE: Do not list your root (/) partition here, it must be set up
 #       beforehand by the initramfs (/etc/mkinitcpio.conf).
 
-# <name>       <device>                                     <password>              <options>
-# home         UUID=b8ad5c18-f445-495d-9095-c9ec4f9d2f37    /etc/mypassword1
-# data1        /dev/sda3                                    /etc/mypassword2
-# data2        /dev/sda5                                    /etc/cryptfs.key
-# swap         /dev/sdx4                                    /dev/urandom            swap,cipher=aes-cbc-essiv:sha256,size=256
-# vol          /dev/sdb7                                    none
-cryptdata_nvme1		UUID=730f736a-1f0b-4dd3-860b-127f452b053b	none	luks
-cryptdata_pool_sda 	UUID=5aa2456d-6680-44d9-b042-7ddd7a620894	none	luks 
-cryptdata_pool_sdb 	UUID=f822a510-1c84-4b27-8cf4-a1df5da94499	none	luks 
-cryptdata_pool_sdc 	UUID=ed187237-b033-4166-a431-eda520b412c7	none	luks 
+# <name>       		<device>                                     	<password>		<options>
+# home         		UUID=b8ad5c18-f445-495d-9095-c9ec4f9d2f37    	/etc/mypassword1
+# data1        		/dev/sda3                                    	/etc/mypassword2
+# data2        		/dev/sda5                                    	/etc/cryptfs.key
+# swap         		/dev/sdx4                                    	/dev/urandom            swap,cipher=aes-cbc-essiv:sha256,size=256
+# vol          		/dev/sdb7                                    	none
+cryptdata_nvme1		UUID=730f736a-1f0b-4dd3-860b-127f452b053b	/etc/luks-keys/crypdata_nvme1.key    		luks
+barracuda_2tb		UUID=721cd603-3c4b-4690-b156-e3f6d654229f	/etc/cryptsetup-keys.d/keyfile1.key	luks

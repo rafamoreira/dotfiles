@@ -2,15 +2,10 @@
 # See fstab(5) for details.
 
 # <file system> <dir> <type> <options> <dump> <pass>
-# /dev/mapper/vg0-archroot
-UUID=bba4449e-e766-494c-9792-e09d913c14cf	/         		ext4    rw,relatime												0 1
-
+# /dev/mapper/ainstnvme0n1p2
+UUID=fb148294-d1bc-4707-a389-676c1a55bed0	/         		ext4   	rw,relatime												0 1
 # /dev/nvme0n1p1
-UUID=3B61-75D0      				/boot     		vfat    rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+UUID=E4DB-D586      				/boot     		vfat    rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+UUID=e477bd69-ca7e-4b48-9bbe-feac8b4a54fa       /home/rmc/data/nvme1    btrfs	defaults,compress=zstd                                                                                  0 2
 
-# /dev/mapper/vg0-swap
-UUID=09af1232-9df9-4d7b-bc4b-2ff4905c3410	none      		swap    defaults  												0 0
-# /dev/mapper/cryptdata_nvme1
-UUID=e477bd69-ca7e-4b48-9bbe-feac8b4a54fa	/home/rmc/data/nvme1	btrfs	defaults,compress=zstd											0 2
-# /dev/mapper/cryptdata_pool_*
-UUID=3e385c5e-c88d-4a94-95df-6ffdd1cb8d07	/home/rmc/data/hdd_pool	btrfs	defaults,compress=zstd											0 2
+/dev/mapper/barracuda_2tb 			/mnt/storage/barracuda_2tb	ext4	defaults	0	2
