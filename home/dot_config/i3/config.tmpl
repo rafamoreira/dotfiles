@@ -11,8 +11,8 @@ font pango:JetBrainsMono Nerd Font 8
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec wezterm
-# bindsym $mod+Return exec alacritty
+# bindsym $mod+Return exec wezterm
+bindsym $mod+Return exec alacritty
 # bindsym $mod+Return exec alacritty --working-directory="`xcwd`"
 
 # kill focused window
@@ -205,7 +205,7 @@ bar {
     status_command i3status-rs 
 }
 
-set $Locker i3lock && sleep 1
+set $Locker i3lock && sleep 5
 
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
