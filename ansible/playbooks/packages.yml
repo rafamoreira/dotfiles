@@ -12,6 +12,7 @@
       - less
       - neovim
       - polkit-gnome
+      - rsync
       - smartmontools
       - starship
       - tailscale
