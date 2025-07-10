@@ -2,6 +2,8 @@
 - name: Install common dev stuff 
   pacman:
     name:
+      - docker
+      - docker-compose
       - go
       - npm
       - ripgrep
@@ -16,3 +18,8 @@
       - visual-studio-code-bin 
     state: present
 
+- name: Add user to additional groups
+  user:
+    name: "{{ user }}"
+    groups: 
+  become: yes
