@@ -19,6 +19,7 @@
       - pipewire
       - pipewire-alsa
       - pipewire-pulse
+      - solaar
       - syncthing
       - thunderbird
       - ttf-jetbrains-mono-nerd
@@ -80,3 +81,19 @@
     name:
       - 1password
     state: present
+
+
+# steps for solaar work without sudo
+- name: Ensure group "plugdev" exists
+  ansible.builtin.group:
+    name: plugdev 
+    state: present
+  become: yes
+    
+- name: Add user to additional groups
+  user:
+    name: "{{ user }}"
+    groups: 
+      - plugdev  
+  become: yes
+

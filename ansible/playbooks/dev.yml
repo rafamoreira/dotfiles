@@ -22,4 +22,13 @@
   user:
     name: "{{ user }}"
     groups: 
+      - docker
+    append: yes
+  become: yes
+
+- name: Enable dev service
+  systemd:
+    name: docker 
+    enabled: yes
+    state: started
   become: yes
