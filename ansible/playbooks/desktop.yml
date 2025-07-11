@@ -5,6 +5,7 @@
     name:
       - alacritty 
       - blueman
+      - catfish  # file search
       - dex
       - engrampa
       - exfat-utils
@@ -13,7 +14,9 @@
       - flameshot
       - ghostty
       - gnome-keyring
+      - gvfs  # trash, mount with udisk and remote fs
       - i3status-rust
+      - mpv
       - network-manager-applet
       - ntfs-3g
       - pipewire
@@ -21,8 +24,13 @@
       - pipewire-pulse
       - solaar
       - syncthing
+      - thunar  # file manager
+      - thunar-archive-plugin  # zip/unzip
+      - thunar-media-tags-plugin  # view/edit ID3 tags
+      - thunar-volman  # removable device manager
       - thunderbird
       - ttf-jetbrains-mono-nerd
+      - tumbler  # thumb preview
       - udiskie
       - udisks2
       - wezterm
