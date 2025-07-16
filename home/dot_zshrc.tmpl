@@ -292,6 +292,7 @@ eval "$(starship init zsh)"
 	export INTEMPUS_DOCKER_USER="local"
 	source /usr/share/fzf/completion.zsh
 	source /usr/share/fzf/key-bindings.zsh
+	export SSH_AUTH_SOCK=~/.1password/agent.sock
 {{ end }}
 
 # atuin needs to be put after fzf
