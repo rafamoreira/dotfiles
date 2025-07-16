@@ -107,7 +107,8 @@ class SmartRsync:
             'rsync', 
             '-vhz', 
             '--progress', 
-            '--stats'
+            '--stats',
+            '--ignore-existing',
         ]
         
         # Handle permissions
