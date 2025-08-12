@@ -294,11 +294,7 @@ eval "$(starship init zsh)"
 	source /usr/share/fzf/key-bindings.zsh
 {{ end }}
 
-{{- if eq .chezmoi.hostname "neptune" }}
-	eval $(keychain --timeout 540 --eval id_ed25519)
-{{ else if eq .chezmoi.hostname "jupiter" }}
-	export SSH_AUTH_SOCK=~/.1password/agent.sock
-{{ end }}
+eval $(keychain --timeout 540 --eval id_ed25519)
 
 # atuin needs to be put after fzf
 eval "$(atuin init zsh)"  
