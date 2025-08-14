@@ -299,5 +299,11 @@ eval $(keychain --timeout 540 --eval id_ed25519)
 # atuin needs to be put after fzf
 eval "$(atuin init zsh)"  
 
+
+{{- if eq .chezmoi.hostname "earth" }}
+	. "$HOME/.nix-profile/etc/profile.d/hm-session-vars.sh"
+	[[ "$-" == *i* ]] && printf 'P$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh", "uname": "Linux" }}'
+{{ end }}
+
 # zprof # uncomment to profile zsh startup
 # vim: set ft=zsh:
