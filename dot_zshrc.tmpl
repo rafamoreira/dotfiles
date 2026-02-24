@@ -1,0 +1,178 @@
+# ~/.zshrc 
+################################################################################
+#                            COMPLETION                                        #
+################################################################################
+case `uname` in
+  Darwin)
+    if type brew &>/dev/null; then
+      FPATH=$(brew --prefix)/share/zsh-completions:$(brew --prefix)/share/zsh/site-functions:$FPATH
+    fi
+  ;;
+esac
+FPATH=$HOME/.zsh/zfunc:$FPATH
+autoload -Uz compinit && compinit
+
+zstyle ':completion:*' menu select # interactive completion
+zstyle ':completion::complete:*' gain-privileges 1
+setopt COMPLETE_ALIASES # auto complete command line aliases
+setopt complete_in_word # not just at the end
+
+################################################################################
+#                            HISTORY SETTINGS                                  #
+################################################################################
+HISTSIZE=1000000                 # How many lines of history to keep in memory
+SAVEHIST=1000000                 # Number of history entries to save to disk
+HISTFILE="$HOME/.zsh_history"  # Where to save history to disk
+
+setopt extended_history
+# Save each command’s beginning timestamp (in seconds since the epoch) and the
+# duration (in seconds) to the history file.
+
+setopt hist_ignore_all_dups
+# If a new command line being added to the history list duplicates an older one,
+# the older command is removed from the list (even if it is not the previous
+# event).
+
+setopt hist_ignore_space
+# ignore commands that start with space
+
+setopt hist_verify
+# show command with history expansion to user before running it
+
+setopt share_history
+# Share history across sessions, import new commands in real time
+
+################################################################################
+#                            KEY BINDINGS                                      #
+################################################################################
+# create a zkbd compatible hash;
+# to add other keys to this hash, see: man 5 terminfo
+
+if (( ${+terminfo[smkx]} )) && (( ${+terminfo[rmkx]} )); then
+  function zle-line-init() {
+    echoti smkx
+  }
+  function zle-line-finish() {
+    echoti rmkx
+  }
+  zle -N zle-line-init
+  zle -N zle-line-finish
+fi
+
+bindkey -e # emacs mode
+# bindkey -v # vim mode
+
+bindkey '\ew' kill-region                             # [Esc-w] - Kill from the cursor to the mark
+bindkey -s '\el' 'ls\n'                               # [Esc-l] - run command: ls
+bindkey '^r' history-incremental-search-backward      # [Ctrl-r] - Search backward incrementally for a specified string. The string may begin with ^ to anchor the search to the beginning of the line.
+if [[ "${terminfo[kpp]}" != "" ]]; then
+  bindkey "${terminfo[kpp]}" up-line-or-history       # [PageUp] - Up a line of history
+fi
+if [[ "${terminfo[knp]}" != "" ]]; then
+  bindkey "${terminfo[knp]}" down-line-or-history     # [PageDown] - Down a line of history
+fi
+
+# start typing + [Up-Arrow] - fuzzy find history forward
+if [[ "${terminfo[kcuu1]}" != "" ]]; then
+  autoload -U up-line-or-beginning-search
+  zle -N up-line-or-beginning-search
+  bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
+fi
+# start typing + [Down-Arrow] - fuzzy find history backward
+if [[ "${terminfo[kcud1]}" != "" ]]; then
+  autoload -U down-line-or-beginning-search
+  zle -N down-line-or-beginning-search
+  bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
+fi
+
+if [[ "${terminfo[khome]}" != "" ]]; then
+  bindkey "${terminfo[khome]}" beginning-of-line      # [Home] - Go to beginning of line
+fi
+if [[ "${terminfo[kend]}" != "" ]]; then
+  bindkey "${terminfo[kend]}"  end-of-line            # [End] - Go to end of line
+fi
+
+bindkey ' ' magic-space                               # [Space] - do history expansion
+
+bindkey '^[[1;5C' forward-word                        # [Ctrl-RightArrow] - move forward one word
+bindkey '^[[1;5D' backward-word                       # [Ctrl-LeftArrow] - move backward one word
+
+if [[ "${terminfo[kcbt]}" != "" ]]; then
+  bindkey "${terminfo[kcbt]}" reverse-menu-complete   # [Shift-Tab] - move through the completion menu backwards
+fi
+
+bindkey '^?' backward-delete-char                     # [Backspace] - delete backward
+if [[ "${terminfo[kdch1]}" != "" ]]; then
+  bindkey "${terminfo[kdch1]}" delete-char            # [Delete] - delete forward
+else
+  bindkey "^[[3~" delete-char
+  bindkey "^[3;5~" delete-char
+  bindkey "\e[3~" delete-char
+fi
+
+# Edit the current command line in $EDITOR
+autoload -U edit-command-line
+zle -N edit-command-line
+bindkey '\C-x\C-e' edit-command-line
+
+# file rename magick
+bindkey "^[m" copy-prev-shell-word
+
+# search history with ctrl+P/N
+bindkey "^P" up-line-or-beginning-search
+bindkey "^N" down-line-or-beginning-search
+
+################################################################################
+#                            ENVIRONMENT                                       #
+################################################################################
+export EDITOR='nvim'
+export ELECTRON_OZONE_PLATFORM_HINT=auto
+{{- if eq .chezmoi.os "darwin" }}
+	export INTEMPUS_DOCKER_USER="root"
+{{ else }}
+	export INTEMPUS_DOCKER_USER="local"
+{{ end }}
+
+################################################################################
+#                            MISC                                              #
+################################################################################
+setopt nohup # Don't send SIGHUP to background processes when the shell exits.
+eval $(keychain --timeout 540 --eval id_ed25519)
+eval "$(direnv hook zsh)"
+
+
+################################################################################
+#                            PATH                                              #
+################################################################################
+export PATH=$HOME/.cargo/bin:$PATH
+
+
+################################################################################
+#                            FZF                                               #
+################################################################################
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+{{- if eq .chezmoi.os "darwin" }}
+	source "/opt/homebrew/opt/fzf/shell/completion.zsh"
+	source "/opt/homebrew/opt/fzf/shell/key-bindings.zsh"
+{{ else }}
+	source /usr/share/fzf/completion.zsh
+	source /usr/share/fzf/key-bindings.zsh
+{{ end }}
+
+################################################################################
+#                            PROMPT                                            #
+################################################################################
+eval "$(starship init zsh)"
+
+################################################################################
+#                            ALIASES                                           #
+################################################################################
+alias edit_nvim="cd ~/.config/nvim && nvim init.lua"
+alias git_clean_merged_branches='git branch --merged | grep -E -v "(^\*|master|dev)" | xargs git branch -d'
+alias ls="command ls --color=auto -h" # ls colors
+alias l="ls -lah"
+alias pacman_cleanup_orphans="sudo pacman -Qdtq | sudo pacman -Rns -"
+alias reload_zsh="source ~/.zshrc"
+
+# vim: set ft=zsh:
+
