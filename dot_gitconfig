@@ -1,0 +1,38 @@
+[user]
+	name = Rafael M Cunha
+	email = me@rafaelmc.net
+	signingkey = ~/.ssh/id_ed25519.pub
+
+[alias]
+	p = push
+	c = commit
+	s = status
+	a = add
+	d = diff
+	co = checkout
+	b = branch
+	l = log
+[diff]
+	algorithm = histogram
+	tool = vimdiff
+[github]
+	user = rafamoreira
+[core]
+	editor = nvim
+	excludesfile = ~/.gitignore_global
+[push]
+	autoSetupRemote = true
+[credential]
+	helper = cache --timeout=604800
+[submodule]
+	recurse = true
+[pager]
+	status = true
+[rerere]
+	enabled = true
+[gpg]
+  format = ssh
+
+[commit]
+  gpgsign = true
+
