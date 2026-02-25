@@ -1,0 +1,54 @@
+""" Map leader to space --------------------------------------------------------
+let mapleader = ' '
+
+""" General settings ----------------------------------------------------------
+"set clipboard+=unnamedplus
+set clipboard+=ideaput,unnamedplus
+set hlsearch
+set incsearch
+set matchpairs
+set notimeout
+set number
+set relativenumber
+set scrolloff=5
+set showcmd
+set showmode
+set smartcase
+set timeoutlen = 5000
+set undolevels=10000
+"set visualbell
+
+""" IdeaVim only options ------------------------------------------------------
+set ideajoin
+set ideamarks
+
+""" Plugins --------------------------------------------------------------------
+set easymotion
+set NERDTree
+set surround
+set which-key
+
+""" IDE Keymaps ----------------------------------------------------------------
+nnoremap <leader>r :action Replace<CR>
+map <leader>fa <Action>(FindAction)
+ma <leader>fr <Action>(RenameFile)
+map <leader>K <Action>(ShowHoverInfo)
+map <leader>pr <Action>(Run)
+map <leader>sa <Action>(SearchEverywhere)
+map <leader>sf <Action>(GotoFile)
+map <leader>wu <Action>(UnsplitAll)
+map <leader>wc <Action>(CloseAllEditorsButActive)
+
+
+""" Which Key -----------------------------------------------------------------
+let g:WhichKeyDesc_file = "<leader>f File"
+let g:WhichKeyDesc_search = "<leader>s Search"
+let g:WhichKey_ShowVimActions = "true"
+
+""" NERDTree Configuration -----------------------------------------------------
+map <leader>o :NERDTreeToggle<CR>
+map <leader>h :NERDTreeFind<CR>
+
+""" CoPilot Configuration -----------------------------------------------------
+map <leader>pc <Action>(copilot.chat.show)
+
