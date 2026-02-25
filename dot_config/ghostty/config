@@ -1,0 +1,3 @@
+font-feature = -liga,-dlig,-calt
+keybind = global:ctrl+grave_accent=toggle_quick_terminal
+theme = Catppuccin Mocha
