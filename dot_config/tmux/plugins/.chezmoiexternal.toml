@@ -1,0 +1,10 @@
+# ~/.local/share/chezmoi/dot_tmux/plugins/.chezmoiexternal.toml
+["dracula"]
+    type = "git-repo"
+    url = "https://github.com/dracula/tmux.git"
+    refreshPeriod = "168h"  # pull updates weekly
+
+["catppuccin"]
+    type = "git-repo"
+    url = "https://github.com/catppuccin/tmux.git"
+    refreshPeriod = "168h"  # pull updates weekly
