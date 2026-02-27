@@ -137,6 +137,7 @@ export ELECTRON_OZONE_PLATFORM_HINT=auto
 #                            MISC                                              #
 ################################################################################
 setopt nohup # Don't send SIGHUP to background processes when the shell exits.
+typeset -U path # de-deplicate PATH entries
 eval $(keychain --timeout 540 --eval id_ed25519)
 eval "$(direnv hook zsh)"
 eval "$(mise activate zsh)"
@@ -145,8 +146,8 @@ eval "$(mise activate zsh)"
 ################################################################################
 #                            PATH                                              #
 ################################################################################
-export PATH=$HOME/.cargo/bin:$PATH
 
+export PATH="$PATH:/opt/homebrew/opt/rustup/bin"
 
 ################################################################################
 #                            FZF                                               #
