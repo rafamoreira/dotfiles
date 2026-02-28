@@ -147,7 +147,9 @@ eval "$(mise activate zsh)"
 #                            PATH                                              #
 ################################################################################
 
+export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$PATH:/opt/homebrew/opt/rustup/bin"
+export PATH="$HOME/.local/bin:$PATH"
 
 ################################################################################
 #                            FZF                                               #
